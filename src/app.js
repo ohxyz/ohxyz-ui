@@ -1,11 +1,18 @@
-import bar from './bar';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { TextBox } from './text-box.js';
 
-bar();
+class App extends React.Component {
 
+    render() {
+
+        return <TextBox />;
+
+    }
+}
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
+
+    <App />,
+    document.getElementById( 'root' )
 );

@@ -1,1 +1,5 @@
 node_modules
+.sass-cache
+test/*.js
+test/*.css
+test/*.css.map
