@@ -1,7 +1,7 @@
 import React from 'react';
 import validator from 'validator';
 
-const UTILS = require( './utils.js' );
+const utils = require( './utils.js' );
 
 const RULE_EMPTY = '';
 const RULE_NUMERIC = 'numeric';
@@ -14,8 +14,7 @@ class TextBox extends React.Component {
     constructor( props ) {
         
         super( props );
-        
-        this.handleFocus = this.handleFocus.bind( this );
+
         this.handleTyping = this.handleTyping.bind( this );
         this.handleTextBoxClick = this.handleTextBoxClick.bind( this );
         this.handleBlur = this.handleBlur.bind( this );
@@ -23,18 +22,18 @@ class TextBox extends React.Component {
         this.className = '';
         this.textBoxTitleElement = null;
         this.isFocused = false;
-        this.inputBox = null;
+        this.inputTextElement = null;
 
         // Not UUID
         let randomString = Math.random().toString( 36 ).slice( 2 );
         
-        this.id = UTILS.setDefault( props.id, randomString );
-        this.name = UTILS.setDefault( props.name, randomString );
-        this.title = UTILS.setDefault( props.title, 'Fill in here' );
-        this.inputValue = UTILS.setDefault( props.value, '' );
+        this.id = utils.setDefault( props.id, randomString );
+        this.name = utils.setDefault( props.name, randomString );
+        this.title = utils.setDefault( props.title, 'Fill in here' );
+        this.inputValue = utils.setDefault( props.value, '' );
 
-        this.inputBoxId = this.id + '-input-text';
-        this.classNamePrefix = 'text-box';
+        this.inputTextElementId = this.id + '-input-text';
+        this.classNamePrefix = 'textbox';
 
         this.isInputValueValid = true;
         this.allowEmpty = true;
@@ -62,9 +61,9 @@ class TextBox extends React.Component {
             
             let rule = {
             
-                name: UTILS.setDefault( props.rule.name, RULE_EMPTY ),
-                minLength: UTILS.setDefault( props.rule.min, null ),
-                maxLength: UTILS.setDefault( props.rule.max, null )
+                name: utils.setDefault( props.rule.name, RULE_EMPTY ),
+                minLength: utils.setDefault( props.rule.min, null ),
+                maxLength: utils.setDefault( props.rule.max, null )
             };
             
             this.validationRule = rule;
@@ -205,18 +204,8 @@ class TextBox extends React.Component {
         }
     }
 
-    handleFocus( event ) {
-        
-        let input = event.target;
-        
-        if ( input.value === this.props.value ) {
-             input.value = '';
-        }
-        
-    }
-
     handleBlur() {
-        console.log( 'blurred' );
+        
         this.isFocused = false;
         this.firstTimeFocused = false;
         
@@ -236,7 +225,7 @@ class TextBox extends React.Component {
     
     handleTyping( ) {
         
-        this.inputValue = this.inputBox.value;
+        this.inputValue = this.inputTextElement.value;
         
         if ( this.requireValidation === true 
                 && this.firstTimeFocused === false ) 
@@ -248,7 +237,7 @@ class TextBox extends React.Component {
         
         if ( this.props.onChange !== undefined ) {
             
-            this.props.onChange( this.inputBox );
+            this.props.onChange( this.inputTextElement );
         }
         
         this.setState( {
@@ -319,7 +308,7 @@ class TextBox extends React.Component {
         return '';
     }
     
-    renderAdditionalContent() {
+    renderDescription() {
         
         return '';
     }
@@ -327,22 +316,19 @@ class TextBox extends React.Component {
     render() {
         
         let labelClassName = this.classNamePrefix + '-title';
-        let inputClassName = this.classNamePrefix + '-filled';
+        let inputClassName = this.classNamePrefix + '-input-text';
 
         return (
             <div className={ this.className } 
                  onClick={ this.handleTextBoxClick }
             >
-                { this.renderAdditionalContent() }
-                <label htmlFor={ this.inputBoxId } 
+                <label htmlFor={ this.inputTextElementId } 
                        className={ labelClassName }
                        ref={ elem => this.textBoxTitleElement = elem }
                 >
-                    <span>{ this.title }</span>
-                    { this.renderErrorMessageIfInvalid() }
+                    { this.title }    
                 </label>
-                
-                <input id={ this.inputBoxId }
+                <input id={ this.inputTextElementId }
                        type="text"
                        className={ inputClassName }
                        name={ this.name }
@@ -350,8 +336,10 @@ class TextBox extends React.Component {
                        onFocus={ this.handleFocus }
                        onBlur={ this.handleBlur }
                        onChange={ this.handleTyping }
-                       ref={ elem => this.inputBox = elem }
+                       ref={ elem => this.inputTextElement = elem }
                 />
+                { this.renderErrorMessageIfInvalid() }
+                { this.renderDescription() }
             </div>
         );
     }
@@ -360,7 +348,7 @@ class TextBox extends React.Component {
     
         if ( this.isFocused === true ) {
             
-            this.inputBox.focus();
+            this.inputTextElement.focus();
         }
         
     }

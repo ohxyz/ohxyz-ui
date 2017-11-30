@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TextBox } from './text-box.js';
+import { TextBox } from './textbox.js';
 
 class App extends React.Component {
 
     render() {
 
-        return <TextBox value="13" />;
+        return (
+
+            <TextBox id="message-id"
+                     name="message-id"
+                     title="Message ID"
+                     value="2"
+                     rule={ { name: 'numeric', min: 1, max: 3 } }
+            />
+        )
 
     }
 }
