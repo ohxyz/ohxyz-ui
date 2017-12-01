@@ -1,0 +1,30 @@
+.error-message {
+
+    padding: 4px 10px;
+    line-height: $default-line-height;
+    font-size: 12px;
+    background-color: $red;
+    display: block;
+    color: white;
+    border-radius: $default-border-radius;
+    margin-top: 12px;
+    position:relative;
+
+    &:before {
+
+        content: "";
+        position: absolute;
+        top: -8px;
+        border: 4px solid transparent;
+        border-bottom: 4px solid $red;
+    }
+
+}
+
+.description {
+
+    color: #767676;
+    font-size: $font-small;
+    line-height: 200%;
+    margin-top: 8px;
+}

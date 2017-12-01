@@ -1,13 +1,39 @@
+@import "./_reset.scss";
 @import "./textbox.scss";
-@import "./dropdown-box.scss";
-@import "./check-box.scss";
-@import "./date-box.scss";
-@import "./message-box.scss";
-@import "./table-box.scss";
+@import "./misc.scss";
 
 /* Global */
 
+
+.orange-dark {
+
+    color: #f36d00;
+}
+
 body {
 
-    font-family: "Open Sans";
+    font-family: $default-font-family;
+
+    .container {
+
+        .form-header {
+
+            width: 640px;
+            height: 128px;
+            line-height: 128px;
+            font-size: 58px;
+
+            font-weight: bold;
+
+            .form-title {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
 }
+
+
+
+

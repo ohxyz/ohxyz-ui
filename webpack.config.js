@@ -1,6 +1,6 @@
 module.exports = {
 
-    entry: './src/app.js',
+    entry: './src/app.jsx',
 
     output: {
 
@@ -11,7 +11,7 @@ module.exports = {
         
         rules: [ {
 
-            test: /\.js$/,
+            test: /\.js[x]{0,1}$/,
 
             exclude: /(node_modules|bower_components)/,
 

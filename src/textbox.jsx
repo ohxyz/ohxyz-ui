@@ -1,13 +1,8 @@
 import React from 'react';
 import validator from 'validator';
+import rules from './rules.js';
 
 const utils = require( './utils.js' );
-
-const RULE_EMPTY = '';
-const RULE_NUMERIC = 'numeric';
-const RULE_ALPHANUMERIC_UNDERSCORE_DASH = 'alphanumeric-underscore-dash';
-const RULE_POSITIVE_INTEGER = 'positive-integer';
-const RULE_TIME = 'time';
 
 class TextBox extends React.Component {
     
@@ -31,12 +26,12 @@ class TextBox extends React.Component {
         this.name = utils.setDefault( props.name, randomString );
         this.title = utils.setDefault( props.title, 'Fill in here' );
         this.inputValue = utils.setDefault( props.value, '' );
+        this.description = utils.setDefault( props.description, '' );
 
         this.inputTextElementId = this.id + '-input-text';
         this.classNamePrefix = 'textbox';
 
         this.isInputValueValid = true;
-        this.allowEmpty = true;
         this.firstTimeFocused = true;
         this.isErrorMessageDefined = false;
         
@@ -61,7 +56,7 @@ class TextBox extends React.Component {
             
             let rule = {
             
-                name: utils.setDefault( props.rule.name, RULE_EMPTY ),
+                name: utils.setDefault( props.rule.name, rules.NONE ),
                 minLength: utils.setDefault( props.rule.min, null ),
                 maxLength: utils.setDefault( props.rule.max, null )
             };
@@ -83,33 +78,39 @@ class TextBox extends React.Component {
         
         let rule = this.validationRule.name;
         
-        if ( this.allowEmpty === true && this.inputValue === '' ) {
+        if ( rule === rules.NONE ) {
             
             this.isInputValueValid = true;
         }
-        else if ( rule === RULE_EMPTY ) {
-            
-            this.isInputValueValid = true;
+        else if ( rule === rules.REQUIRED ) {
+
+            this.isInputValueValid = this.inputValue === ''
+                ? false
+                : true;
         }
-        else if ( rule === RULE_POSITIVE_INTEGER ) {
+        else if ( rule === rules.POSITIVE_INTEGER ) {
             
             this.validatePositiveInteger();
         }
-        else if ( rule === RULE_NUMERIC ) {
+        else if ( rule === rules.NUMERIC ) {
             
             this.validateNumeric();
         }
-        else if ( rule === RULE_ALPHANUMERIC_UNDERSCORE_DASH ) {
+        else if ( rule === rules.ALPHANUMERIC_UNDERSCORE_DASH ) {
 
             this.validateAlphanumericUnderscoreDash();
         }
-        else if ( rule === RULE_TIME ) {
+        else if ( rule === rules.TIME ) {
             
             this.validateTime();
         }
+        else if ( rule === rules.REQUIRED ) {
+
+            this.validateRequired();
+        }
 
     }
-    
+
     validateNumeric() {
         
         let rule = this.validationRule;
@@ -293,7 +294,7 @@ class TextBox extends React.Component {
     
     renderErrorMessageIfInvalid() {
         
-        let className = this.classNamePrefix + '-error-message';
+        let className = 'error-message';
         
         if ( this.isInputValueValid === false ) {
 
@@ -309,8 +310,14 @@ class TextBox extends React.Component {
     }
     
     renderDescription() {
+
+        if ( this.description === '' ) {
+
+            return;
+        }
+
         
-        return '';
+        return <div className="description">{ this.description }</div>
     }
 
     render() {
@@ -354,4 +361,4 @@ class TextBox extends React.Component {
     }
 }
 
-export { TextBox };
+export default TextBox;
