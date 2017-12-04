@@ -25,7 +25,7 @@ class LiteralValidator {
 
     isAlphaSpace() {
 
-        console.log( '**********', this.sanitizedInputValue );
+        // console.log( '**********', this.sanitizedInputValue );
 
         if ( /^[a-zA-Z\s]+$/.test( this.sanitizedInputValue ) === true ) {
 

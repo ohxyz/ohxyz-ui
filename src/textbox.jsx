@@ -22,7 +22,6 @@ class TextBox extends BasicFormComponent {
         this.inputTextElementId = this.id + '-input-text';
         this.classNamePrefix = 'textbox';
 
-
         this.makeClassName();
 
         this.state = {
@@ -156,34 +155,6 @@ class TextBox extends BasicFormComponent {
             
         } );
         
-    }
-    
-    renderErrorMessageIfInvalid() {
-        
-        let className = 'error-message';
-        
-        if ( this.isInputValueValid === false ) {
-
-            return (
-            
-                <span className={ className }>
-                    { this.errorMessage }
-                </span>
-            )
-        }
-        
-        return '';
-    }
-    
-    renderDescription() {
-
-        if ( this.description === '' ) {
-
-            return;
-        }
-
-        
-        return <div className="description">{ this.description }</div>
     }
 
     render() {

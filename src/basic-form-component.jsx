@@ -24,6 +24,28 @@ class BasicFormComponent extends React.Component {
         this.requireValidation = this.rules === null ? false : true;
     }
 
+    renderErrorMessageIfInvalid() {
+        
+        let className = 'error-message';
+        
+        if ( this.isInputValueValid === false ) {
+
+            return <span className={ className }>{ this.errorMessage }</span>
+        }
+        
+        return '';
+    }
+    
+    renderDescription() {
+
+        if ( this.description === '' ) {
+
+            return;
+        }
+        
+        return <div className="description">{ this.description }</div>
+    }
+
 }
 
 export default BasicFormComponent;
