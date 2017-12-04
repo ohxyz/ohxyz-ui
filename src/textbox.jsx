@@ -1,42 +1,27 @@
 import React from 'react';
 import validator from 'validator';
+import BasicFormComponent from './basic-form-component.jsx';
 import rules from './rules.js';
 import utils from './utils.js';
 
-class TextBox extends React.Component {
+class TextBox extends BasicFormComponent {
     
     constructor( props ) {
         
         super( props );
 
-        this.handlKeyUp = this.handlKeyUp.bind( this );
+        this.handleKeyUp = this.handleKeyUp.bind( this );
         this.handleTextBoxClick = this.handleTextBoxClick.bind( this );
         this.handleBlur = this.handleBlur.bind( this );
         
-        this.className = '';
         this.textBoxTitleElement = null;
-        this.isFocused = false;
+
         this.inputTextElement = null;
-
-        // Not UUID
-        let randomString = Math.random().toString( 36 ).slice( 2 );
         
-        this.id = utils.setDefault( props.id, randomString );
-        this.name = utils.setDefault( props.name, randomString );
-        this.title = utils.setDefault( props.title, 'Fill in here' );
-        this.inputValue = utils.setDefault( props.value, '' );
-        this.description = utils.setDefault( props.description, '' );
-        this.rules = utils.setDefault( props.rules, null );
-        
-
         this.errorMessage = '';
         this.inputTextElementId = this.id + '-input-text';
         this.classNamePrefix = 'textbox';
 
-        this.isInputValueValid = true;
-        this.firstTimeFocused = true;
-        
-        this.requireValidation = this.rules === null ? false : true;
 
         this.makeClassName();
 
@@ -103,7 +88,7 @@ class TextBox extends React.Component {
         } ); 
     }
     
-    handlKeyUp() {
+    handleKeyUp() {
         
         this.inputValue = this.inputTextElement.value;
 
@@ -223,7 +208,7 @@ class TextBox extends React.Component {
                        defaultValue={ this.inputValue }
                        onFocus={ this.handleFocus }
                        onBlur={ this.handleBlur }
-                       onKeyUp={ this.handlKeyUp }
+                       onKeyUp={ this.handleKeyUp }
                        ref={ elem => this.inputTextElement = elem }
                 />
                 { this.renderErrorMessageIfInvalid() }
