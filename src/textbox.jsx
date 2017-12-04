@@ -1,8 +1,7 @@
 import React from 'react';
 import validator from 'validator';
 import rules from './rules.js';
-
-const utils = require( './utils.js' );
+import utils from './utils.js';
 
 class TextBox extends React.Component {
     
@@ -10,7 +9,7 @@ class TextBox extends React.Component {
         
         super( props );
 
-        this.handleTyping = this.handleTyping.bind( this );
+        this.handlKeyUp = this.handlKeyUp.bind( this );
         this.handleTextBoxClick = this.handleTextBoxClick.bind( this );
         this.handleBlur = this.handleBlur.bind( this );
         
@@ -27,42 +26,17 @@ class TextBox extends React.Component {
         this.title = utils.setDefault( props.title, 'Fill in here' );
         this.inputValue = utils.setDefault( props.value, '' );
         this.description = utils.setDefault( props.description, '' );
+        this.rules = utils.setDefault( props.rules, null );
+        
 
+        this.errorMessage = '';
         this.inputTextElementId = this.id + '-input-text';
         this.classNamePrefix = 'textbox';
 
         this.isInputValueValid = true;
         this.firstTimeFocused = true;
-        this.isErrorMessageDefined = false;
         
-        if ( props.error === undefined ) {
-            
-            this.errorMessage = 'Error !';
-            this.isErrorMessageDefined = false;
-        }
-        else {
-            
-            this.errorMessage = props.error;
-            this.isErrorMessageDefined = true;
-        }
-        
-        this.requireValidation = props.rule === undefined
-            ? false
-            : true;
-        
-        this.validationRule = null;
-
-        if ( this.requireValidation === true ) {
-            
-            let rule = {
-            
-                name: utils.setDefault( props.rule.name, rules.NONE ),
-                minLength: utils.setDefault( props.rule.min, null ),
-                maxLength: utils.setDefault( props.rule.max, null )
-            };
-            
-            this.validationRule = rule;
-        }
+        this.requireValidation = this.rules === null ? false : true;
 
         this.makeClassName();
 
@@ -71,139 +45,44 @@ class TextBox extends React.Component {
             isFocused: this.isFocused,
             value: this.inputValue
         };
-        
     }
     
     validateInputValue() {
         
-        let rule = this.validationRule.name;
-        
-        if ( rule === rules.NONE ) {
-            
-            this.isInputValueValid = true;
-        }
-        else if ( rule === rules.REQUIRED ) {
+        if ( Array.isArray( this.rules ) === false && this.rules.length === 0 ) {
 
-            this.isInputValueValid = this.inputValue === ''
-                ? false
-                : true;
-        }
-        else if ( rule === rules.POSITIVE_INTEGER ) {
-            
-            this.validatePositiveInteger();
-        }
-        else if ( rule === rules.NUMERIC ) {
-            
-            this.validateNumeric();
-        }
-        else if ( rule === rules.ALPHANUMERIC_UNDERSCORE_DASH ) {
-
-            this.validateAlphanumericUnderscoreDash();
-        }
-        else if ( rule === rules.TIME ) {
-            
-            this.validateTime();
-        }
-        else if ( rule === rules.REQUIRED ) {
-
-            this.validateRequired();
+            return;
         }
 
+        for ( let i = 0; i < this.rules.length; i ++ ) {
+
+            let rule = this.rules[ i ];
+            console.log( '888', rule, this.inputValue );
+            let isValid = rules.validateByRuleName( rule.name, { value: this.inputValue } );
+
+            if ( isValid === false ) {
+
+                this.isInputValueValid = false;
+                this.errorMessage = rule.error;
+
+                this.setState( {
+
+                    isInputValueValid: false,
+                    validationErrorMessage: rule.error
+
+                } );
+
+                break;
+            }
+            else {
+
+                this.isInputValueValid = true;
+            }
+        }
+
+        // console.log( this.state, this.isInputValueValid );
     }
 
-    validateNumeric() {
-        
-        let rule = this.validationRule;
-        let sanitizedInputValue = this.inputValue.replace( /\s/g, '');
-        let isValid = validator.isNumeric( sanitizedInputValue );
-
-        if ( isValid === true ) {
-            
-            isValid = ( rule.minLength !== null && sanitizedInputValue.length >= rule.minLength );
-        }
-
-        if ( isValid === true ) {
-            
-            isValid = ( rule.maxLength !== null && sanitizedInputValue.length <= rule.maxLength );
-        }
-
-        if ( isValid === true ) {
-            
-            this.isInputValueValid = true;
-        }
-        else {
-            
-            this.isInputValueValid = false;
-
-            let lengthLiteral = ( rule.minLength !== null && rule.minLength === rule.maxLength )
-                ? rule.minLength.toString()
-                : rule.minLength + ' to ' + rule.maxLength;
-        
-            this.errorMessage = this.isErrorMessageDefined === true
-                ? this.errorMessage
-                : lengthLiteral + ' digits only';
-        }
-    }
-
-    validatePositiveInteger() {
-        
-        let sanitizedInputValue = this.inputValue.replace( /\s/g, '');
-        
-        let isInteger = validator.isInt( sanitizedInputValue, { min: 0 } )
-        
-        if ( isInteger === true
-                && parseInt( sanitizedInputValue, 10 ) > 0 )
-        {
-            this.isInputValueValid = true;
-        }
-        else {
-            
-            this.isInputValueValid = false;
-            this.errorMessage = this.isErrorMessageDefined === true
-                ? this.errorMessage
-                : 'Positive number only';
-        }
-    }
-    
-    validateAlphanumericUnderscoreDash() {
-        
-        let trimmedInputValue = this.inputValue.trim();
-        let regex = /^[a-zA-Z0-9_-]+$/;
-        
-        if ( regex.test( trimmedInputValue ) === true ) {
-            
-            this.isInputValueValid = true;
-        }
-        else {
-            
-            this.isInputValueValid = false;
-            this.errorMessage = this.isErrorMessageDefined === true
-                ? this.errorMessage
-                : 'Letters, numbers, - or _ ';
-        }
-    }
-    
-    validateTime() {
-        
-        let trimmedTime = this.inputValue.replace( /\s/g, '');
-        let regex = /^([0-1][0-9]|2[0-3])(:|\.)([0-5][0-9])$/;
-        let isValid = false;
-
-        isValid = ( trimmedTime.length === 5 );
-        isValid = regex.test( trimmedTime );
-        
-        if ( isValid === true ) {
-            
-            this.isInputValueValid = true;
-        }
-        else {
-            
-            this.isInputValueValid = false;
-            this.errorMessage = this.isErrorMessageDefined === true
-                ? this.errorMessage
-                : 'HH.mm eg. 23.01';
-        }
-    }
 
     handleBlur() {
         
@@ -212,7 +91,7 @@ class TextBox extends React.Component {
         
         if ( this.requireValidation === true ) {
             
-            this.validateInputValue();
+            this.validateInputValue( );
         }
         
         this.makeClassName();
@@ -224,9 +103,11 @@ class TextBox extends React.Component {
         } ); 
     }
     
-    handleTyping( ) {
+    handlKeyUp() {
         
         this.inputValue = this.inputTextElement.value;
+
+        // console.log( '***********', this.inputValue );
         
         if ( this.requireValidation === true 
                 && this.firstTimeFocused === false ) 
@@ -342,7 +223,7 @@ class TextBox extends React.Component {
                        defaultValue={ this.inputValue }
                        onFocus={ this.handleFocus }
                        onBlur={ this.handleBlur }
-                       onChange={ this.handleTyping }
+                       onKeyUp={ this.handlKeyUp }
                        ref={ elem => this.inputTextElement = elem }
                 />
                 { this.renderErrorMessageIfInvalid() }
