@@ -13,7 +13,7 @@ class BasicFormComponent extends React.Component {
         this.id = utils.setDefault( props.id, randomString );
         this.className = '';
         this.name = utils.setDefault( props.name, randomString );
-        this.title = utils.setDefault( props.title, 'Fill in here' );
+        this.title = utils.setDefault( props.title, 'Form element' );
         this.inputValue = utils.setDefault( props.value, '' );
         this.description = utils.setDefault( props.description, '' );
         this.rules = utils.setDefault( props.rules, null );
@@ -26,11 +26,9 @@ class BasicFormComponent extends React.Component {
 
     renderErrorMessageIfInvalid() {
         
-        let className = 'error-message';
-        
         if ( this.isInputValueValid === false ) {
 
-            return <span className={ className }>{ this.errorMessage }</span>
+            return <span className="error-message">{ this.errorMessage }</span>
         }
         
         return '';

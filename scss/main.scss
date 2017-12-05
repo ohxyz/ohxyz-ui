@@ -1,6 +1,7 @@
 @import "./_reset.scss";
 @import "./textbox.scss";
 @import "./dropdown.scss";
+@import "./dropdownlist.scss";
 @import "./misc.scss";
 
 /* Global */
@@ -23,6 +24,7 @@ body {
             line-height: 128px;
             font-size: 58px;
             font-weight: bold;
+            padding: $default-padding;
 
             .form-title {
                 display: inline-block;

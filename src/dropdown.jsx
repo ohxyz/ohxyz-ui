@@ -2,21 +2,6 @@ import React from 'react';
 import BasicFormComponent from './basic-form-component.jsx';
 import utils from './utils.js';
 
-let componentName = 'dropdown';
-
-class DropdownItem extends React.Component {
-
-    render () {
-
-        let className = componentName + '-item';
-
-        return ( 
-            <li className={ className }>
-                { this.props.value }
-            </li>
-        )
-    }
-}
 
 class Dropdown extends BasicFormComponent {
 
@@ -24,39 +9,75 @@ class Dropdown extends BasicFormComponent {
 
         super( props );
 
-        this.classNamePrefix = componentName;
-        this.items = utils.setDefault( props.items, [] );
+        this.handleHeaderClick = this.handleHeaderClick.bind( this );
+
+        this.classNamePrefix = 'dropdown';
+
+        this.isOpen = false;
+
+        this.state = {
+
+            isOpen: false
+        }
     }
 
+    makeClassName() {
+
+        if ( this.isOpen === true ) {
+
+            this.className = this.classNamePrefix + ' is-open';
+        }
+        else {
+
+            this.className = this.className.replace( 'is-open', '' );
+        }
+
+    }
+
+    handleHeaderClick() {
+
+        this.isOpen = !this.isOpen;
+        this.makeClassName();
+
+        this.setState( {
+
+            isOpen: this.isOpen
+
+        } );
+    }
 
     renderHeader() {
 
-        return <div className={ this.classNamePrefix + '-header' }>Select</div>
-    }
+        return ( 
 
-    renderContent() {
-
-        console.log( this.items );
-
-        return (
-
-            <div className={ this.classNamePrefix + '-content' }>
-                <ul className={ this.classNamePrefix + '-list' }>
-                { 
-                    this.items.map( ( item, key ) => {
-
-                        return <DropdownItem key={ key } value={ item } />
-
-                    } )
-                }
-                </ul>
+            <div className={ this.classNamePrefix + '-header' }
+                 onClick={ this.handleHeaderClick }
+            >
+                { this.renderHeaderContent() }
             </div>
-        )
+        );
     }
 
-    renderFooter() {
+    renderHeaderContent() {
 
-        return <div className={ this.classNamePrefix + '-footer' }></div>
+        return 'Drop down';
+    }
+
+    renderContentIfOpen() {
+
+        if ( this.isOpen === true ) {
+
+            return <div className={ this.classNamePrefix + '-content' }>{ this.renderInnerContent() }</div>
+        }
+        else {
+
+            return null;
+        }
+    }
+
+    renderInnerContent() {
+
+        return null;
     }
 
     renderContainer() {
@@ -65,16 +86,15 @@ class Dropdown extends BasicFormComponent {
 
             <div className={ this.classNamePrefix + '-container' }>
                 { this.renderHeader() }
-                { this.renderContent() }
-                { this.renderFooter() }
+                { this.renderContentIfOpen() }
             </div>
         );
     }
 
     render() {
 
-        let className = this.classNamePrefix;
         let labelClassName = this.classNamePrefix + '-title';
+        let className = this.classNamePrefix;
 
         return (
 
