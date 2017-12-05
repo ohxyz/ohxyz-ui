@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import rules from './rules.js';
-import { TextBox, Dropdown, DropdownList } from './components.jsx';
+import { TextBox, Dropdown, DropdownList, OptionList } from './components.jsx';
 
 class App extends React.Component {
 
@@ -37,9 +37,16 @@ class App extends React.Component {
 
         let description3 = "From 1 July 2017, complaints about the conduct or capacity of Victorian judicial officers or the Victorian Civil and Administrative Tribunal (VCAT) members may be made to the Judicial Commission of Victoria. The Commission is an independent organisation established under the Judicial Commission of Victoria Act 2016 to investigate complaints about judicial officers and VCAT members. The Commission provides an accessible and transparent complaint process, which aims to ensure public confidence in Victorian courts and the VCAT is maintained.";
 
+        let options = [
+ 
+            { name: 'option1', 'text': 'Option 1', value: 'option1' },
+            { name: 'select-me', 'text': 'Select Me', value: 'selectMe', isSelected: true  },
+            { name: '123', 'text': '1 2 3', value: 123 }
+        ];
 
         return (
             <form>
+                <OptionList items={ options } />
 
                 <DropdownList id="personal-title" 
                               name="personal-title"

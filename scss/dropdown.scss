@@ -8,9 +8,18 @@ $component-name: dropdown;
     width: 100%;
     padding: 12px 15px;
 
+    .#{$component-name}-title {
+
+        line-height: $default-line-height;
+        font-size: $default-font-size;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+
     &.is-open {
 
-        .#{$component-name}-container:before {
+        .#{$component-name}-main:before {
 
             top: 19px;
             border-top-color: transparent;
@@ -18,7 +27,7 @@ $component-name: dropdown;
         }
     }
 
-    .#{$component-name}-container {
+    .#{$component-name}-main {
 
         position: relative;
         box-sizing: border-box;
@@ -62,14 +71,5 @@ $component-name: dropdown;
             border-radius: $default-border-radius;
             user-select: none;
         }
-    }
-
-    .#{$component-name}-title {
-
-        line-height: $default-line-height;
-        font-size: $default-font-size;
-        font-weight: bold;
-        display: inline-block;
-        margin-bottom: 8px;
     }
 }

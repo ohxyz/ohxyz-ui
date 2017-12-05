@@ -10,7 +10,7 @@ $component-name: dropdownlist;
 
     &.is-open {
 
-        .#{$component-name}-container:before {
+        .#{$component-name}-main:before {
 
             top: 19px;
             border-top-color: transparent;
@@ -20,7 +20,7 @@ $component-name: dropdownlist;
 
     &.is-selected {
 
-        .#{$component-name}-container {
+        .#{$component-name}-main {
 
             .#{$component-name}-header {
 
@@ -29,7 +29,7 @@ $component-name: dropdownlist;
         }
     }
 
-    .#{$component-name}-container {
+    .#{$component-name}-main {
 
         position: relative;
         box-sizing: border-box;

@@ -34,7 +34,6 @@ class Dropdown extends BasicFormComponent {
 
     }
 
-
     makeClassName() {
 
         if ( this.isOpen === true ) {
@@ -98,7 +97,7 @@ class Dropdown extends BasicFormComponent {
 
         return (
 
-            <div className={ this.classNamePrefix + '-container' }>
+            <div className={ this.classNamePrefix + '-main' }>
                 { this.renderHeader() }
                 { this.renderContentIfOpen() }
             </div>
@@ -110,21 +109,6 @@ class Dropdown extends BasicFormComponent {
         return null;
     }
 
-    render() {
-
-        let labelClassName = this.classNamePrefix + '-title';
-
-        return (
-
-            <div className={ this.className }>
-                { this.renderHiddenInput() }
-                <label className={ labelClassName }>{ this.title }</label>
-                { this.renderContainer() }
-                { this.renderErrorMessageIfInvalid() }
-                { this.renderDescription() }
-            </div>
-        );
-    }
 }
 
 export default Dropdown;

@@ -1,5 +1,4 @@
 import React from 'react';
-import validator from 'validator';
 import BasicFormComponent from './basic-form-component.jsx';
 import rules from './rules.js';
 import utils from './utils.js';
@@ -26,7 +25,7 @@ class TextBox extends BasicFormComponent {
         }
         else if ( this.type === 'textarea' ) {
 
-            this.inputElementId = this.id + '-textarea'
+            this.inputElementId = this.id + '-textarea';
         }
 
         this.makeClassName();

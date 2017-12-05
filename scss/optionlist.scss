@@ -1,0 +1,20 @@
+@import "_variables";
+
+$component-name: optionlist;
+
+.#{$component-name} {
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 15px;
+
+    .#{$component-name}-title {
+
+        line-height: $default-line-height;
+        font-size: $default-font-size;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+
+}
