@@ -41,7 +41,7 @@ class TextBox extends BasicFormComponent {
         for ( let i = 0; i < this.rules.length; i ++ ) {
 
             let rule = this.rules[ i ];
-            console.log( '888', rule, this.inputValue );
+            // console.log( '888', rule, this.inputValue );
             let isValid = rules.validateByRuleName( rule.name, { value: this.inputValue } );
 
             if ( isValid === false ) {

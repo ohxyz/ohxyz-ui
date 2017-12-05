@@ -10,14 +10,17 @@ class BasicFormComponent extends React.Component {
         // Not UUID
         let randomString = Math.random().toString( 36 ).slice( 2 );
         
+        // Passed from caller
         this.id = utils.setDefault( props.id, randomString );
-        this.className = '';
         this.name = utils.setDefault( props.name, randomString );
         this.title = utils.setDefault( props.title, 'Form element' );
-        this.inputValue = utils.setDefault( props.value, '' );
         this.description = utils.setDefault( props.description, '' );
         this.rules = utils.setDefault( props.rules, null );
+        this.hint = utils.setDefault( props.hint, 'Hint text' );
+        this.value = utils.setDefault( props.value, '' );
 
+        this.inputValue = this.value;
+        this.className = '';
         this.isFocused = false;
         this.firstTimeFocused = true;
         this.isInputValueValid = true;

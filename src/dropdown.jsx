@@ -12,6 +12,7 @@ class Dropdown extends BasicFormComponent {
         this.handleHeaderClick = this.handleHeaderClick.bind( this );
 
         this.classNamePrefix = 'dropdown';
+        this.className = 'dropdown';
 
         this.isOpen = false;
 
@@ -21,15 +22,28 @@ class Dropdown extends BasicFormComponent {
         }
     }
 
+    close() {
+
+        this.isOpen = false;
+        this.makeClassName();
+
+        this.setState( { 
+
+            isOpen: false
+        } );
+
+    }
+
+
     makeClassName() {
 
         if ( this.isOpen === true ) {
 
-            this.className = this.classNamePrefix + ' is-open';
+            this.className = this.className + ' is-open';
         }
         else {
 
-            this.className = this.className.replace( 'is-open', '' );
+            this.className = this.className.replace( ' is-open', '' );
         }
 
     }
@@ -60,7 +74,7 @@ class Dropdown extends BasicFormComponent {
 
     renderHeaderContent() {
 
-        return 'Drop down';
+        return this.hint;
     }
 
     renderContentIfOpen() {
@@ -91,14 +105,19 @@ class Dropdown extends BasicFormComponent {
         );
     }
 
+    renderHiddenInput() {
+
+        return null;
+    }
+
     render() {
 
         let labelClassName = this.classNamePrefix + '-title';
-        let className = this.classNamePrefix;
 
         return (
 
-            <div className={ className }>
+            <div className={ this.className }>
+                { this.renderHiddenInput() }
                 <label className={ labelClassName }>{ this.title }</label>
                 { this.renderContainer() }
                 { this.renderErrorMessageIfInvalid() }

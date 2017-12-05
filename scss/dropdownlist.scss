@@ -18,6 +18,18 @@ $component-name: dropdownlist;
         }
     }
 
+    &.is-selected {
+
+        .#{$component-name}-container {
+
+            .#{$component-name}-header {
+
+                color: #2a2a2a;
+            }
+        }
+
+    }
+
     .#{$component-name}-container {
 
         position: relative;
@@ -46,20 +58,41 @@ $component-name: dropdownlist;
             border: $default-border;
             border-radius: $default-border-radius;
             user-select: none;
+            color: $hint;
+
+
         }
 
         .#{$component-name}-content {
 
             position: absolute;
+            z-index: 1;
             top: 58px;
             left: 0;
             right: 0;
             background-color: white;
-            padding: $default-padding;
             min-height: 24px;
             border: $default-border;
             border-radius: $default-border-radius;
             user-select: none;
+            box-shadow: 0 4px 4px #cccccc;
+
+
+            .#{$component-name}-list {
+
+                .#{$component-name}-item {
+
+                    padding: $default-padding;
+                }
+
+                .#{$component-name}-item:hover {
+
+                    background-color: #eeeeee;
+
+                    
+                }
+            }
+
         }
     }
 
