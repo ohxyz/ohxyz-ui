@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import rules from './rules.js';
-import TextBox from './textbox.jsx';
-import Dropdown from './dropdown.jsx';
-import Dropdownlist from './dropdownlist.jsx';
+import { TextBox, Dropdown, DropdownList } from './components.jsx';
 
 class App extends React.Component {
 
@@ -43,7 +41,7 @@ class App extends React.Component {
         return (
             <form>
 
-                <Dropdownlist id="personal-title" 
+                <DropdownList id="personal-title" 
                               name="personal-title"
                               title="Title"
                               items={ this.items }

@@ -20,7 +20,7 @@ class ListItem extends React.Component {
     }
 }
 
-class Dropdownlist extends Dropdown {
+class DropdownList extends Dropdown {
 
     constructor( props ) {
 
@@ -90,4 +90,4 @@ class Dropdownlist extends Dropdown {
 
 }
 
-export default Dropdownlist;
+export default DropdownList;
