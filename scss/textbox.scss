@@ -3,11 +3,10 @@
 .textbox {
 
     box-sizing: border-box;
-    
     width: 100%;
     padding: 12px 15px;
 
-    label {
+    .textbox-title {
 
         line-height: $default-line-height;
         font-size: $default-font-size;
@@ -16,7 +15,7 @@
         margin-bottom: 8px;
     }
     
-    input[type="text"] {
+    .textbox-text, .textbox-textarea {
 
         display: block;
         box-sizing: border-box;
@@ -31,22 +30,20 @@
 
             outline: none;
         }
-
     }
 
     &.is-invalid {
 
-        label {
+        .textbox-title {
 
             color: $red;
         }
 
-        input[type="text"] {
+        .textbox-text, .textbox-textarea{
 
             border-color: $red;
             background-color: rgba(193, 12, 26, 0.05);
             color: $red;
         }
-
     }
 }

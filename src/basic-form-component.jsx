@@ -19,29 +19,29 @@ class BasicFormComponent extends React.Component {
         this.hint = utils.setDefault( props.hint, 'Hint text' );
         this.value = utils.setDefault( props.value, '' );
 
-        this.inputValue = this.value;
         this.className = '';
+
         this.isFocused = false;
-        this.firstTimeFocused = true;
-        this.isInputValueValid = true;
-        this.requireValidation = this.rules === null ? false : true;
+        this.isFirstTimeFocused = true;
+        this.isValid = true;
+        this.isValidationRequired = this.rules === null ? false : true;
     }
 
     renderErrorMessageIfInvalid() {
         
-        if ( this.isInputValueValid === false ) {
+        if ( this.isValid === false ) {
 
             return <span className="error-message">{ this.errorMessage }</span>
         }
         
-        return '';
+        return null;
     }
     
     renderDescription() {
 
         if ( this.description === '' ) {
 
-            return;
+            return null;
         }
         
         return <div className="description">{ this.description }</div>

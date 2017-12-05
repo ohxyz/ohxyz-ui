@@ -17,6 +17,11 @@ class App extends React.Component {
             { name: rules.ENGLISH_NAME, error: 'Name can only contain - letter . , - and spaces' }
         ];
 
+        this.infoRules = [
+
+            { name: rules.REQUIRED, error: 'INFO required.' },
+        ]
+
         this.items = [
 
             { text: 'Mr', value: 'mr' },
@@ -47,12 +52,20 @@ class App extends React.Component {
 
                 />
                 <Dropdown id="state" description={ description3 } />
+
+                <TextBox id="info"
+                         type="textarea"
+                         name="info"
+                         value="help"
+                         title="Addtional Information"
+                         description={ description1 }
+                         rules={ this.infoRules }
+                />
                 <TextBox id="your-name"
                          name="your-name"
                          title="Name"
-                         value=""
+                         value="joke"
                          description={ description1 }
-                         error="Your name must not be empty."
                          rules={ this.nameRules }
                 />
             </form>

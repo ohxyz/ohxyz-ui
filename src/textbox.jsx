@@ -11,23 +11,32 @@ class TextBox extends BasicFormComponent {
         super( props );
 
         this.handleKeyUp = this.handleKeyUp.bind( this );
-        this.handleTextBoxClick = this.handleTextBoxClick.bind( this );
         this.handleBlur = this.handleBlur.bind( this );
-        
-        this.textBoxTitleElement = null;
 
-        this.inputTextElement = null;
-        
+        this.inputElement = null;
         this.errorMessage = '';
-        this.inputTextElementId = this.id + '-input-text';
         this.classNamePrefix = 'textbox';
+
+        // input[type="text"] or textarea
+        this.type = utils.setDefault( props.type, 'text' );
+
+        if ( this.type === 'text' ) {
+
+            this.inputElementId = this.id + '-text';
+        }
+        else if ( this.type === 'textarea' ) {
+
+            this.inputElementId = this.id + '-textarea'
+        }
 
         this.makeClassName();
 
         this.state = {
             
             isFocused: this.isFocused,
-            value: this.inputValue
+            value: this.value,
+            isValid: true,
+            validationErrorMessage: ''
         };
     }
     
@@ -41,17 +50,17 @@ class TextBox extends BasicFormComponent {
         for ( let i = 0; i < this.rules.length; i ++ ) {
 
             let rule = this.rules[ i ];
-            // console.log( '888', rule, this.inputValue );
-            let isValid = rules.validateByRuleName( rule.name, { value: this.inputValue } );
+            // console.log( '888', rule, this.value );
+            let isValid = rules.validateByRuleName( rule.name, { value: this.value } );
 
             if ( isValid === false ) {
 
-                this.isInputValueValid = false;
+                this.isValid = false;
                 this.errorMessage = rule.error;
 
                 this.setState( {
 
-                    isInputValueValid: false,
+                    isValid: false,
                     validationErrorMessage: rule.error
 
                 } );
@@ -60,20 +69,20 @@ class TextBox extends BasicFormComponent {
             }
             else {
 
-                this.isInputValueValid = true;
+                this.isValid = true;
             }
         }
 
-        // console.log( this.state, this.isInputValueValid );
+        // console.log( this.state, this.isValid );
     }
 
 
     handleBlur() {
         
         this.isFocused = false;
-        this.firstTimeFocused = false;
+        this.isFirstTimeFocused = false;
         
-        if ( this.requireValidation === true ) {
+        if ( this.isValidationRequired === true ) {
             
             this.validateInputValue( );
         }
@@ -89,26 +98,21 @@ class TextBox extends BasicFormComponent {
     
     handleKeyUp() {
         
-        this.inputValue = this.inputTextElement.value;
+        this.value = this.inputElement.value;
 
-        // console.log( '***********', this.inputValue );
+        // console.log( '***********', this.value );
         
-        if ( this.requireValidation === true 
-                && this.firstTimeFocused === false ) 
+        if ( this.isValidationRequired === true 
+                && this.isFirstTimeFocused === false ) 
         {
             this.validateInputValue();
         }
 
         this.makeClassName();
         
-        if ( this.props.onChange !== undefined ) {
-            
-            this.props.onChange( this.inputTextElement );
-        }
-        
         this.setState( {
             
-            value: this.inputValue
+            value: this.value
             
         } );
     }
@@ -122,80 +126,92 @@ class TextBox extends BasicFormComponent {
             this.className += ' is-focused';
         }
 
-        if ( this.inputValue !== '' ) {
+        if ( this.value !== '' ) {
             
             this.className += ' is-filled';
         }
         
-        if ( this.isInputValueValid === false ) {
+        if ( this.isValid === false ) {
             
             this.className += ' is-invalid';
         }
     }
-    
-    handleTextBoxClick( event ) {
-        
-        let target = event.target;
-        
-        if ( target === this.textBoxTitleElement ) {
-            
-            return ;
+
+    renderTitle() {
+
+        let labelClassName = this.classNamePrefix + '-title';
+
+        return (
+
+            <label htmlFor={ this.inputElementId } 
+                   className={ labelClassName }
+            >
+                { this.title }    
+            </label>
+        );
+    }
+
+    renderTextInput() {
+
+        let inputClassName = this.classNamePrefix + '-text';
+
+        return (
+
+            <input id={ this.inputElementId }
+                   type="text"
+                   className={ inputClassName }
+                   name={ this.name }
+                   defaultValue={ this.value }
+                   onBlur={ this.handleBlur }
+                   onKeyUp={ this.handleKeyUp }
+                   ref={ elem => this.inputElement = elem }
+            />
+        );
+    }
+
+    renderTextArea() {
+
+        return (
+
+            <textarea id={ this.inputElementId }
+                      className={ this.classNamePrefix + '-textarea' }
+                      name={ this.name }
+                      onBlur={ this.handleBlur }
+                      onKeyUp={ this.handleKeyUp }
+                      defaultValue={ this.value }
+                      ref={ elem => this.inputElement = elem }
+            >
+            </textarea>
+        )
+    }
+
+    renderInputElement() {
+
+        if ( this.type === 'text' ) {
+
+            return this.renderTextInput();
         }
-        
-        if ( this.isFocused === false ) {
-            
-            this.isFocused = true;
+        else if ( this.type === 'textarea' ) {
+
+            return this.renderTextArea();
         }
 
-        this.makeClassName();
+        return null;
 
-        this.setState( { 
-        
-            isFocused: this.isFocused
-            
-        } );
-        
     }
 
     render() {
         
-        let labelClassName = this.classNamePrefix + '-title';
-        let inputClassName = this.classNamePrefix + '-input-text';
-
         return (
-            <div className={ this.className } 
-                 onClick={ this.handleTextBoxClick }
-            >
-                <label htmlFor={ this.inputTextElementId } 
-                       className={ labelClassName }
-                       ref={ elem => this.textBoxTitleElement = elem }
-                >
-                    { this.title }    
-                </label>
-                <input id={ this.inputTextElementId }
-                       type="text"
-                       className={ inputClassName }
-                       name={ this.name }
-                       defaultValue={ this.inputValue }
-                       onFocus={ this.handleFocus }
-                       onBlur={ this.handleBlur }
-                       onKeyUp={ this.handleKeyUp }
-                       ref={ elem => this.inputTextElement = elem }
-                />
+            <div className={ this.className } >
+                { this.renderTitle() }
+                { this.renderInputElement() }
                 { this.renderErrorMessageIfInvalid() }
                 { this.renderDescription() }
             </div>
         );
     }
     
-    componentDidUpdate() {
-    
-        if ( this.isFocused === true ) {
-            
-            this.inputTextElement.focus();
-        }
-        
-    }
 }
 
 export default TextBox;
