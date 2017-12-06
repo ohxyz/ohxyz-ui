@@ -1,5 +1,5 @@
 # ohxyz-ui
-A set of Web UI components 
+A set of Web UI components built in React
 
 ### Dependencies of a basic setup of React Environment
 
