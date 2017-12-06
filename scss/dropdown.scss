@@ -1,14 +1,14 @@
 @import "_variables";
 
-$component-name: dropdown;
+$component: dropdown;
     
-.#{$component-name} {
+.#{$component} {
 
     box-sizing: border-box;
     width: 100%;
     padding: 12px 15px;
 
-    .#{$component-name}-title {
+    .#{$component}-title {
 
         line-height: $default-line-height;
         font-size: $default-font-size;
@@ -19,7 +19,7 @@ $component-name: dropdown;
 
     &.is-open {
 
-        .#{$component-name}-main:before {
+        .#{$component}-main:before {
 
             top: 19px;
             border-top-color: transparent;
@@ -27,7 +27,7 @@ $component-name: dropdown;
         }
     }
 
-    .#{$component-name}-main {
+    .#{$component}-main {
 
         position: relative;
         box-sizing: border-box;
@@ -48,7 +48,7 @@ $component-name: dropdown;
             z-index: -1;
         }
 
-        .#{$component-name}-header {
+        .#{$component}-header {
 
             padding: $default-padding;
             min-height: 24px;
@@ -57,7 +57,7 @@ $component-name: dropdown;
             user-select: none;
         }
 
-        .#{$component-name}-content {
+        .#{$component}-content {
 
             position: absolute;
             z-index: 1;

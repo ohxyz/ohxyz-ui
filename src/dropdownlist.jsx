@@ -1,24 +1,7 @@
 import React from 'react';
 import Dropdown from './dropdown.jsx';
+import OptionList from './optionlist.jsx';
 import utils from './utils.js';
-
-const COMPONENT_NAME = 'dropdownlist';
-
-class ListItem extends React.Component {
-
-    render () {
-
-        let className = COMPONENT_NAME + '-item';
-
-        return ( 
-            <li className={ className }
-                onClick={ () => this.props.onClick( this.props.text, this.props.value ) } 
-            >
-                { this.props.text }
-            </li>
-        );
-    }
-}
 
 class DropdownList extends Dropdown {
 
@@ -26,24 +9,35 @@ class DropdownList extends Dropdown {
 
         super( props );
 
-        this.handleItemListClick = this.handleItemListClick.bind( this );
-        
-        this.classNamePrefix = COMPONENT_NAME;
-        this.className = COMPONENT_NAME;
-
-        this.isSelected = false;
-        this.itemSelected = utils.setDefault( props.itemSelected, null );
+        this.handleClick = this.handleClick.bind( this );
 
         this.items = utils.setDefault( props.items, [] );
+
+        this.className = 'dropdownlist';
+        this.classNamePrefix = 'dropdownlist';
+
+        this.isSelected = false;
+        this.itemSelected = null;
+
+        this.state = {
+
+            itemSelected: null
+        };
     }
 
-    handleItemListClick( itemText, itemValue ) {
+    handleClick( item ) {
 
+        this.itemSelected = item;
         this.isSelected = true;
-        this.itemSelected = { text: itemText, value: itemValue };
-        this.className = this.className + ' is-selected';
 
-        this.value = itemValue;
+        this.className = this.classNamePrefix + ' is-selected';
+
+        this.setState( {
+
+            itemSelected: item
+
+        } );
+
         this.close();
     }
 
@@ -60,34 +54,19 @@ class DropdownList extends Dropdown {
     renderInnerContent() {
 
         let className = this.classNamePrefix + '-list';
-        let list = [ 1, 2, 3 ];
 
-        return (
+        return ( 
 
-            <ul className={ className } >
-            {
-                this.items.map( ( item, key ) => { 
+            <OptionList items={ this.items }
+                        className={ className }
+                        classNamePrefix={ this.classNamePrefix }
+                        onClick={ this.handleClick }
 
-                    return (
-
-                        <ListItem key={ key } 
-                                  text={ item.text }
-                                  value={ item.value }
-                                  onClick={ this.handleItemListClick }
-                        />
-                    );
-                } )
-            }
-            </ul>
+            />
 
         );
+
     }
-
-    renderHiddenInput() {
-
-        return <input type="hidden" name={ this.id } value={ this.value } />
-    }
-
 }
 
-export default DropdownList;
+export default DropdownList

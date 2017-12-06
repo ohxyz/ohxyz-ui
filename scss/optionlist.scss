@@ -5,46 +5,31 @@ $component: optionlist;
 .#{$component} {
 
     box-sizing: border-box;
-    width: 100%;
-    padding: 12px 15px;
+    border: $default-border;
+    border-radius: $default-border-radius;
+    margin: $default-margin;
 
-    .#{$component}-title {
+    .#{$component}-item {
 
-        line-height: $default-line-height;
+        padding: $default-padding;
         font-size: $default-font-size;
-        font-weight: bold;
-        display: inline-block;
-        margin-bottom: 8px;
+        line-height: $default-line-height;
+        border-bottom: $default-border;
+
+         &.is-selected {
+            color: $dark-orange;
+         }
+
+         &:last-child {
+
+            border-color: transparent;
+         }
     }
 
-    .#{$component}-list {
+    .#{$component}-item:hover {
 
-        border: $default-border;
-        border-radius: $default-border-radius;
-
-        .#{$component}-item {
-
-            padding: $default-padding;
-            font-size: $default-font-size;
-            line-height: $default-line-height;
-            border-bottom: $default-border;
-
-             &.is-selected {
-
-                color: $dark-orange;
-             }
-
-             &:last-child {
-
-                border-color: transparent;
-             }
-        }
-
-        .#{$component}-item:hover {
-
-            background-color: #eeeeee;
-        }
-
+        background-color: #eeeeee;
     }
+
 
 }
