@@ -10,6 +10,7 @@ class Dropdown extends BasicFormComponent {
         super( props );
 
         this.handleHeaderClick = this.handleHeaderClick.bind( this );
+        this.handleClickOutside = this.handleClickOutside.bind( this );
 
         this.classNamePrefix = 'dropdown';
         this.className = 'dropdown';
@@ -93,7 +94,7 @@ class Dropdown extends BasicFormComponent {
         return null;
     }
 
-    renderContainer() {
+    renderMain() {
 
         return (
 
@@ -107,6 +108,25 @@ class Dropdown extends BasicFormComponent {
     renderHiddenInput() {
 
         return null;
+    }
+
+    handleClickOutside( event ) {
+
+        if ( utils.isDescendant( event.target, this.domElement ) === false ){
+                        
+            this.close();
+        }
+    }
+
+    componentDidMount() {
+        
+        document.addEventListener( 'mouseup', this.handleClickOutside );
+    }
+    
+    componentWillUnmount() {
+
+        document.removeEventListener( 'mouseup', this.handleClickOutside );
+
     }
 
 }

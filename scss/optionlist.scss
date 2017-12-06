@@ -1,20 +1,50 @@
 @import "_variables";
 
-$component-name: optionlist;
+$component: optionlist;
 
-.#{$component-name} {
+.#{$component} {
 
     box-sizing: border-box;
     width: 100%;
     padding: 12px 15px;
 
-    .#{$component-name}-title {
+    .#{$component}-title {
 
         line-height: $default-line-height;
         font-size: $default-font-size;
         font-weight: bold;
         display: inline-block;
         margin-bottom: 8px;
+    }
+
+    .#{$component}-list {
+
+        border: $default-border;
+        border-radius: $default-border-radius;
+
+        .#{$component}-item {
+
+            padding: $default-padding;
+            font-size: $default-font-size;
+            line-height: $default-line-height;
+            border-bottom: $default-border;
+
+             &.is-selected {
+
+                color: $dark-orange;
+             }
+
+             &:last-child {
+
+                border-color: transparent;
+             }
+        }
+
+        .#{$component}-item:hover {
+
+            background-color: #eeeeee;
+        }
+
     }
 
 }

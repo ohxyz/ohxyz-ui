@@ -41,12 +41,12 @@ class OptionList extends BasicFormComponent {
 
         this.className = COMPONENT_NAME;
         this.classNamePrefix = COMPONENT_NAME;
-        
+
         this.items = utils.setDefault( props.items, [] );
 
     }
 
-    renderContainer() {
+    renderMain() {
 
         let className = COMPONENT_NAME + '-list';
 

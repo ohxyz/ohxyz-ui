@@ -22,11 +22,14 @@ class BasicFormComponent extends React.Component {
         this.hint = utils.setDefault( props.hint, 'Hint text' );
         this.value = utils.setDefault( props.value, '' );
 
+        this.domElement = null;
+
         this.className = '';
         this.classNamePrefix = '';
 
         this.isFocused = false;
         this.isFirstTimeFocused = true;
+
         this.isValid = true;
         this.isValidationRequired = this.rules === null ? false : true;
     }
@@ -43,7 +46,7 @@ class BasicFormComponent extends React.Component {
         return <label className={ className }>{ this.title }</label>
     }
 
-    renderContainer() {
+    renderMain() {
 
         return null;
     }
@@ -73,10 +76,10 @@ class BasicFormComponent extends React.Component {
 
         return (
 
-            <div className={ this.className } >
+            <div className={ this.className } ref={ elem => this.domElement = elem } >
                 { this.renderHiddenInput() }
                 { this.renderTitle() }
-                { this.renderContainer() }
+                { this.renderMain() }
                 { this.renderErrorMessageIfInvalid() }
                 { this.renderDescription() }
             </div>
