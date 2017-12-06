@@ -57,9 +57,26 @@ class OptionList extends React.Component {
         this.onCallerClick = utils.setDefault( props.onClick, () => {} );
 
         this.items = utils.setDefault( props.items, [] );
+        this.makeItems();
 
         this.itemSelected = null;
         this.itemsSelected = [];
+
+    }
+
+    makeItems() {
+
+        for ( let i = 0; i < this.items.length; i ++ ) {
+
+            let item = this.items[ i ];
+
+            if ( typeof item !== 'object' ) {
+
+                item = new Item( item, item, item );
+            }
+
+            this.items[ i ] = item;
+        }
 
     }
 

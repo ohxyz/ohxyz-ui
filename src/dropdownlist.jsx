@@ -53,12 +53,10 @@ class DropdownList extends Dropdown {
 
     renderInnerContent() {
 
-        let className = this.classNamePrefix + '-list';
-
         return ( 
 
             <OptionList items={ this.items }
-                        className={ className }
+                        className={ this.classNamePrefix + '-list' }
                         classNamePrefix={ this.classNamePrefix }
                         onClick={ this.handleClick }
 

@@ -1,8 +1,8 @@
-import utils from './utils.js';
+
 
 class Item {
 
-    constructor( name = '', text = '', value = '' ) {
+    constructor( name='', text='', value='' ) {
 
         this.name = name;
         this.text = text;

@@ -15,6 +15,8 @@ $component: optionlist;
         font-size: $default-font-size;
         line-height: $default-line-height;
         border-bottom: $default-border;
+        cursor: pointer;
+
 
          &.is-selected {
             color: $dark-orange;
@@ -30,6 +32,4 @@ $component: optionlist;
 
         background-color: #eeeeee;
     }
-
-
 }

@@ -16,8 +16,8 @@ class BasicFormComponent extends React.Component {
         // Passed from caller
         this.id = utils.setDefault( props.id, randomString );
         this.name = utils.setDefault( props.name, randomString );
-        this.title = utils.setDefault( props.title, 'Form element' );
-        this.description = utils.setDefault( props.description, DEFAULT_DESCRIPTION );
+        this.title = utils.setDefault( props.title, '' );
+        this.description = utils.setDefault( props.description, '' );
         this.rules = utils.setDefault( props.rules, null );
         this.hint = utils.setDefault( props.hint, 'Hint text' );
         this.value = utils.setDefault( props.value, '' );
@@ -41,8 +41,12 @@ class BasicFormComponent extends React.Component {
 
     renderTitle() {
 
-        let className = this.classNamePrefix + '-title';
+        if ( this.title === '' ) {
 
+            return null;
+        }
+
+        let className = this.classNamePrefix + '-title';
         return <label className={ className }>{ this.title }</label>
     }
 

@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import rules from './rules.js';
-import { TextBox, Dropdown, DropdownList, OptionList } from './components.jsx';
+import {
+    TextBox, 
+    Dropdown, 
+    DropdownList, 
+    OptionList,
+    DateDropdownList
+} from './components.jsx';
 
 class App extends React.Component {
 
@@ -46,6 +52,8 @@ class App extends React.Component {
 
         return (
             <form>
+                <DateDropdownList title="Date Dropdown List" />
+
                 <OptionList items={ options } />
 
                 <DropdownList id="personal-title" 

@@ -10,11 +10,27 @@ $component-name: dropdownlist;
 
     &.is-open {
 
-        .#{$component-name}-main:before {
+        .#{$component-name}-main {
 
-            top: 19px;
-            border-top-color: transparent;
-            border-bottom-color: $dark-orange;
+            &:before {
+
+                top: 17px;
+                border-top-color: transparent;
+                border-bottom-color: $dark-orange;
+            }
+
+            .#{$component-name}-header {
+
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom: 1px solid transparent;
+            }
+
+            .#{$component-name}-content {
+
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
         }
     }
 
@@ -27,6 +43,15 @@ $component-name: dropdownlist;
                 color: #2a2a2a;
             }
         }
+    }
+
+    .#{$component-name}-title {
+
+        line-height: $default-line-height;
+        font-size: $default-font-size;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 8px;
     }
 
     .#{$component-name}-main {
@@ -45,7 +70,7 @@ $component-name: dropdownlist;
             border: 5px solid transparent;
             border-top-color: $dark-orange;
             position: absolute;
-            top: 25px;
+            top: 23px;
             right: 15px;
             z-index: -1;
         }
@@ -64,7 +89,7 @@ $component-name: dropdownlist;
 
             position: absolute;
             z-index: 1;
-            top: 58px;
+            top: 49px;
             left: 0;
             right: 0;
             background-color: white;
@@ -72,13 +97,19 @@ $component-name: dropdownlist;
             border: $default-border;
             border-radius: $default-border-radius;
             user-select: none;
-            box-shadow: 0 4px 4px rgba( 0, 0, 0, 0.2 );
+
 
             .#{$component-name}-list {
 
                 .#{$component-name}-item {
 
                     padding: $default-padding;
+                    border-bottom: $default-border;
+
+                     &:last-child {
+
+                        border-color: transparent;
+                     }
                 }
 
                 .#{$component-name}-item:hover {
@@ -90,12 +121,4 @@ $component-name: dropdownlist;
         }
     }
 
-    .#{$component-name}-title {
-
-        line-height: $default-line-height;
-        font-size: $default-font-size;
-        font-weight: bold;
-        display: inline-block;
-        margin-bottom: 8px;
-    }
 }

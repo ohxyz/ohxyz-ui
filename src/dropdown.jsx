@@ -2,7 +2,6 @@ import React from 'react';
 import BasicFormComponent from './basic-form-component.jsx';
 import utils from './utils.js';
 
-
 class Dropdown extends BasicFormComponent {
 
     constructor( props ) {
