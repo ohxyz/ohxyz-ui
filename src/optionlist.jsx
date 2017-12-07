@@ -29,6 +29,11 @@ class OptionItem extends React.Component {
         this.onCallerClick( item );
     }
 
+    renderListContent() {
+
+        return this.text;
+    }
+
     render() {
 
         let className = this.classNamePrefix + '-item';
@@ -37,7 +42,7 @@ class OptionItem extends React.Component {
         return (
 
             <li className={ className } onClick={ this.handleClick } >
-                { this.text }
+                { this.renderListContent() }
             </li>
         );
     }

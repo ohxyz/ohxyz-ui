@@ -1,6 +1,6 @@
 @import "_variables";
 
-$component: date-dropdownlist;
+$component: datetextbox;
     
 .#{$component} {
 
@@ -24,13 +24,17 @@ $component: date-dropdownlist;
         color: #d8d8d8;
     }
 
-    .dropdownlist {
+    .textbox {
 
         padding: 0;
         width: 68px;
         display: inline-block;
+
+        &:last-child {
+
+            width: 98px;
+
+        }
     }
-
-
 
 }

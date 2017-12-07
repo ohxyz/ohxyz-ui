@@ -1,9 +1,9 @@
 import React from 'react';
-import Dropdown from './dropdown.jsx';
+import DropDown from './dropdown.jsx';
 import OptionList from './optionlist.jsx';
 import utils from './utils.js';
 
-class DropdownList extends Dropdown {
+class DropDownList extends DropDown {
 
     constructor( props ) {
 
@@ -67,4 +67,4 @@ class DropdownList extends Dropdown {
     }
 }
 
-export default DropdownList
+export default DropDownList

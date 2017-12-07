@@ -97,6 +97,8 @@ $component-name: dropdownlist;
             border: $default-border;
             border-radius: $default-border-radius;
             user-select: none;
+            max-height: 49px * 3;
+            overflow-y: auto;
 
 
             .#{$component-name}-list {

@@ -47,7 +47,7 @@ class BasicFormComponent extends React.Component {
         }
 
         let className = this.classNamePrefix + '-title';
-        return <label className={ className }>{ this.title }</label>
+        return <span className={ className }>{ this.title }</span>
     }
 
     renderMain() {

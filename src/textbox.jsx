@@ -1,216 +1,30 @@
-import React from 'react';
-import BasicFormComponent from './basic-form-component.jsx';
-import rules from './rules.js';
+import TextBoxBasic from './textboxbasic.jsx';
+import TextBoxNumber from './textboxnumber.jsx';
+import TextBoxArea from './textboxarea.jsx';
 import utils from './utils.js';
 
-class TextBox extends BasicFormComponent {
-    
-    constructor( props ) {
-        
-        super( props );
+function TextBox( props ) {
 
-        this.handleKeyUp = this.handleKeyUp.bind( this );
-        this.handleBlur = this.handleBlur.bind( this );
+    let type = utils.setDefault( props.type, 'text' );
 
-        this.inputElement = null;
-        this.errorMessage = '';
-        this.classNamePrefix = 'textbox';
+    if ( type === 'text' ) {
 
-        // input[type="text"] or textarea
-        this.type = utils.setDefault( props.type, 'text' );
-
-        if ( this.type === 'text' ) {
-
-            this.inputElementId = this.id + '-text';
-        }
-        else if ( this.type === 'textarea' ) {
-
-            this.inputElementId = this.id + '-textarea';
-        }
-
-        this.makeClassName();
-
-        this.state = {
-            
-            isFocused: this.isFocused,
-            value: this.value,
-            isValid: true,
-            validationErrorMessage: ''
-        };
+        return new TextBoxBasic( props );
     }
-    
-    validateInputValue() {
-        
-        if ( Array.isArray( this.rules ) === false && this.rules.length === 0 ) {
+    else if ( type === 'textarea' ) {
 
-            return;
-        }
-
-        for ( let i = 0; i < this.rules.length; i ++ ) {
-
-            let rule = this.rules[ i ];
-            // console.log( '888', rule, this.value );
-            let isValid = rules.validateByRuleName( rule.name, { value: this.value } );
-
-            if ( isValid === false ) {
-
-                this.isValid = false;
-                this.errorMessage = rule.error;
-
-                this.setState( {
-
-                    isValid: false,
-                    validationErrorMessage: rule.error
-
-                } );
-
-                break;
-            }
-            else {
-
-                this.isValid = true;
-            }
-        }
-
-        // console.log( this.state, this.isValid );
+        return new TextBoxArea( props );
     }
+    else if ( type === 'number' ) {
 
-
-    handleBlur() {
-        
-        this.isFocused = false;
-        this.isFirstTimeFocused = false;
-        
-        if ( this.isValidationRequired === true ) {
-            
-            this.validateInputValue( );
-        }
-        
-        this.makeClassName();
-        
-        this.setState( {
-            
-            isFocused: false
-            
-        } ); 
+        return new TextBoxNumber( props );
     }
-    
-    handleKeyUp() {
-        
-        this.value = this.inputElement.value;
-
-        // console.log( '***********', this.value );
-        
-        if ( this.isValidationRequired === true 
-                && this.isFirstTimeFocused === false ) 
-        {
-            this.validateInputValue();
-        }
-
-        this.makeClassName();
-        
-        this.setState( {
-            
-            value: this.value
-            
-        } );
-    }
-    
-    makeClassName() {
-        
-        this.className = this.classNamePrefix;
-        
-        if ( this.isFocused === true ) {
-            
-            this.className += ' is-focused';
-        }
-
-        if ( this.value !== '' ) {
-            
-            this.className += ' is-filled';
-        }
-        
-        if ( this.isValid === false ) {
-            
-            this.className += ' is-invalid';
-        }
-    }
-
-    renderTitle() {
-
-        let labelClassName = this.classNamePrefix + '-title';
-
-        return (
-
-            <label htmlFor={ this.inputElementId } 
-                   className={ labelClassName }
-            >
-                { this.title }    
-            </label>
-        );
-    }
-
-    renderTextInput() {
-
-        let inputClassName = this.classNamePrefix + '-text';
-
-        return (
-
-            <input id={ this.inputElementId }
-                   type="text"
-                   className={ inputClassName }
-                   name={ this.name }
-                   defaultValue={ this.value }
-                   onBlur={ this.handleBlur }
-                   onKeyUp={ this.handleKeyUp }
-                   ref={ elem => this.inputElement = elem }
-            />
-        );
-    }
-
-    renderTextArea() {
-
-        return (
-
-            <textarea id={ this.inputElementId }
-                      className={ this.classNamePrefix + '-textarea' }
-                      name={ this.name }
-                      onBlur={ this.handleBlur }
-                      onKeyUp={ this.handleKeyUp }
-                      defaultValue={ this.value }
-                      ref={ elem => this.inputElement = elem }
-            >
-            </textarea>
-        )
-    }
-
-    renderInputElement() {
-
-        if ( this.type === 'text' ) {
-
-            return this.renderTextInput();
-        }
-        else if ( this.type === 'textarea' ) {
-
-            return this.renderTextArea();
-        }
+    else {
 
         return null;
-
-    }
-
-    render() {
-        
-        return (
-            <div className={ this.className } >
-                { this.renderTitle() }
-                { this.renderInputElement() }
-                { this.renderErrorMessageIfInvalid() }
-                { this.renderDescription() }
-            </div>
-        );
     }
     
 }
 
 export default TextBox;
+

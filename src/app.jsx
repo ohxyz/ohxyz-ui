@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import rules from './rules.js';
 import {
-    TextBox, 
-    Dropdown, 
-    DropdownList, 
+    TextBox,
+    TextBoxBasic,
+    TextBoxArea,
+    TextBoxNumber,
+    DropDown, 
+    DropDownList, 
     OptionList,
-    DateDropdownList
+    DateDropDownList,
+    DateTextBox
 } from './components.jsx';
+
 
 class App extends React.Component {
 
@@ -52,31 +57,42 @@ class App extends React.Component {
 
         return (
             <form>
-                <DateDropdownList title="Date Dropdown List" />
+
+                <DateTextBox title="Date Text Box - number" type="number" />
+
+                <DateTextBox title="Date Text Box " />
+
+                <DateDropDownList title="Date Dropdown List" />
 
                 <OptionList items={ options } />
 
-                <DropdownList id="personal-title" 
+                <DropDownList id="personal-title" 
                               name="personal-title"
-                              title="Title"
+                              title="DropDownList Personal Title"
                               items={ this.items }
                               hint="Select your title"
                               description={ description2 }
 
                 />
-                <Dropdown id="state" description={ description3 } />
+                <DropDown id="state" description={ description3 } />
 
                 <TextBox id="info"
-                         type="textarea"
                          name="info"
+                         type="textarea"
                          value="help"
-                         title="Addtional Information"
+                         title="TextBox(textarea) Addtional Information"
                          description={ description1 }
                          rules={ this.infoRules }
                 />
-                <TextBox id="your-name"
+                <TextBox id="figure"
+                         type="number"
+                         name="figure"
+                         title="TextBox[number] Sample Figure"
+                         description="Some figures"
+                />
+                <TextBoxBasic id="your-name"
                          name="your-name"
-                         title="Name"
+                         title="TextBox - default Your Name"
                          value="joke"
                          description={ description1 }
                          rules={ this.nameRules }

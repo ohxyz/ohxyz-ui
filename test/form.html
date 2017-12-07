@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Form elements</title>
+    <meta name="description" content="Basic HTML5 template">
+    <meta name="author" content="My Name">
+</head>
+<body>
+    <form method="POST" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+
+        <input type="hidden" name="unseen" value="x1" />
+        <input type="hidden" name="unseen" value="x2" />
+        <input type="hidden" name="unseen" value="x3" />
+
+        <input type="range" name="b" value="50" /> +
+        <input type="number" name="a" value="10" /> =
+        <output name="result">60</output>
+        
+        <br />
+
+        <input name="firstname" type="text">
+        
+        <br />
+
+        <input name="check" type="checkbox" value="x" />Check me
+        <input name="check" type="checkbox" value="y" />Check me again
+        <br />
+
+        <input type="radio" name="radiobox" value="a" checked style="display:none" />Radio 1
+        <input type="radio" name="radiobox" value="b" />Radio 2
+
+        <br />
+        
+        <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+        
+        <br />
+        
+        <select name="cars">
+            <option value="vw">VW</option>
+            <option value="toyota">Toyota</option>
+            <option value="kia">Kia</option>
+            <option value="hyundai">Hyundai</option>
+        </select>
+        
+        <br />
+
+        <select name="cars" size="4" multiple>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+
+        <br />
+
+        <input list="browsers">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+
+        <br />
+        
+        <input type="Submit" />
+
+    </form>
+</body>
+</html>

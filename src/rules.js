@@ -5,7 +5,7 @@ const NONE = '';
 const REQUIRED = 'required';
 const ALPHA_SPACE = 'alpha-space';
 const NUMERIC = 'numeric';
-const ALPHANUMERIC_UNDERSCORE_DASH = 'alphanumeric-underscore-dash';
+const ALPHANUMERIC_UNDERSCORE_HYPHEN = 'alphanumeric-underscore-hyphen';
 const POSITIVE_INTEGER = 'positive-integer';
 const TIME = 'time';
 const ENGLISH_NAME = 'english-name';
@@ -126,7 +126,7 @@ export default {
     NONE,
     REQUIRED,
     NUMERIC,
-    ALPHANUMERIC_UNDERSCORE_DASH,
+    ALPHANUMERIC_UNDERSCORE_HYPHEN,
     POSITIVE_INTEGER,
     ALPHA_SPACE,
     ENGLISH_NAME,

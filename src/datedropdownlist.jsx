@@ -1,10 +1,11 @@
 import React from 'react';
 import BasicFormComponent from './basic-form-component.jsx';
-import DropdownList from './DropdownList.jsx';
+import DropdownList from './dropdownlist.jsx';
 import utils from './utils.js';
 
-const COMPONENT_NAME = 'date-dropdownlist'
+const COMPONENT_NAME = 'datedropdownlist'
 
+// Todo: allow to set min and max for dates
 class DateDropdownList extends BasicFormComponent {
 
     constructor( props ) {
@@ -13,6 +14,11 @@ class DateDropdownList extends BasicFormComponent {
 
         this.className = COMPONENT_NAME;
         this.classNamePrefix = COMPONENT_NAME;
+    }
+
+    renderDelimiter() {
+
+        return <span className={ this.classNamePrefix + '-delimiter' }>&#47;</span>;
     }
 
     renderMain() {
@@ -28,12 +34,12 @@ class DateDropdownList extends BasicFormComponent {
                               hint="DD" 
                               items={ days } 
                 />
-                <span class={ this.classNamePrefix + '-delimiter' }>&#47;</span>
+                { this.renderDelimiter() }
                 <DropdownList classNamePrefix={ this.classNamePrefix }
                               hint="MM" 
                               items={ months } 
                 />
-                <span class={ this.classNamePrefix + '-delimiter' }>&#47;</span>
+                { this.renderDelimiter() }
                 <DropdownList classNamePrefix={ this.classNamePrefix }
                               hint="YYYY" 
                               items={ years } 

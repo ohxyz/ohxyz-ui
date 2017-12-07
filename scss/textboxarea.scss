@@ -1,12 +1,13 @@
-@import "_variables";
+
+$component: textboxarea;
     
-.textbox {
+.#{$component}  {
 
     box-sizing: border-box;
     width: 100%;
     padding: 12px 15px;
 
-    .textbox-title {
+    .#{$component}-title {
 
         line-height: $default-line-height;
         font-size: $default-font-size;
@@ -15,7 +16,7 @@
         margin-bottom: 8px;
     }
     
-    .textbox-text, .textbox-textarea, .textbox-number {
+    .#{$component}-textarea {
 
         display: block;
         box-sizing: border-box;
@@ -34,12 +35,12 @@
     
     &.is-invalid {
 
-        .textbox-title {
+        .#{$component}-title {
 
             color: $red;
         }
 
-        .textbox-text, .textbox-textarea{
+        .#{$component}-textarea {
 
             border-color: $red;
             background-color: rgba(193, 12, 26, 0.05);
