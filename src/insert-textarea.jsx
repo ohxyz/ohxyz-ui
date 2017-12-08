@@ -1,24 +1,22 @@
 import React from 'react';
-import TextBoxBasic from './textboxbasic.jsx';
-import rules from './rules.js';
-import utils from './utils.js';
+import InsertBase from './insert-base.jsx';
 
-class TextBoxArea extends TextBoxBasic {
+class InsertTextArea extends InsertBase {
 
     constructor( props ) {
 
         super( props );
 
-        this.className = "textboxarea";
-        this.classNamePrefix = 'textboxarea';
+        this.type = 'textarea';
     }
-    
-    renderInput( ) {
+
+    renderInput() {
 
         return (
 
             <textarea id={ this.inputElementId }
                       className={ this.classNamePrefix + '-textarea' }
+                      placeholder={ this.hint }
                       name={ this.name }
                       onBlur={ this.handleBlur }
                       onKeyUp={ this.handleKeyUp }
@@ -26,8 +24,8 @@ class TextBoxArea extends TextBoxBasic {
                       ref={ elem => this.inputElement = elem }
             >
             </textarea>
-        )
+        );
     }
 }
 
-export default TextBoxArea;
+export default InsertTextArea;

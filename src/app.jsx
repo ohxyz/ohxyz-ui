@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import rules from './rules.js';
 import {
-    TextBox,
-    TextBoxBasic,
-    TextBoxArea,
-    TextBoxNumber,
     DropDown, 
     DropDownList, 
     OptionList,
     DateDropDownList,
-    DateTextBox
+    DateTextBox,
+    InsertBase,
+    InsertText,
+    InsertNumber,
+    InsertTextArea,
+    FormElementBox,
+    InsertTextBox,
+    InsertNumberBox,
+    InsertTextAreaBox,
 } from './components.jsx';
 
 
@@ -57,6 +61,29 @@ class App extends React.Component {
 
         return (
             <form>
+                <InsertTextAreaBox title="Insert Textarea Box" 
+                                   description={ this.description3 }
+                                   hint="Only 1, 2, 3..."
+                                   rules={ this.nameRules }
+                />
+                <InsertNumberBox title="Insert Number Box" 
+                               description="Input some figure"
+                               hint="Only 1, 2, 3..."
+                />
+                <InsertTextBox title="Insert Text Box" 
+                               description="Empty"
+                               rules={ this.nameRules }
+                />
+                <FormElementBox title="Form Element Box" 
+                                errorMessage="No errors. Just show off." 
+                                isValid={ false } 
+                                description={ description2 }
+                />
+                <InsertTextArea name="my-insert-textarea" hint="hint area" />
+                <InsertNumber name="my-insert-number" hint="hint number" value="100" />
+                <InsertText name="my-insert-text" hint="hint text" />
+
+                <InsertBase name="my-insert-base" rules={ this.nameRules } />
 
                 <DateTextBox title="Date Text Box - number" type="number" />
 
@@ -76,27 +103,6 @@ class App extends React.Component {
                 />
                 <DropDown id="state" description={ description3 } />
 
-                <TextBox id="info"
-                         name="info"
-                         type="textarea"
-                         value="help"
-                         title="TextBox(textarea) Addtional Information"
-                         description={ description1 }
-                         rules={ this.infoRules }
-                />
-                <TextBox id="figure"
-                         type="number"
-                         name="figure"
-                         title="TextBox[number] Sample Figure"
-                         description="Some figures"
-                />
-                <TextBoxBasic id="your-name"
-                         name="your-name"
-                         title="TextBox - default Your Name"
-                         value="joke"
-                         description={ description1 }
-                         rules={ this.nameRules }
-                />
             </form>
         )
 

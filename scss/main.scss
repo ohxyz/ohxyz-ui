@@ -10,9 +10,15 @@
 
 @import "./misc.scss";
 
-@import "./textbox.scss";
-@import "./textboxarea.scss";
-@import "./textboxnumber.scss";
+@import "./insert-text.scss";
+@import "./insert-number.scss";
+@import "./insert-textarea.scss";
+
+@import "./form-element-box.scss";
+
+@import "./insert-text-box.scss";
+@import "./insert-number-box.scss";
+@import "./insert-textarea-box.scss";
 
 /* Global */
 
@@ -27,15 +33,18 @@ body {
 
     .container {
 
+        padding: 0 15px;
+
         .form-header {
 
             height: 128px;
             line-height: 128px;
             font-size: 58px;
             font-weight: bold;
-            padding: $default-padding;
+            margin: $default-margin;
 
             .form-title {
+
                 display: inline-block;
                 vertical-align: middle;
             }

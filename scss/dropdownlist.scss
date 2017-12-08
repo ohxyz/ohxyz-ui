@@ -5,8 +5,7 @@ $component-name: dropdownlist;
 .#{$component-name} {
 
     box-sizing: border-box;
-    width: 100%;
-    padding: 12px 15px;
+    margin: $default-margin;
 
     &.is-open {
 

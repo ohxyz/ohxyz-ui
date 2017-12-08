@@ -5,8 +5,7 @@ $component: datedropdownlist;
 .#{$component} {
 
     box-sizing: border-box;
-    width: 100%;
-    padding: 12px 15px;
+    margin: $default-margin;
 
     .#{$component}-title {
 
@@ -19,7 +18,7 @@ $component: datedropdownlist;
 
     .#{$component}-delimiter {
 
-        padding: 0 12px;
+        padding: 0 10px;
         display: inline-block;
         color: #d8d8d8;
     }

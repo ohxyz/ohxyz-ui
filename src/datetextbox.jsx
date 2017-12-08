@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicFormComponent from './basic-form-component.jsx';
-import TextBox from './textbox.jsx';
+import InsertText from './insert-text.jsx';
 import utils from './utils.js';
 
 const COMPONENT_NAME = 'datetextbox';
@@ -27,17 +27,17 @@ class DateTextBox extends BasicFormComponent {
         return (
 
             <div className={ this.classNamePrefix + '-main' }>
-                <TextBox classNamePrefix={ this.classNamePrefix }
+                <InsertText
                          hint="DD"
                          type={ this.type }
                 />
                 { this.renderDelimiter() }
-                <TextBox classNamePrefix={ this.classNamePrefix }
+                <InsertText
                          hint="MM"
                          type={ this.type }
                 />
                 { this.renderDelimiter() }
-                <TextBox classNamePrefix={ this.classNamePrefix }
+                <InsertText
                          hint="YYYY"
                          type={ this.type }
                 />
