@@ -1,4 +1,6 @@
-$component: form-element-box;
+@import "_variables";
+
+$component: insert-date-by-number-box;
     
 .#{$component} {
 

@@ -8,12 +8,16 @@ import {
     InsertText,
     InsertNumber,
     InsertTextArea,
+    InsertDateByText,
+    InsertDateByNumber,
+
     FormElementBox,
+
     InsertTextBox,
     InsertNumberBox,
     InsertTextAreaBox,
-    InsertDateByText,
-    InsertDateByNumber,
+    InsertDateByNumberBox,
+
     OptionsBase,
     OptionsList,
     Dropdown,
@@ -64,8 +68,14 @@ class App extends React.Component {
 
         return (
             <form>
+                <InsertDateByNumberBox 
+                    title="Insert Date by Number - BOX"
+                    description={ description3 }
+
+                />
                 <InsertDateByText />
                 <InsertDateByNumber />
+
                 <DropdownList id="personal-title" 
                               name="personal-title"
                               title="DropDownList Personal Title"

@@ -98,6 +98,8 @@ class InsertBase extends React.Component {
         }
     }
 
+    
+    
     renderInput() {
 
         return (

@@ -12,7 +12,7 @@ class InsertDateByText extends InsertDateBase {
         this.classNamePrefix = 'insert-date-by-text';
     }
 
-    renderMain() {
+    render() {
 
         let insertTextClassNamePrefix = this.classNamePrefix + '-insert-text';
 

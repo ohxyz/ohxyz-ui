@@ -11,11 +11,14 @@ class InsertDateBase extends React.Component {
 
         this.classNamePrefix = 'insert-date-base';
         this.hint = utils.setDefault( props.hint, '' );
+        this.name = utils.setDefault( props.name, '' );
+        this.value = utils.setDefault( props.value, '' );
+
     }
 
     renderHiddenInput() {
 
-        return null;
+        return <input type="hidden" name={ this.name } value={ this.value } />;
     }
 
     // Reserve for subclass
@@ -24,7 +27,7 @@ class InsertDateBase extends React.Component {
         return <span className={ this.classNamePrefix + '-delimiter' }>&#47;</span>;
     }
 
-    renderMain() {
+    render() {
 
         let insertTextClassNamePrefix = this.classNamePrefix + '-insert-text';
 
@@ -33,18 +36,6 @@ class InsertDateBase extends React.Component {
             <InsertText classNamePrefix={ insertTextClassNamePrefix }
                         hint={ this.hint }
             />
-        );
-    }
-
-    render() {
-
-        return (
-            
-            <div className={ this.className } >
-                { this.renderHiddenInput() }
-                { this.renderMain() }
-            </div>
-
         );
     }
 

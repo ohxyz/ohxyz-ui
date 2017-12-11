@@ -4,21 +4,23 @@ import InsertDateBase from './insert-date-base.jsx';
 import utils from './utils.js';
 
 // Todo: allow to set min and max for dates
-class InsertDateByText extends InsertDateBase {
+class InsertDateByNumber extends InsertDateBase {
 
     constructor( props ) {
 
         super( props );
         this.classNamePrefix = 'insert-date-by-number';
+
     }
 
-    renderMain() {
+    render() {
 
         let insertTextClassNamePrefix = this.classNamePrefix + '-insert-number';
 
         return (
 
             <div className={ this.classNamePrefix }>
+                { this.renderHiddenInput() }
                 <InsertNumber
                     classNamePrefix={ insertTextClassNamePrefix }
                     hint="DD"
@@ -38,4 +40,4 @@ class InsertDateByText extends InsertDateBase {
     }
 }
 
-export default InsertDateByText;
+export default InsertDateByNumber;
