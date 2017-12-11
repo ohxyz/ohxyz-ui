@@ -10,6 +10,7 @@ import FormElementBox from './form-element-box.jsx';
 import InsertTextBox from './insert-text-box.jsx';
 import InsertNumberBox from './insert-number-box.jsx';
 import InsertTextAreaBox from './insert-textarea-box.jsx';
+import InsertDateByTextBox from './insert-date-by-text-box.jsx';
 import InsertDateByNumberBox from './insert-date-by-number-box.jsx';
 
 import OptionsBase from './options-base.jsx';
@@ -32,6 +33,7 @@ export {
     InsertTextBox,
     InsertNumberBox,
     InsertTextAreaBox,
+    InsertDateByTextBox,
     InsertDateByNumberBox,
 
     OptionsBase,

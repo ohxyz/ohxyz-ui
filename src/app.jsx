@@ -16,6 +16,7 @@ import {
     InsertTextBox,
     InsertNumberBox,
     InsertTextAreaBox,
+    InsertDateByTextBox,
     InsertDateByNumberBox,
 
     OptionsBase,
@@ -67,7 +68,14 @@ class App extends React.Component {
         ];
 
         return (
+            
             <form>
+                <InsertDateByTextBox 
+                    title="Insert Date - Text"
+                    description={ description2 }
+
+                />
+
                 <InsertDateByNumberBox 
                     title="Insert Date by Number - BOX"
                     description={ description3 }
