@@ -11,9 +11,7 @@ class InsertBase extends React.Component {
         this.handleKeyUp = this.handleKeyUp.bind( this );
         this.handleBlur = this.handleBlur.bind( this );
 
-        let randomString = Math.random().toString( 36 ).slice( 2 );
-
-        this.id = utils.setDefault( props.id, randomString );
+        this.id = utils.setDefault( props.id, utils.generateRandomString() );
         this.type = utils.setDefault( props.type, 'text' );
         this.name = utils.setDefault( props.name, '' );
         this.hint = utils.setDefault( props.hint, '' );

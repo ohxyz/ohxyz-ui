@@ -1,12 +1,11 @@
 import React from 'react';
-import BasicFormComponent from './basic-form-component.jsx';
 import utils from './utils.js';
 import Item from './item.js';
 
-const COMPONENT_NAME = 'optionlist';
-const DEFAULT_OPTION_ITEM_TEXT = 'Option Item';
+const COMPONENT_NAME = 'options-base';
+const DEFAULT_OPTION_ITEM_TEXT = 'Default item';
 
-class OptionItem extends React.Component {
+class OptionsItem extends React.Component {
 
     constructor( props ) {
 
@@ -20,13 +19,13 @@ class OptionItem extends React.Component {
         this.isSelected = utils.setDefault( props.isSelected, false );
         this.classNamePrefix = utils.setDefault( props.classNamePrefix, COMPONENT_NAME );
 
-        this.onCallerClick = utils.setDefault( props.onClick, () => {} );
+        this.onParentClick = utils.setDefault( props.onClick, () => {} );
     }
 
     handleClick() {
 
         let item = new Item( this.name, this.text, this.value );
-        this.onCallerClick( item );
+        this.onParentClick( item );
     }
 
     renderListContent() {
@@ -49,23 +48,29 @@ class OptionItem extends React.Component {
 
 }
 
-class OptionList extends React.Component {
+class OptionsBase extends React.Component {
 
     constructor( props ) {
 
         super( props );
 
-        this.handleClick = this.handleClick.bind( this );
+        this.handleSelect = this.handleSelect.bind( this );
 
-        this.className = utils.setDefault( props.className, COMPONENT_NAME );
+        this.name = utils.setDefault( props.name, '' );
         this.classNamePrefix = utils.setDefault( props.classNamePrefix, COMPONENT_NAME );
-        this.onCallerClick = utils.setDefault( props.onClick, () => {} );
 
         this.items = utils.setDefault( props.items, [] );
+        this.onParentSelect = utils.setDefault( props.onSelect, () => {} );
         this.makeItems();
 
-        this.itemSelected = null;
+        this.itemSelected = new Item();
         this.itemsSelected = [];
+
+        this.state = {
+
+            itemSelected: null,
+            itemsSelected: []
+        }
 
     }
 
@@ -85,29 +90,46 @@ class OptionList extends React.Component {
 
     }
 
-    handleClick( item ) {
+    handleSelect( item ) {
 
         this.itemSelected = item;
-        this.onCallerClick( item );
+        this.onParentSelect( item );
+
+        this.setState( {
+
+            itemSelected: item
+
+        } );
+    }
+
+    renderHiddenInput() {
+
+        if ( this.name === '' ) {
+
+            return null;
+        }
+
+        return <input type="hidden" name={ this.name } value={ this.itemSelected.value } />
     }
 
     render() {
 
         let ul = 
 
-            <ul className={ this.className } >
+            <ul className={ this.classNamePrefix } >
+            { this.renderHiddenInput() }
             {
                 this.items.map( ( item, key ) => {
 
                     return (
 
-                        <OptionItem key={ key } 
-                                    value={ item.value }
-                                    text={ item.text }
-                                    name={ item.name }
-                                    onClick={ this.handleClick }
-                                    classNamePrefix={ this.classNamePrefix }
-                                    isSelected={ item.isSelected }
+                        <OptionsItem key={ key } 
+                                     value={ item.value }
+                                     text={ item.text }
+                                     name={ item.name }
+                                     onClick={ this.handleSelect }
+                                     classNamePrefix={ this.classNamePrefix }
+                                     isSelected={ item.isSelected }
                         />
                     );
 
@@ -117,8 +139,12 @@ class OptionList extends React.Component {
 
         return ul;
     }
-
-
 }
 
-export default OptionList
+export default OptionsBase;
+
+export {
+
+    OptionsItem,
+    OptionsBase
+};

@@ -2,6 +2,11 @@
 
 /* START: App related */
 
+function generateRandomString() {
+
+    return 
+}
+
 function setDefault( defaultValue, otherValue ) {
     
     if ( defaultValue === undefined ) {
@@ -178,12 +183,13 @@ function sortArrayByObjectKey( options, array ) {
 
 module.exports = {
     
-    isDescendant: isDescendant,
-    toggleArrayItem: toggleArrayItem,
-    getMappedKeys: getMappedKeys,
-    getMappedObjects: getMappedObjects,
-    JSONCopy: JSONCopy,
-    intersectArrays: intersectArrays,
-    sortArrayByObjectKey: sortArrayByObjectKey,
-    setDefault: setDefault
+    isDescendant,
+    toggleArrayItem,
+    getMappedKeys,
+    getMappedObjects,
+    JSONCopy,
+    intersectArrays,
+    sortArrayByObjectKey,
+    setDefault,
+    generateRandomString,
 };

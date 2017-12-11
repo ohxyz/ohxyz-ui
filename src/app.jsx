@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import rules from './rules.js';
 import {
-    DropDown, 
-    DropDownList, 
+
     OptionList,
     DateDropDownList,
     DateTextBox,
@@ -15,6 +14,10 @@ import {
     InsertTextBox,
     InsertNumberBox,
     InsertTextAreaBox,
+    OptionsBase,
+    OptionsList,
+    Dropdown,
+    DropdownList, 
 } from './components.jsx';
 
 
@@ -61,6 +64,20 @@ class App extends React.Component {
 
         return (
             <form>
+                <DropdownList id="personal-title" 
+                              name="personal-title"
+                              title="DropDownList Personal Title"
+                              items={ this.items }
+                              hint="Select your title"
+                />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                
+                <Dropdown />
+
+                <OptionsList items={ [ 1, 2, 3 ] } />
+
+                <OptionsBase items={ options } />
+
                 <InsertTextAreaBox title="Insert Textarea Box" 
                                    description={ this.description3 }
                                    hint="Only 1, 2, 3..."
@@ -91,17 +108,6 @@ class App extends React.Component {
 
                 <DateDropDownList title="Date Dropdown List" />
 
-                <OptionList items={ options } />
-
-                <DropDownList id="personal-title" 
-                              name="personal-title"
-                              title="DropDownList Personal Title"
-                              items={ this.items }
-                              hint="Select your title"
-                              description={ description2 }
-
-                />
-                <DropDown id="state" description={ description3 } />
 
             </form>
         )

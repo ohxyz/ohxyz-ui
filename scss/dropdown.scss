@@ -1,74 +1,50 @@
 @import "_variables";
 
 $component: dropdown;
-    
+
 .#{$component} {
 
+    position: relative;
     box-sizing: border-box;
-    margin: $default-margin;
+    font-size: $default-font-size;
+    border-radius: 3px;
+    width: 100%;
+    line-height: 24px;
+    cursor: pointer;
 
-    .#{$component}-title {
+    &:before {
 
-        line-height: $default-line-height;
-        font-size: $default-font-size;
-        font-weight: bold;
-        display: inline-block;
-        margin-bottom: 8px;
+        content: "";
+        border: 5px solid transparent;
+        border-top-color: $dark-orange;
+        position: absolute;
+        top: 23px;
+        right: 15px;
+        z-index: -1;
     }
 
-    &.is-open {
+    .#{$component}-header {
 
-        .#{$component}-main:before {
-
-            top: 17px;
-            border-top-color: transparent;
-            border-bottom-color: $dark-orange;
-        }
+        padding: $default-padding;
+        min-height: 24px;
+        border: $default-border;
+        border-radius: $default-border-radius;
+        user-select: none;
     }
 
-    .#{$component}-main {
+    .#{$component}-content {
 
-        position: relative;
-        box-sizing: border-box;
-        font-size: $default-font-size;
-        border-radius: 3px;
-        width: 100%;
-        line-height: 24px;
-        cursor: pointer;
-
-        &:before {
-
-            content: "";
-            border: 5px solid transparent;
-            border-top-color: $dark-orange;
-            position: absolute;
-            top: 23px;
-            right: 15px;
-            z-index: -1;
-        }
-
-        .#{$component}-header {
-
-            padding: $default-padding;
-            min-height: 24px;
-            border: $default-border;
-            border-radius: $default-border-radius;
-            user-select: none;
-        }
-
-        .#{$component}-content {
-
-            position: absolute;
-            z-index: 1;
-            top: 58px;
-            left: 0;
-            right: 0;
-            background-color: white;
-            padding: $default-padding;
-            min-height: 24px;
-            border: $default-border;
-            border-radius: $default-border-radius;
-            user-select: none;
-        }
+        position: absolute;
+        z-index: 1;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: $default-padding;
+        min-height: 24px;
+        border: $default-border;
+        border-radius: $default-border-radius;
+        user-select: none;
+        box-shadow: 0 4px 4px rgba( 0, 0, 0, 0.2 );
     }
 }

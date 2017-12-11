@@ -1,20 +1,20 @@
 import React from 'react';
 import DropDown from './dropdown.jsx';
-import OptionList from './optionlist.jsx';
+import OptionsList from './options-list.jsx';
 import utils from './utils.js';
 
-class DropDownList extends DropDown {
+class DropdownList extends DropDown {
 
     constructor( props ) {
 
         super( props );
 
-        this.handleClick = this.handleClick.bind( this );
+        this.handleSelect = this.handleSelect.bind( this );
 
         this.items = utils.setDefault( props.items, [] );
+        this.name = utils.setDefault( props.name, '' );
 
-        this.className = 'dropdownlist';
-        this.classNamePrefix = 'dropdownlist';
+        this.classNamePrefix = 'dropdown-list';
 
         this.isSelected = false;
         this.itemSelected = null;
@@ -25,10 +25,11 @@ class DropDownList extends DropDown {
         };
     }
 
-    handleClick( item ) {
+    handleSelect( item ) {
 
         this.itemSelected = item;
         this.isSelected = true;
+        this.value = item.value;
 
         this.className = this.classNamePrefix + ' is-selected';
 
@@ -53,18 +54,15 @@ class DropDownList extends DropDown {
 
     renderInnerContent() {
 
-        return ( 
+        return (
 
-            <OptionList items={ this.items }
-                        className={ this.classNamePrefix + '-list' }
-                        classNamePrefix={ this.classNamePrefix }
-                        onClick={ this.handleClick }
-
+            <OptionsList items={ this.items }
+                         classNamePrefix={ this.classNamePrefix + '-options-list' }
+                         onSelect={ this.handleSelect }
             />
 
         );
-
     }
 }
 
-export default DropDownList
+export default DropdownList;

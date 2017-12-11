@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicFormComponent from './basic-form-component.jsx';
-import DropdownList from './dropdownlist.jsx';
+import DropdownList from './dropdown-list.jsx';
 import utils from './utils.js';
 
 const COMPONENT_NAME = 'datedropdownlist'

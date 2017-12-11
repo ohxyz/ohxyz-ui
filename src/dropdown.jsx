@@ -1,8 +1,7 @@
 import React from 'react';
-import BasicFormComponent from './basic-form-component.jsx';
 import utils from './utils.js';
 
-class DropDown extends BasicFormComponent {
+class Dropdown extends React.Component {
 
     constructor( props ) {
 
@@ -11,21 +10,25 @@ class DropDown extends BasicFormComponent {
         this.handleHeaderClick = this.handleHeaderClick.bind( this );
         this.handleClickOutside = this.handleClickOutside.bind( this );
 
-        this.classNamePrefix = 'dropdown';
-        this.className = 'dropdown';
+        this.id = utils.setDefault( props.id, utils.generateRandomString() );
+        this.hint = utils.setDefault( props.hint, 'Dropdown');
+        this.name = utils.setDefault( props.name, '' );
+        this.value =utils.setDefault( props.value, '' );
 
+        this.classNamePrefix = 'dropdown';
+
+        this.domElement = null;
         this.isOpen = false;
 
         this.state = {
 
             isOpen: false
-        }
+        };
     }
 
     close() {
 
         this.isOpen = false;
-        this.makeClassName();
 
         this.setState( { 
 
@@ -35,6 +38,8 @@ class DropDown extends BasicFormComponent {
     }
 
     makeClassName() {
+
+        this.className = this.classNamePrefix;
 
         if ( this.isOpen === true ) {
 
@@ -50,7 +55,6 @@ class DropDown extends BasicFormComponent {
     handleHeaderClick() {
 
         this.isOpen = !this.isOpen;
-        this.makeClassName();
 
         this.setState( {
 
@@ -76,11 +80,21 @@ class DropDown extends BasicFormComponent {
         return this.hint;
     }
 
+    renderHiddenInput() {
+
+        if ( this.name === '' ) {
+
+            return null;
+        }
+
+        return <input type="hidden" name={ this.name } value={ this.value } />
+    }
+
     renderContentIfOpen() {
 
         if ( this.isOpen === true ) {
 
-            return <div className={ this.classNamePrefix + '-content' }>{ this.renderInnerContent() }</div>
+            return <div className={ this.classNamePrefix + '-content' }>{ this.renderInnerContent() }</div>;
         }
         else {
 
@@ -89,22 +103,6 @@ class DropDown extends BasicFormComponent {
     }
 
     renderInnerContent() {
-
-        return null;
-    }
-
-    renderMain() {
-
-        return (
-
-            <div className={ this.classNamePrefix + '-main' }>
-                { this.renderHeader() }
-                { this.renderContentIfOpen() }
-            </div>
-        );
-    }
-
-    renderHiddenInput() {
 
         return null;
     }
@@ -128,6 +126,23 @@ class DropDown extends BasicFormComponent {
 
     }
 
+    render() {
+
+        this.makeClassName();
+
+        return (
+
+            <div className={ this.className }
+                 id={ this.id }
+                 ref={ ( elem ) => { this.domElement = elem; }  } 
+            >
+                { this.renderHiddenInput() }
+                { this.renderHeader() }
+                { this.renderContentIfOpen() }
+            </div>
+        );
+    }
+
 }
 
-export default DropDown;
+export default Dropdown;

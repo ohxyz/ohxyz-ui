@@ -1,10 +1,9 @@
 @import "_variables";
 
-$component: optionlist;
+$component: options-base;
 
 .#{$component} {
 
-    box-sizing: border-box;
     border: $default-border;
     border-radius: $default-border-radius;
     margin: $default-margin;
