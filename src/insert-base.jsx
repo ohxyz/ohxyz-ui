@@ -17,12 +17,10 @@ class InsertBase extends React.Component {
         this.hint = utils.setDefault( props.hint, '' );
         this.value = utils.setDefault( props.value, '' );
         this.rules = utils.setDefault( props.rules, null );
-
+        this.classNamePrefix = utils.setDefault( props.classNamePrefix, 'insert-text' );
         this.onError = utils.setDefault( props.onError, ( errorMessage ) => {} );
 
         this.inputElement = null;
-        this.classNamePrefix = 'insert';
-
     }
 
     isValidationRequired() {
@@ -70,7 +68,6 @@ class InsertBase extends React.Component {
             this.onError( this.errorMessage );
         }
 
-
     }
     
     handleKeyUp() {
@@ -88,7 +85,7 @@ class InsertBase extends React.Component {
     
     makeClassName() {
 
-        this.className = this.classNamePrefix + '-' + this.type;
+        this.className = this.classNamePrefix;
 
         if ( this.value !== '' ) {
             

@@ -15,5 +15,6 @@ $component: insert-textarea;
     &:focus {
 
         outline: none;
+        border-color: $dark-orange;
     }
 }

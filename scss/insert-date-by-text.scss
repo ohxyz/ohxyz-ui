@@ -1,0 +1,38 @@
+@import "_variables";
+
+$component: insert-date-by-text;
+
+.#{$component} {
+
+    font-size: $default-font-size;
+
+    .#{$component}-delimiter {
+
+        display: inline-block;
+        margin: 0 10px;
+        color: #d8d8d8;
+    }
+
+    .#{$component}-insert-text {
+
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: $default-font-size;
+        padding: $default-padding;
+        border-radius: $default-border-radius;
+        border: $default-border;
+        line-height: $default-line-height;
+        width: 68px;
+
+        &:focus {
+
+            outline: none;
+            border-color: $dark-orange;
+        }
+
+        &:last-child {
+
+            width: 98px;
+        }
+    }
+}

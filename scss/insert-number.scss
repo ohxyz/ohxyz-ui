@@ -15,5 +15,6 @@ $component: insert-number;
     &:focus {
 
         outline: none;
+        border-color: $dark-orange;
     }
 }

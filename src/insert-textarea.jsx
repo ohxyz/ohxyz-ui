@@ -8,6 +8,7 @@ class InsertTextArea extends InsertBase {
         super( props );
 
         this.type = 'textarea';
+        this.classNamePrefix = 'insert-textarea';
     }
 
     renderInput() {
@@ -15,7 +16,7 @@ class InsertTextArea extends InsertBase {
         return (
 
             <textarea id={ this.inputElementId }
-                      className={ this.classNamePrefix + '-textarea' }
+                      className={ this.className }
                       placeholder={ this.hint }
                       name={ this.name }
                       onBlur={ this.handleBlur }

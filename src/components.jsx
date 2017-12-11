@@ -1,15 +1,9 @@
-
-import DateDropDownListComponent from './datedropdownlist.jsx';
-import DateTextBoxComponent from './datetextbox.jsx';
-
-export const DateDropDownList = DateDropDownListComponent;
-export const DateTextBox = DateTextBoxComponent;
-
-// ---------------------------------------------------------------
 import InsertBase from './insert-base.jsx';
 import InsertText from './insert-text.jsx';
 import InsertNumber from './insert-number.jsx';
 import InsertTextArea from './insert-textarea.jsx';
+import InsertDateByText from './insert-date-by-text.jsx';
+import InsertDateByNumber from './insert-date-by-number.jsx';
 
 import FormElementBox from './form-element-box.jsx';
 
@@ -29,6 +23,8 @@ export {
     InsertText, 
     InsertNumber, 
     InsertTextArea,
+    InsertDateByText,
+    InsertDateByNumber,
 
     FormElementBox,
 

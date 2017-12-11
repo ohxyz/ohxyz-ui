@@ -1,17 +1,13 @@
 @import "./_reset.scss";
-
-@import "./datedropdownlist.scss";
-@import "./datetextbox.scss";
-
-
-
-
+@import "./_variables.scss";
 
 @import "./misc.scss";
 
 @import "./insert-text.scss";
 @import "./insert-number.scss";
 @import "./insert-textarea.scss";
+@import "./insert-date-by-text.scss";
+@import "./insert-date-by-number.scss";
 
 @import "./form-element-box.scss";
 

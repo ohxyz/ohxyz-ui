@@ -4,8 +4,6 @@ import rules from './rules.js';
 import {
 
     OptionList,
-    DateDropDownList,
-    DateTextBox,
     InsertBase,
     InsertText,
     InsertNumber,
@@ -14,6 +12,8 @@ import {
     InsertTextBox,
     InsertNumberBox,
     InsertTextAreaBox,
+    InsertDateByText,
+    InsertDateByNumber,
     OptionsBase,
     OptionsList,
     Dropdown,
@@ -64,6 +64,8 @@ class App extends React.Component {
 
         return (
             <form>
+                <InsertDateByText />
+                <InsertDateByNumber />
                 <DropdownList id="personal-title" 
                               name="personal-title"
                               title="DropDownList Personal Title"
@@ -71,7 +73,7 @@ class App extends React.Component {
                               hint="Select your title"
                 />
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                
+
                 <Dropdown />
 
                 <OptionsList items={ [ 1, 2, 3 ] } />
@@ -101,13 +103,6 @@ class App extends React.Component {
                 <InsertText name="my-insert-text" hint="hint text" />
 
                 <InsertBase name="my-insert-base" rules={ this.nameRules } />
-
-                <DateTextBox title="Date Text Box - number" type="number" />
-
-                <DateTextBox title="Date Text Box " />
-
-                <DateDropDownList title="Date Dropdown List" />
-
 
             </form>
         )
