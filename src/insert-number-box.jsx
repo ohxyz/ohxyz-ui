@@ -7,10 +7,6 @@ class InsertNumberBox extends FormElementBox {
     constructor( props ) {
 
         super( props );
-
-        this.className = 'insert-number-box';
-        this.classNamePrefix = 'insert-number-box';
-
         this.isValid = true;
 
         this.state = {

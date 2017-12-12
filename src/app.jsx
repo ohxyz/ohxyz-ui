@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import rules from './rules.js';
 import {
 
-    OptionList,
     InsertBase,
     InsertText,
     InsertNumber,
     InsertTextArea,
     InsertDateByText,
     InsertDateByNumber,
+
+    OptionsBase,
+    OptionsList,
 
     FormElementBox,
 
@@ -19,10 +21,11 @@ import {
     InsertDateByTextBox,
     InsertDateByNumberBox,
 
-    OptionsBase,
-    OptionsList,
+    OptionsListBox,
+
     Dropdown,
-    DropdownList, 
+    DropdownList,
+
 } from './components.jsx';
 
 
@@ -70,6 +73,9 @@ class App extends React.Component {
         return (
             
             <form>
+
+                <OptionsListBox title="Options List Box" items={ [ 'a', 'b', 'c' ] } description="A list" />
+                
                 <InsertDateByTextBox 
                     title="Insert Date - Text"
                     description={ description2 }

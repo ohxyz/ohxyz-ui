@@ -8,9 +8,6 @@ class InsertTextBox extends FormElementBox {
 
         super( props );
 
-        this.className = 'insert-text-box';
-        this.classNamePrefix = 'insert-text-box';
-
         this.isValid = true;
 
         this.state = {

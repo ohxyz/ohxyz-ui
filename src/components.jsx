@@ -18,6 +18,8 @@ import OptionsList from './options-list.jsx';
 import Dropdown from './dropdown.jsx';
 import DropdownList from './dropdown-list.jsx';
 
+import OptionsListBox from './options-list-box.jsx';
+
 
 export {
 
@@ -27,6 +29,8 @@ export {
     InsertTextArea,
     InsertDateByText,
     InsertDateByNumber,
+    OptionsBase,
+    OptionsList,
 
     FormElementBox,
 
@@ -35,9 +39,8 @@ export {
     InsertTextAreaBox,
     InsertDateByTextBox,
     InsertDateByNumberBox,
+    OptionsListBox,
 
-    OptionsBase,
-    OptionsList,
     Dropdown,
     DropdownList
 };

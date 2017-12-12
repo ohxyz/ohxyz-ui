@@ -1,12 +1,21 @@
 @import '_variables.scss';
 
+$suffix: box;
+
 em {
 
     font-style: italic;
     color: $dark-orange;
 }
 
-.error-message {
+.title-#{$suffix} {
+
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: $default-font-size;
+}
+
+.error-message-#{$suffix} {
 
     padding: 4px 10px;
     line-height: $default-line-height;
@@ -29,7 +38,7 @@ em {
 
 }
 
-.description {
+.description-#{$suffix} {
 
     color: #767676;
     font-size: $font-small;
@@ -37,8 +46,11 @@ em {
     margin-top: 8px;
 }
 
+
 .form-element-placeholder {
 
     height: 24px;
 }
+
+
 

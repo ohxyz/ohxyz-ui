@@ -8,9 +8,6 @@ class FormElementBox extends React.Component {
         super( props );
 
         this.onError = this.handleError.bind( this );
-        
-        this.className = 'form-element-box';
-        this.classNamePrefix = 'form-element-box';
         this.domElement = null;
 
         this.title = utils.setDefault( props.title, '' );
@@ -50,8 +47,7 @@ class FormElementBox extends React.Component {
             return null;
         }
 
-        let className = this.classNamePrefix + '-title';
-        return <span className={ className }>{ this.title }</span>
+        return <span className="title-box">{ this.title }</span>
     }
 
     renderMain() {
@@ -63,7 +59,7 @@ class FormElementBox extends React.Component {
         
         if ( this.isValid === false ) {
 
-            return <span className="error-message">{ this.errorMessage }</span>
+            return <span className="error-message-box">{ this.errorMessage }</span>
         }
         
         return null;
@@ -76,14 +72,14 @@ class FormElementBox extends React.Component {
             return null;
         }
         
-        return <div className="description">{ this.description }</div>
+        return <div className="description-box">{ this.description }</div>
     }
 
     render() {
 
         return (
 
-            <div className={ this.className } ref={ elem => this.domElement = elem } >
+            <div className="form-element-box" ref={ elem => this.domElement = elem } >
                 { this.renderTitle() }
                 { this.renderMain() }
                 { this.renderErrorMessageIfInvalid() }
