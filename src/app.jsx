@@ -13,6 +13,7 @@ import {
     OptionsBase,
     OptionsList,
     OptionsRadio,
+    OptionsCheckbox,
 
     FormElementBox,
 
@@ -82,6 +83,9 @@ class App extends React.Component {
         return (
             
             <form>
+
+                <OptionsCheckbox items={ questions } />
+
                 <OptionsRadio items={ questions } />
 
                 <OptionsListBox title="Options List Box" items={ [ 'a', 'b', 'c' ] } description="A list" />
@@ -139,7 +143,6 @@ class App extends React.Component {
 
             </form>
         )
-
     }
 }
 
