@@ -21,6 +21,7 @@ function setDefault( defaultValue, otherValue ) {
 function isDescendant( childElem, parentElem ) {
     
     let node = childElem.parentNode;
+    
     while ( node !== null ) {
         
         if ( node === parentElem ) {

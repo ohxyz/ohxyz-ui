@@ -1,5 +1,5 @@
 import React from 'react';
-import utils from './utils.js';
+import util from './util.js';
 import OptionsBase from './options-base.jsx';
 
 class OptionsList extends OptionsBase {
@@ -8,7 +8,7 @@ class OptionsList extends OptionsBase {
 
         super( props );
 
-        this.classNamePrefix = utils.setDefault( props.classNamePrefix, 'options-list' );
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, 'options-list' );
 
     }
 

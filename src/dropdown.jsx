@@ -1,5 +1,5 @@
 import React from 'react';
-import utils from './utils.js';
+import util from './util.js';
 
 class Dropdown extends React.Component {
 
@@ -10,10 +10,10 @@ class Dropdown extends React.Component {
         this.handleHeaderClick = this.handleHeaderClick.bind( this );
         this.handleClickOutside = this.handleClickOutside.bind( this );
 
-        this.id = utils.setDefault( props.id, utils.generateRandomString() );
-        this.hint = utils.setDefault( props.hint, 'Dropdown');
-        this.name = utils.setDefault( props.name, '' );
-        this.value =utils.setDefault( props.value, '' );
+        this.id = util.setDefault( props.id, util.generateRandomString() );
+        this.hint = util.setDefault( props.hint, 'Dropdown');
+        this.name = util.setDefault( props.name, '' );
+        this.value =util.setDefault( props.value, '' );
 
         this.classNamePrefix = 'dropdown';
 
@@ -109,7 +109,7 @@ class Dropdown extends React.Component {
 
     handleClickOutside( event ) {
 
-        if ( utils.isDescendant( event.target, this.domElement ) === false ){
+        if ( util.isDescendant( event.target, this.domElement ) === false ){
                         
             this.close();
         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import utils from './utils.js';
+import util from './util.js';
 
 class FormElementBox extends React.Component {
 
@@ -10,10 +10,10 @@ class FormElementBox extends React.Component {
         this.onError = this.handleError.bind( this );
         this.domElement = null;
 
-        this.title = utils.setDefault( props.title, '' );
-        this.description = utils.setDefault( props.description, '' );
-        this.errorMessage = utils.setDefault( props.errorMessage, '' );
-        this.isValid= utils.setDefault( props.isValid, true );
+        this.title = util.setDefault( props.title, '' );
+        this.description = util.setDefault( props.description, '' );
+        this.errorMessage = util.setDefault( props.errorMessage, '' );
+        this.isValid= util.setDefault( props.isValid, true );
     }
 
     handleError( errorMessage ) {

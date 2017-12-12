@@ -1,5 +1,5 @@
 import React from 'react';
-import utils from './utils.js';
+import util from './util.js';
 import Item from './item.js';
 
 const COMPONENT_NAME = 'options-base';
@@ -13,15 +13,15 @@ class OptionsBaseItem extends React.Component {
 
         this.handleClick = this.handleClick.bind( this );
 
-        this.name = utils.setDefault( props.name, '' );
-        this.text = utils.setDefault( props.text, DEFAULT_OPTION_ITEM_TEXT );
-        this.value = utils.setDefault( props.value, '' );
-        this.isSelected = utils.setDefault( props.isSelected, false );
-        this.classNamePrefix = utils.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        this.name = util.setDefault( props.name, '' );
+        this.text = util.setDefault( props.text, DEFAULT_OPTION_ITEM_TEXT );
+        this.value = util.setDefault( props.value, '' );
+        this.isSelected = util.setDefault( props.isSelected, false );
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
 
         this.item = new Item( this.name, this.text, this.value );
 
-        this.onParentClick = utils.setDefault( props.onClick, () => {} );
+        this.onParentClick = util.setDefault( props.onClick, () => {} );
     }
 
     handleClick() {
@@ -59,11 +59,11 @@ class OptionsBase extends React.Component {
 
         this.handleSelect = this.handleSelect.bind( this );
 
-        this.name = utils.setDefault( props.name, '' );
-        this.classNamePrefix = utils.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        this.name = util.setDefault( props.name, '' );
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
 
-        this.items = utils.setDefault( props.items, [] );
-        this.onParentSelect = utils.setDefault( props.onSelect, () => {} );
+        this.items = util.setDefault( props.items, [] );
+        this.onParentSelect = util.setDefault( props.onSelect, () => {} );
         this.makeItems();
 
         this.itemSelected = new Item();
@@ -72,7 +72,7 @@ class OptionsBase extends React.Component {
         this.state = {
 
             itemSelected: this.itemSelected
-        }
+        };
 
     }
 
@@ -95,13 +95,14 @@ class OptionsBase extends React.Component {
     handleSelect( item ) {
 
         this.itemSelected = this.itemSelected === item ? null : item;
-        utils.toggleArrayItem( item, this.itemsSelected );
+        util.toggleArrayItem( item, this.itemsSelected );
 
         this.onParentSelect( item );
+
         this.setState( { 
 
             itemsSelected: this.itemsSelected
-        } )
+        } );
     }
 
     renderHiddenInput() {

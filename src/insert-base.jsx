@@ -1,6 +1,6 @@
 import React from 'react';
 import rules from './rules.js';
-import utils from './utils.js';
+import util from './util.js';
 
 class InsertBase extends React.Component {
     
@@ -11,14 +11,14 @@ class InsertBase extends React.Component {
         this.handleKeyUp = this.handleKeyUp.bind( this );
         this.handleBlur = this.handleBlur.bind( this );
 
-        this.id = utils.setDefault( props.id, utils.generateRandomString() );
-        this.type = utils.setDefault( props.type, 'text' );
-        this.name = utils.setDefault( props.name, '' );
-        this.hint = utils.setDefault( props.hint, '' );
-        this.value = utils.setDefault( props.value, '' );
-        this.rules = utils.setDefault( props.rules, null );
-        this.classNamePrefix = utils.setDefault( props.classNamePrefix, 'insert-text' );
-        this.onError = utils.setDefault( props.onError, ( errorMessage ) => {} );
+        this.id = util.setDefault( props.id, util.generateRandomString() );
+        this.type = util.setDefault( props.type, 'text' );
+        this.name = util.setDefault( props.name, '' );
+        this.hint = util.setDefault( props.hint, '' );
+        this.value = util.setDefault( props.value, '' );
+        this.rules = util.setDefault( props.rules, null );
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, 'insert-text' );
+        this.onError = util.setDefault( props.onError, ( errorMessage ) => {} );
 
         this.inputElement = null;
     }
@@ -98,8 +98,6 @@ class InsertBase extends React.Component {
         }
     }
 
-    
-    
     renderInput() {
 
         return (

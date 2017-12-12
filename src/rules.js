@@ -1,5 +1,5 @@
 import validator from 'validator';
-import utils from './utils.js';
+import util from './util.js';
 
 const NONE = '';
 const REQUIRED = 'required';
@@ -93,7 +93,7 @@ class LiteralValidator {
  */
 function validateByRuleName( ruleName, options ) {
 
-    let inputValue = utils.setDefault( options.value, '' );
+    let inputValue = util.setDefault( options.value, '' );
     let literalValidator = new LiteralValidator( inputValue );
 
     // console.log( 0, options, inputValue );

@@ -1,7 +1,7 @@
 import React from 'react';
 import DropDown from './dropdown.jsx';
 import OptionsList from './options-list.jsx';
-import utils from './utils.js';
+import util from './util.js';
 
 class DropdownList extends DropDown {
 
@@ -11,8 +11,8 @@ class DropdownList extends DropDown {
 
         this.handleSelect = this.handleSelect.bind( this );
 
-        this.items = utils.setDefault( props.items, [] );
-        this.name = utils.setDefault( props.name, '' );
+        this.items = util.setDefault( props.items, [] );
+        this.name = util.setDefault( props.name, '' );
 
         this.classNamePrefix = 'dropdown-list';
 

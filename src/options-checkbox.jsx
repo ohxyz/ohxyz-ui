@@ -1,5 +1,5 @@
 import React from 'react';
-import utils from './utils.js';
+import util from './util.js';
 import { OptionsBase, OptionsBaseItem } from './options-base.jsx';
 
 const COMPONENT_NAME = 'options-checkbox';
@@ -27,7 +27,7 @@ class OptionsCheckbox extends OptionsBase {
 
         super( props );
 
-        this.classNamePrefix = utils.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
     }
 
     createOptionsItem( props ) {
