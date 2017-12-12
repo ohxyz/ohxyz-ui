@@ -14,3 +14,26 @@ A set of Web UI components built in React
     "webpack": "^3.8.1"
 }
 ```
+### Basic webpack.config.js
+
+```
+module.exports = {
+
+    entry: './src/app.jsx',
+    output: {
+        filename: './test/bundle.js'
+    },
+    module: {
+        rules: [ {
+            test: /\.js[x]{0,1}$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [ 'react' ]
+                }
+            }
+        } ]
+    }
+};
+```
