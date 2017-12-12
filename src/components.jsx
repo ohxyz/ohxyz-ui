@@ -15,6 +15,8 @@ import InsertDateByNumberBox from './insert-date-by-number-box.jsx';
 
 import OptionsBase from './options-base.jsx';
 import OptionsList from './options-list.jsx';
+import OptionsRadio from './options-radio.jsx';
+
 import Dropdown from './dropdown.jsx';
 import DropdownList from './dropdown-list.jsx';
 
@@ -29,8 +31,10 @@ export {
     InsertTextArea,
     InsertDateByText,
     InsertDateByNumber,
+
     OptionsBase,
     OptionsList,
+    OptionsRadio,
 
     FormElementBox,
 

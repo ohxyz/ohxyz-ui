@@ -12,6 +12,7 @@ import {
 
     OptionsBase,
     OptionsList,
+    OptionsRadio,
 
     FormElementBox,
 
@@ -70,16 +71,24 @@ class App extends React.Component {
             { name: '123', 'text': '1 2 3', value: 123 }
         ];
 
+        let questions = [
+
+            'What is the first and last name of your first boyfriend or girlfriend?',
+            'Which phone number do you remember most from your childhood? What is the name of your favorite pet?',
+            'What was your favorite place to visit as a child?',
+
+        ];
+
         return (
             
             <form>
+                <OptionsRadio items={ questions } />
 
                 <OptionsListBox title="Options List Box" items={ [ 'a', 'b', 'c' ] } description="A list" />
-                
+
                 <InsertDateByTextBox 
                     title="Insert Date - Text"
                     description={ description2 }
-
                 />
 
                 <InsertDateByNumberBox 

@@ -2,9 +2,10 @@
 
 /* START: App related */
 
+
 function generateRandomString() {
 
-    return 
+    return Math.random().toString( 36 ).slice( 2 );
 }
 
 function setDefault( defaultValue, otherValue ) {

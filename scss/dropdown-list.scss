@@ -53,7 +53,10 @@ $component: dropdown-list;
             border: $default-border;
             border-bottom-left-radius: $default-border-radius;
             border-bottom-right-radius: $default-border-radius;
+            max-height: 49px * 3 - 1 ;
+
             user-select: none;
+            overflow-y: auto;
 
             .#{$component}-options-list {
 
@@ -63,6 +66,7 @@ $component: dropdown-list;
                     font-size: $default-font-size;
                     line-height: $default-line-height;
                     border-bottom: $default-border;
+
                     cursor: pointer;
 
                     &:last-child {

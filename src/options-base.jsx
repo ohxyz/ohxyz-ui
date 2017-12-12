@@ -3,9 +3,9 @@ import utils from './utils.js';
 import Item from './item.js';
 
 const COMPONENT_NAME = 'options-base';
-const DEFAULT_OPTION_ITEM_TEXT = 'Default item';
+const DEFAULT_OPTION_ITEM_TEXT = 'Options item';
 
-class OptionsItem extends React.Component {
+class OptionsBaseItem extends React.Component {
 
     constructor( props ) {
 
@@ -19,13 +19,16 @@ class OptionsItem extends React.Component {
         this.isSelected = utils.setDefault( props.isSelected, false );
         this.classNamePrefix = utils.setDefault( props.classNamePrefix, COMPONENT_NAME );
 
+        this.item = new Item( this.name, this.text, this.value );
+
         this.onParentClick = utils.setDefault( props.onClick, () => {} );
     }
 
     handleClick() {
 
-        let item = new Item( this.name, this.text, this.value );
-        this.onParentClick( item );
+        this.isSelected = !this.isSelected;
+
+        this.onParentClick( this.item );
     }
 
     renderListContent() {
@@ -68,8 +71,7 @@ class OptionsBase extends React.Component {
 
         this.state = {
 
-            itemSelected: null,
-            itemsSelected: []
+            itemSelected: this.itemSelected
         }
 
     }
@@ -92,14 +94,14 @@ class OptionsBase extends React.Component {
 
     handleSelect( item ) {
 
-        this.itemSelected = item;
+        this.itemSelected = this.itemSelected === item ? null : item;
+        utils.toggleArrayItem( item, this.itemsSelected );
+
         this.onParentSelect( item );
+        this.setState( { 
 
-        this.setState( {
-
-            itemSelected: item
-
-        } );
+            itemsSelected: this.itemsSelected
+        } )
     }
 
     renderHiddenInput() {
@@ -112,6 +114,12 @@ class OptionsBase extends React.Component {
         return <input type="hidden" name={ this.name } value={ this.itemSelected.value } />
     }
 
+    createOptionsItem( propsObject ) {
+
+        return React.createElement( OptionsBaseItem, propsObject );
+
+    }
+
     render() {
 
         let ul = 
@@ -121,18 +129,20 @@ class OptionsBase extends React.Component {
             {
                 this.items.map( ( item, key ) => {
 
-                    return (
+                    let propsObject = {
 
-                        <OptionsItem key={ key } 
-                                     value={ item.value }
-                                     text={ item.text }
-                                     name={ item.name }
-                                     onClick={ this.handleSelect }
-                                     classNamePrefix={ this.classNamePrefix }
-                                     isSelected={ item.isSelected }
-                        />
-                    );
+                        key: key,
+                        value: item.value,
+                        text: item.text,
+                        name: item.name,
+                        onClick: this.handleSelect,
+                        classNamePrefix: this.classNamePrefix,
+                        isSelected: item.isSelected
+                    };
 
+                    let optionsItem = this.createOptionsItem( propsObject );
+
+                    return optionsItem;
                 } )
             }
             </ul>;
@@ -145,6 +155,6 @@ export default OptionsBase;
 
 export {
 
-    OptionsItem,
+    OptionsBaseItem,
     OptionsBase
 };
