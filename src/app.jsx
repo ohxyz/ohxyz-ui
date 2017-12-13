@@ -24,11 +24,15 @@ import {
     InsertDateByNumberBox,
 
     OptionsListBox,
+    OptionsRadioBox,
+    OptionsCheckboxBox,
 
     Dropdown,
     DropdownList,
 
 } from './components.jsx';
+
+import Dummy from './dummy.jsx';
 
 
 class App extends React.Component {
@@ -88,8 +92,10 @@ class App extends React.Component {
         ];
 
         return (
-            
+
             <form>
+                <OptionsRadioBox items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsCheckboxBox items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
 
                 <OptionsCheckbox items={ shorts } />
 

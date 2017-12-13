@@ -13,7 +13,10 @@ class FormElementBox extends React.Component {
         this.title = util.setDefault( props.title, '' );
         this.description = util.setDefault( props.description, '' );
         this.errorMessage = util.setDefault( props.errorMessage, '' );
+
         this.isValid= util.setDefault( props.isValid, true );
+        this.requiredMessage = util.setDefault( props.requiredMessage, '' );
+
     }
 
     handleError( errorMessage ) {
@@ -28,7 +31,6 @@ class FormElementBox extends React.Component {
 
             this.isValid = false;
             this.errorMessage = errorMessage;
-
         }
 
         this.setState( {
@@ -53,6 +55,14 @@ class FormElementBox extends React.Component {
     renderMain() {
 
         return null;
+    }
+
+    renderRequiredMessageIfRequired() {
+
+        if ( this.requiredMessage !== '' ) {
+
+            return <span class="is-required-box">{ this.requiredMessage }</span>
+        }
     }
 
     renderErrorMessageIfInvalid() {
@@ -81,6 +91,7 @@ class FormElementBox extends React.Component {
 
             <div className="form-element-box" ref={ elem => this.domElement = elem } >
                 { this.renderTitle() }
+                { this.renderRequiredMessageIfRequired() }
                 { this.renderMain() }
                 { this.renderErrorMessageIfInvalid() }
                 { this.renderDescription() }

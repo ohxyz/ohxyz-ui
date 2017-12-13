@@ -1,7 +1,6 @@
 import React from 'react';
 import util from './util.js';
-import { Item } from './datatype.js';
-import datatype from './datatype.js';
+import datatype, { Item } from './datatype.js';
 
 const COMPONENT_NAME = 'options-base';
 

@@ -22,6 +22,8 @@ import Dropdown from './dropdown.jsx';
 import DropdownList from './dropdown-list.jsx';
 
 import OptionsListBox from './options-list-box.jsx';
+import OptionsRadioBox from './options-radio-box.jsx';
+import OptionsCheckboxBox from './options-checkbox-box.jsx';
 
 
 export {
@@ -45,7 +47,10 @@ export {
     InsertTextAreaBox,
     InsertDateByTextBox,
     InsertDateByNumberBox,
+
     OptionsListBox,
+    OptionsRadioBox,
+    OptionsCheckboxBox,
 
     Dropdown,
     DropdownList
