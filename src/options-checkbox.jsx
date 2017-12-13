@@ -1,6 +1,7 @@
 import React from 'react';
 import util from './util.js';
 import { OptionsBase, OptionsBaseItem } from './options-base.jsx';
+import datatype from './datatype.js';
 
 const COMPONENT_NAME = 'options-checkbox';
 
@@ -15,7 +16,7 @@ class OptionsCheckboxItem extends OptionsBaseItem {
 
             <React.Fragment>
                 <span className={ iconClassName } />
-                <span className={ textClassName }>{ this.text }</span>
+                <span className={ textClassName }>{ this.item.text }</span>
             </React.Fragment>
         );
     }
@@ -28,13 +29,13 @@ class OptionsCheckbox extends OptionsBase {
         super( props );
 
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        this.type = datatype.OPTIONS_TYPE_MULTIPLE;
     }
 
     createOptionsItem( props ) {
 
         return React.createElement( OptionsCheckboxItem, props );
     }
-
 }
 
 export default OptionsCheckbox;

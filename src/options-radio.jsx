@@ -15,7 +15,7 @@ class OptionsRadioItem extends OptionsBaseItem {
 
             <React.Fragment>
                 <span className={ iconClassName } />
-                <span className={ textClassName }>{ this.text }</span>
+                <span className={ textClassName }>{ this.item.text }</span>
             </React.Fragment>
         );
     }
@@ -35,7 +35,6 @@ class OptionsRadio extends OptionsBase {
 
         return React.createElement( OptionsRadioItem, props );
     }
-
 }
 
 export default OptionsRadio;

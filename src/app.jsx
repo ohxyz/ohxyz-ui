@@ -69,7 +69,7 @@ class App extends React.Component {
  
             { name: 'option1', 'text': 'Option 1', value: 'option1' },
             { name: 'select-me', 'text': 'Select Me', value: 'selectMe', isSelected: true  },
-            { name: '123', 'text': '1 2 3', value: 123 }
+            { name: '123', 'text': '1 2 3', value: 123, isSelected: true }
         ];
 
         let questions = [
@@ -80,11 +80,18 @@ class App extends React.Component {
 
         ];
 
+        let shorts = [
+
+            '&*(&*(',
+            'ueiwoq',
+            ',.vz,c',
+        ];
+
         return (
             
             <form>
 
-                <OptionsCheckbox items={ questions } />
+                <OptionsCheckbox items={ shorts } />
 
                 <OptionsRadio items={ questions } />
 

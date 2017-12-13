@@ -1,9 +1,9 @@
 import React from 'react';
 import util from './util.js';
-import Item from './item.js';
+import { Item } from './datatype.js';
+import datatype from './datatype.js';
 
 const COMPONENT_NAME = 'options-base';
-const DEFAULT_OPTION_ITEM_TEXT = 'Options item';
 
 class OptionsBaseItem extends React.Component {
 
@@ -13,33 +13,26 @@ class OptionsBaseItem extends React.Component {
 
         this.handleClick = this.handleClick.bind( this );
 
-        this.name = util.setDefault( props.name, '' );
-        this.text = util.setDefault( props.text, DEFAULT_OPTION_ITEM_TEXT );
-        this.value = util.setDefault( props.value, '' );
-        this.isSelected = util.setDefault( props.isSelected, false );
+        this.item = util.setDefault( props.item )
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
-
-        this.item = new Item( this.name, this.text, this.value );
 
         this.onParentClick = util.setDefault( props.onClick, () => {} );
     }
 
     handleClick() {
 
-        this.isSelected = !this.isSelected;
-
         this.onParentClick( this.item );
     }
 
     renderListContent() {
 
-        return this.text;
+        return this.item.text;
     }
 
     render() {
 
         let className = this.classNamePrefix + '-item';
-        className += this.isSelected === true ? ' is-selected' : '';
+        className += this.item.isSelected === true ? ' is-selected' : '';
 
         return (
 
@@ -60,14 +53,20 @@ class OptionsBase extends React.Component {
         this.handleSelect = this.handleSelect.bind( this );
 
         this.name = util.setDefault( props.name, '' );
-        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
-
+        this.type = util.setDefault( props.type, datatype.OPTIONS_TYPE_SINGLE );
         this.items = util.setDefault( props.items, [] );
+
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
         this.onParentSelect = util.setDefault( props.onSelect, () => {} );
-        this.makeItems();
 
         this.itemSelected = new Item();
+        this.lastItemSelected = new Item();
         this.itemsSelected = [];
+
+        // If type is single, but more than one item's isSelected: true,
+        // then only last one is selected.
+        this.makeItems();
+
 
         this.state = {
 
@@ -84,7 +83,12 @@ class OptionsBase extends React.Component {
 
             if ( typeof item !== 'object' ) {
 
-                item = new Item( item, item, item );
+                item = new Item( item, item, item, false );
+            }
+            else {
+
+                item = new Item( item.name, item.text, item.value, item.isSelected );
+                this.assignItemsSelected( item );
             }
 
             this.items[ i ] = item;
@@ -92,9 +96,51 @@ class OptionsBase extends React.Component {
 
     }
 
+    assignItemsSelected( item ) {
+
+        if ( item.isSelected === false ) {
+
+            return;
+        }
+
+        if ( this.type === datatype.OPTIONS_TYPE_SINGLE ) {
+
+            this.selectNewItem( item );
+        }
+        else if ( this.type === datatype.OPTIONS_TYPE_MULTIPLE ) {
+
+            this.itemsSelected.push( item );
+        }
+    }
+
+    selectNewItem( item ) {
+
+        this.lastItemSelected = this.itemSelected;
+        this.lastItemSelected.isSelected = false;
+
+        this.itemSelected = item;
+        this.itemSelected.isSelected = true;
+    }
+
+
     handleSelect( item ) {
 
-        this.itemSelected = this.itemSelected === item ? null : item;
+        if ( this.type === datatype.OPTIONS_TYPE_SINGLE ) {
+
+            return this.hanldeSingleSelect( item );
+
+        }
+        else if ( this.type === datatype.OPTIONS_TYPE_MULTIPLE ) {
+
+            return this.handleMutlipleSelect( item );
+        }
+
+    }
+
+    handleMutlipleSelect( item ) {
+
+        item.isSelected = !item.isSelected;
+
         util.toggleArrayItem( item, this.itemsSelected );
 
         this.onParentSelect( item );
@@ -102,7 +148,25 @@ class OptionsBase extends React.Component {
         this.setState( { 
 
             itemsSelected: this.itemsSelected
+
         } );
+
+    }
+
+    hanldeSingleSelect( item ) {
+
+        this.selectNewItem( item );
+
+        // console.log( this.lastItemSelected, this.itemSelected, this.items  );
+
+        this.onParentSelect( item );
+
+        this.setState( {
+
+            itemSelected: this.itemSelected
+
+        } );
+
     }
 
     renderHiddenInput() {
@@ -118,7 +182,6 @@ class OptionsBase extends React.Component {
     createOptionsItem( propsObject ) {
 
         return React.createElement( OptionsBaseItem, propsObject );
-
     }
 
     render() {
@@ -133,12 +196,9 @@ class OptionsBase extends React.Component {
                     let propsObject = {
 
                         key: key,
-                        value: item.value,
-                        text: item.text,
-                        name: item.name,
+                        item: item,
                         onClick: this.handleSelect,
                         classNamePrefix: this.classNamePrefix,
-                        isSelected: item.isSelected
                     };
 
                     let optionsItem = this.createOptionsItem( propsObject );
