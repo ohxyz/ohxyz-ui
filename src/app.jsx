@@ -30,7 +30,8 @@ import {
     Dropdown,
     DropdownList,
 
-    Submit
+    Submit,
+    SubmitBox
 
 } from './components.jsx';
 
@@ -96,6 +97,7 @@ class App extends React.Component {
         return (
 
             <form>
+                <SubmitBox text="Primary button" disabled={ false } />
                 <Submit text="Primary button" disabled={ false } />
                 <OptionsRadioBox name="radio-box" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
                 

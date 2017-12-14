@@ -43,7 +43,6 @@ class Submit extends React.Component {
                    disabled={ this.disabled }
             />
         )
-
     }
 }
 

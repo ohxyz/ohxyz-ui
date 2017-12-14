@@ -14,7 +14,7 @@ $component: submit;
     font-size: $font-large;
     cursor: pointer;
     outline: none;
-    border: none;
+    border-color: $dark-orange;
 
     &:hover {
 
@@ -36,7 +36,5 @@ $component: submit;
             opacity: 0.48;
         }
     }
-
-
 }
 

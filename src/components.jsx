@@ -21,11 +21,13 @@ import OptionsCheckbox from './options-checkbox.jsx';
 import Dropdown from './dropdown.jsx';
 import DropdownList from './dropdown-list.jsx';
 
+import Submit from './submit.jsx';
+
 import OptionsListBox from './options-list-box.jsx';
 import OptionsRadioBox from './options-radio-box.jsx';
 import OptionsCheckboxBox from './options-checkbox-box.jsx';
 
-import Submit from './submit.jsx';
+import SubmitBox from './submit-box.jsx';
 
 
 export {
@@ -50,12 +52,15 @@ export {
     InsertDateByTextBox,
     InsertDateByNumberBox,
 
+    Dropdown,
+    DropdownList,
+
+    Submit,
+
     OptionsListBox,
     OptionsRadioBox,
     OptionsCheckboxBox,
 
-    Dropdown,
-    DropdownList,
+    SubmitBox
 
-    Submit
 };
