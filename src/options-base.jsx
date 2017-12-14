@@ -171,7 +171,7 @@ class OptionsBase extends React.Component {
 
     renderHiddenInputs() {
 
-        console.log( this.name );
+        // console.log( this.name );
 
         return (
 

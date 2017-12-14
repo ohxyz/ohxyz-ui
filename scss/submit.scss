@@ -1,0 +1,42 @@
+@import "_variables";
+
+$component: submit;
+
+.#{$component} {
+
+    font-family: $default-font-family;
+    padding: 12px 30px;
+    border-radius: $default-border-radius;
+    background-color: $dark-orange;
+    line-height: $default-line-height;
+    color: white;
+    font-weight: 600;
+    font-size: $font-large;
+    cursor: pointer;
+    outline: none;
+    border: none;
+
+    &:hover {
+
+        background-color: $dark-orange-hover;
+    }
+
+    &:focus {
+
+        opacity: 0.48;
+    }
+
+    &:disabled {
+
+        opacity: 0.48;
+
+        &:hover {
+
+            background-color: $dark-orange;
+            opacity: 0.48;
+        }
+    }
+
+
+}
+

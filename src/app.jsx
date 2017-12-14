@@ -96,7 +96,7 @@ class App extends React.Component {
         return (
 
             <form>
-                <Submit text="Go" />
+                <Submit text="Primary button" disabled={ false } />
                 <OptionsRadioBox name="radio-box" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
                 
                 <OptionsCheckboxBox name="check-box-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
