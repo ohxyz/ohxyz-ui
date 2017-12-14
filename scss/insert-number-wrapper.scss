@@ -1,6 +1,6 @@
 @import "_variables";
 
-$component: insert-date-by-number-box;
+$component: insert-number-wrapper;
     
 .#{$component} {
 
@@ -14,4 +14,5 @@ $component: insert-date-by-number-box;
         font-weight: bold;
         margin-bottom: 8px;
     }
+
 }

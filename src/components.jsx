@@ -5,13 +5,13 @@ import InsertTextArea from './insert-textarea.jsx';
 import InsertDateByText from './insert-date-by-text.jsx';
 import InsertDateByNumber from './insert-date-by-number.jsx';
 
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 
-import InsertTextBox from './insert-text-box.jsx';
-import InsertNumberBox from './insert-number-box.jsx';
-import InsertTextAreaBox from './insert-textarea-box.jsx';
-import InsertDateByTextBox from './insert-date-by-text-box.jsx';
-import InsertDateByNumberBox from './insert-date-by-number-box.jsx';
+import InsertTextWrapper from './insert-text-wrapper.jsx';
+import InsertNumberWrapper from './insert-number-wrapper.jsx';
+import InsertTextAreaWrapper from './insert-textarea-wrapper.jsx';
+import InsertDateByTextWrapper from './insert-date-by-text-wrapper.jsx';
+import InsertDateByNumberWrapper from './insert-date-by-number-wrapper.jsx';
 
 import OptionsBase from './options-base.jsx';
 import OptionsList from './options-list.jsx';
@@ -23,11 +23,11 @@ import DropdownList from './dropdown-list.jsx';
 
 import Submit from './submit.jsx';
 
-import OptionsListBox from './options-list-box.jsx';
-import OptionsRadioBox from './options-radio-box.jsx';
-import OptionsCheckboxBox from './options-checkbox-box.jsx';
+import OptionsListWrapper from './options-list-wrapper.jsx';
+import OptionsRadioWrapper from './options-radio-wrapper.jsx';
+import OptionsCheckboxWrapper from './options-checkbox-wrapper.jsx';
 
-import SubmitBox from './submit-box.jsx';
+import SubmitWrapper from './submit-wrapper.jsx';
 
 
 export {
@@ -44,23 +44,23 @@ export {
     OptionsRadio,
     OptionsCheckbox,
 
-    FormElementBox,
+    FormElementWrapper,
 
-    InsertTextBox,
-    InsertNumberBox,
-    InsertTextAreaBox,
-    InsertDateByTextBox,
-    InsertDateByNumberBox,
+    InsertTextWrapper,
+    InsertNumberWrapper,
+    InsertTextAreaWrapper,
+    InsertDateByTextWrapper,
+    InsertDateByNumberWrapper,
 
     Dropdown,
     DropdownList,
 
     Submit,
 
-    OptionsListBox,
-    OptionsRadioBox,
-    OptionsCheckboxBox,
+    OptionsListWrapper,
+    OptionsRadioWrapper,
+    OptionsCheckboxWrapper,
 
-    SubmitBox
+    SubmitWrapper
 
 };

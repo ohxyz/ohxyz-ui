@@ -15,23 +15,23 @@ import {
     OptionsRadio,
     OptionsCheckbox,
 
-    FormElementBox,
+    FormElementWrapper,
 
-    InsertTextBox,
-    InsertNumberBox,
-    InsertTextAreaBox,
-    InsertDateByTextBox,
-    InsertDateByNumberBox,
+    InsertTextWrapper,
+    InsertNumberWrapper,
+    InsertTextAreaWrapper,
+    InsertDateByTextWrapper,
+    InsertDateByNumberWrapper,
 
-    OptionsListBox,
-    OptionsRadioBox,
-    OptionsCheckboxBox,
+    OptionsListWrapper,
+    OptionsRadioWrapper,
+    OptionsCheckboxWrapper,
 
     Dropdown,
     DropdownList,
 
     Submit,
-    SubmitBox
+    SubmitWrapper
 
 } from './components.jsx';
 
@@ -94,27 +94,31 @@ class App extends React.Component {
             ',.vz,c',
         ];
 
+        let longText = 'Very very very very very very very very very very very very very very long text';
+
         return (
 
             <form>
-                <SubmitBox text="Primary button" disabled={ false } />
+                <SubmitWrapper title="Press following button" text={ longText } description="By pressing this button, you surrender." />
+
                 <Submit text="Primary button" disabled={ false } />
-                <OptionsRadioBox name="radio-box" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+
+                <OptionsRadioWrapper name="radio-wrapper" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
                 
-                <OptionsCheckboxBox name="check-box-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsCheckboxWrapper name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
 
                 <OptionsCheckbox name="good" items={ shorts } />
 
                 <OptionsRadio name="security-questions" items={ questions } />
 
-                <OptionsListBox title="Options List Box" items={ [ 'a', 'b', 'c' ] } description="A list" />
+                <OptionsListWrapper title="Options List Wrapper" items={ [ 'a', 'b', 'c' ] } description="A list" />
 
-                <InsertDateByTextBox 
+                <InsertDateByTextWrapper 
                     title="Insert Date - Text"
                     description={ description2 }
                 />
 
-                <InsertDateByNumberBox 
+                <InsertDateByNumberWrapper 
                     title="Insert Date by Number - BOX"
                     description={ description3 }
 
@@ -136,20 +140,20 @@ class App extends React.Component {
 
                 <OptionsBase name="x" items={ options } />
 
-                <InsertTextAreaBox title="Insert Textarea Box" 
+                <InsertTextAreaWrapper title="Insert Textarea Wrapper" 
                                    description={ this.description3 }
                                    hint="Only 1, 2, 3..."
                                    rules={ this.nameRules }
                 />
-                <InsertNumberBox title="Insert Number Box" 
+                <InsertNumberWrapper title="Insert Number Wrapper" 
                                description="Input some figure"
                                hint="Only 1, 2, 3..."
                 />
-                <InsertTextBox title="Insert Text Box" 
+                <InsertTextWrapper title="Insert Text Wrapper" 
                                description="Empty"
                                rules={ this.nameRules }
                 />
-                <FormElementBox title="Form Element Box" 
+                <FormElementWrapper title="Form Element Wrapper" 
                                 errorMessage="No errors. Just show off." 
                                 isValid={ false } 
                                 description={ description2 }

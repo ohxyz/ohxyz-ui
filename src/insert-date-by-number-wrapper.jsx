@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertDateByNumber from './insert-date-by-number.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 
-class InsertDateByNumberBox extends FormElementBox {
+class InsertDateByNumberWrapper extends FormElementWrapper {
 
     renderMain() {
 
@@ -13,4 +13,4 @@ class InsertDateByNumberBox extends FormElementBox {
     }
 }
 
-export default InsertDateByNumberBox;
+export default InsertDateByNumberWrapper;

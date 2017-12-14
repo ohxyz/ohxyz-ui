@@ -1,7 +1,7 @@
 import React from 'react';
 import util from './util.js';
 
-class FormElementBox extends React.Component {
+class FormElementWrapper extends React.Component {
 
     constructor( props ) {
 
@@ -50,7 +50,7 @@ class FormElementBox extends React.Component {
             return null;
         }
 
-        return <span className="title-box">{ this.title }</span>
+        return <span className="title-wrapper">{ this.title }</span>
     }
 
     renderMain() {
@@ -62,7 +62,7 @@ class FormElementBox extends React.Component {
 
         if ( this.requiredMessage !== '' ) {
 
-            return <span class="is-required-box">{ this.requiredMessage }</span>
+            return <span class="is-required-wrapper">{ this.requiredMessage }</span>
         }
     }
 
@@ -70,7 +70,7 @@ class FormElementBox extends React.Component {
         
         if ( this.isValid === false ) {
 
-            return <span className="error-message-box">{ this.errorMessage }</span>
+            return <span className="error-message-wrapper">{ this.errorMessage }</span>
         }
         
         return null;
@@ -83,14 +83,14 @@ class FormElementBox extends React.Component {
             return null;
         }
         
-        return <div className="description-box">{ this.description }</div>
+        return <div className="description-wrapper">{ this.description }</div>
     }
 
     render() {
 
         return (
 
-            <div className="form-element-box" ref={ elem => this.domElement = elem } >
+            <div className="form-element-wrapper" ref={ elem => this.domElement = elem } >
                 { this.renderTitle() }
                 { this.renderRequiredMessageIfRequired() }
                 { this.renderMain() }
@@ -102,4 +102,4 @@ class FormElementBox extends React.Component {
 }
 
 
-export default FormElementBox;
+export default FormElementWrapper;

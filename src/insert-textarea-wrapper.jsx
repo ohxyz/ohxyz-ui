@@ -1,15 +1,15 @@
 import React from 'react';
 import InsertTextArea from './insert-textarea.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 
-class InsertTextAreaBox extends FormElementBox {
+class InsertTextAreaWrapper extends FormElementWrapper {
 
     constructor( props ) {
 
         super( props );
 
-        this.className = 'insert-textarea-box';
-        this.classNamePrefix = 'insert-textarea-box';
+        this.className = 'insert-textarea-wrapper';
+        this.classNamePrefix = 'insert-textarea-wrapper';
 
         this.isValid = true;
 
@@ -33,4 +33,4 @@ class InsertTextAreaBox extends FormElementBox {
     }
 }
 
-export default InsertTextAreaBox;
+export default InsertTextAreaWrapper;

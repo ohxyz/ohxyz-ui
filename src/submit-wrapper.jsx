@@ -1,9 +1,9 @@
 import React from 'react';
 import util from './util.js';
 import Submit from './submit.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 
-class SubmitBox extends FormElementBox {
+class SubmitWrapper extends FormElementWrapper {
 
     constructor( props ) {
 
@@ -21,4 +21,4 @@ class SubmitBox extends FormElementBox {
     }
 }
 
-export default SubmitBox;
+export default SubmitWrapper;

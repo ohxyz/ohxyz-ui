@@ -4,7 +4,7 @@ $component: insert-number;
 
 .#{$component} {
 
-    box-sizing: border-box;
+    box-sizing: border-wrapper;
     font-size: $default-font-size;
     padding: $default-padding;
     border-radius: $default-border-radius;

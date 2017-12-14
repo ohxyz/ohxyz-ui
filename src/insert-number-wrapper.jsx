@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertNumber from './insert-number.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 
-class InsertNumberBox extends FormElementBox {
+class InsertNumberWrapper extends FormElementWrapper {
 
     constructor( props ) {
 
@@ -28,4 +28,4 @@ class InsertNumberBox extends FormElementBox {
     }
 }
 
-export default InsertNumberBox;
+export default InsertNumberWrapper;

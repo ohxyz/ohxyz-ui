@@ -1,6 +1,6 @@
 @import "_variables";
 
-$component: insert-text-box;
+$component: insert-textarea-wrapper;
     
 .#{$component} {
 
@@ -14,4 +14,5 @@ $component: insert-text-box;
         font-weight: bold;
         margin-bottom: 8px;
     }
+
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import OptionsList from './options-list.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 import util from './util.js';
 
-class OptionsListBox extends FormElementBox {
+class OptionsListWrapper extends FormElementWrapper {
 
     constructor( props ) {
 
@@ -20,4 +20,4 @@ class OptionsListBox extends FormElementBox {
     }
 }
 
-export default OptionsListBox;
+export default OptionsListWrapper;

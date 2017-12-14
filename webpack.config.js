@@ -1,10 +1,10 @@
 module.exports = {
 
-    entry: './src/green-lpg-form.jsx',
+    entry: './src/app.jsx',
 
     output: {
 
-        filename: './test/green.js'
+        filename: './test/index.js'
     },
 
     module: {

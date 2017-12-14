@@ -1,4 +1,6 @@
-$component: form-element-box;
+@import "_variables";
+
+$component: insert-text-wrapper;
     
 .#{$component} {
 

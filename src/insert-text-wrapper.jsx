@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertText from './insert-text.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 
-class InsertTextBox extends FormElementBox {
+class InsertTextWrapper extends FormElementWrapper {
 
     constructor( props ) {
 
@@ -30,4 +30,4 @@ class InsertTextBox extends FormElementBox {
     }
 }
 
-export default InsertTextBox;
+export default InsertTextWrapper;

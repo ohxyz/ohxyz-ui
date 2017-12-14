@@ -16,7 +16,7 @@ $component: insert-date-by-number;
     .#{$component}-insert-number {
 
         display: inline-block;
-        box-sizing: border-box;
+        box-sizing: border-wrapper;
         font-size: $default-font-size;
         padding: $default-padding;
         border-radius: $default-border-radius;

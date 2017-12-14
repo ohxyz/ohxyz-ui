@@ -15,23 +15,23 @@ import {
     OptionsRadio,
     OptionsCheckbox,
 
-    FormElementBox,
+    FormElementWrapper,
 
-    InsertTextBox,
-    InsertNumberBox,
-    InsertTextAreaBox,
-    InsertDateByTextBox,
-    InsertDateByNumberBox,
+    InsertTextWrapper,
+    InsertNumberWrapper,
+    InsertTextAreaWrapper,
+    InsertDateByTextWrapper,
+    InsertDateByNumberWrapper,
 
-    OptionsListBox,
-    OptionsRadioBox,
-    OptionsCheckboxBox,
+    OptionsListWrapper,
+    OptionsRadioWrapper,
+    OptionsCheckboxWrapper,
 
     Dropdown,
     DropdownList,
 
     Submit,
-    SubmitBox
+    SubmitWrapper
 
 } from './components.jsx';
 

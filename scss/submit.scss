@@ -16,6 +16,7 @@ $component: submit;
     outline: none;
     border-color: $dark-orange;
     width: 100%;
+    white-space: normal; /* Text in button can wrap */
 
     &:hover {
 

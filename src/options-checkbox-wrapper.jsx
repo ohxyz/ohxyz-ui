@@ -1,9 +1,9 @@
 import React from 'react';
 import OptionsCheckbox from './options-checkbox.jsx';
-import FormElementBox from './form-element-box.jsx';
+import FormElementWrapper from './form-element-wrapper.jsx';
 import util from './util.js';
 
-class OptionsCheckboxBox extends FormElementBox {
+class OptionsCheckboxWrapper extends FormElementWrapper {
 
     constructor( props ) {
 
@@ -20,4 +20,4 @@ class OptionsCheckboxBox extends FormElementBox {
     }
 }
 
-export default OptionsCheckboxBox;
+export default OptionsCheckboxWrapper;

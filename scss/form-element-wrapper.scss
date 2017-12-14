@@ -1,6 +1,4 @@
-@import "_variables";
-
-$component: insert-number-box;
+$component: form-element-wrapper;
     
 .#{$component} {
 
@@ -14,5 +12,4 @@ $component: insert-number-box;
         font-weight: bold;
         margin-bottom: 8px;
     }
-
 }
