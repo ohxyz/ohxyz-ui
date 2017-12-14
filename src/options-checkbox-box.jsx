@@ -15,7 +15,7 @@ class OptionsCheckboxBox extends FormElementBox {
 
         return (
 
-            <OptionsCheckbox items={ this.items } />
+            <OptionsCheckbox name={ this.name } items={ this.items } />
         );
     }
 }

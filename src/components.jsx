@@ -25,6 +25,8 @@ import OptionsListBox from './options-list-box.jsx';
 import OptionsRadioBox from './options-radio-box.jsx';
 import OptionsCheckboxBox from './options-checkbox-box.jsx';
 
+import Submit from './submit.jsx';
+
 
 export {
 
@@ -53,5 +55,7 @@ export {
     OptionsCheckboxBox,
 
     Dropdown,
-    DropdownList
+    DropdownList,
+
+    Submit
 };

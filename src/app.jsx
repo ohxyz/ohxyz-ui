@@ -30,6 +30,8 @@ import {
     Dropdown,
     DropdownList,
 
+    Submit
+
 } from './components.jsx';
 
 import Dummy from './dummy.jsx';
@@ -94,12 +96,14 @@ class App extends React.Component {
         return (
 
             <form>
-                <OptionsRadioBox items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
-                <OptionsCheckboxBox items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <Submit text="Go" />
+                <OptionsRadioBox name="radio-box" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                
+                <OptionsCheckboxBox name="check-box-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
 
-                <OptionsCheckbox items={ shorts } />
+                <OptionsCheckbox name="good" items={ shorts } />
 
-                <OptionsRadio items={ questions } />
+                <OptionsRadio name="security-questions" items={ questions } />
 
                 <OptionsListBox title="Options List Box" items={ [ 'a', 'b', 'c' ] } description="A list" />
 
@@ -126,9 +130,9 @@ class App extends React.Component {
 
                 <Dropdown />
 
-                <OptionsList items={ [ 1, 2, 3 ] } />
+                <OptionsList name="y" items={ [ 1, 2, 3 ] } />
 
-                <OptionsBase items={ options } />
+                <OptionsBase name="x" items={ options } />
 
                 <InsertTextAreaBox title="Insert Textarea Box" 
                                    description={ this.description3 }

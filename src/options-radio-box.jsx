@@ -15,7 +15,7 @@ class OptionsRadioBox extends FormElementBox {
 
         return (
 
-            <OptionsRadio items={ this.items } />
+            <OptionsRadio name={ this.name } items={ this.items } />
         );
     }
 }

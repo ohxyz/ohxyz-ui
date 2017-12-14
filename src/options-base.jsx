@@ -66,7 +66,6 @@ class OptionsBase extends React.Component {
         // then only last one is selected.
         this.makeItems();
 
-
         this.state = {
 
             itemSelected: this.itemSelected
@@ -119,6 +118,8 @@ class OptionsBase extends React.Component {
 
         this.itemSelected = item;
         this.itemSelected.isSelected = true;
+
+        this.itemsSelected[ 0 ] = item;
     }
 
 
@@ -168,14 +169,22 @@ class OptionsBase extends React.Component {
 
     }
 
-    renderHiddenInput() {
+    renderHiddenInputs() {
 
-        if ( this.name === '' ) {
+        console.log( this.name );
 
-            return null;
-        }
+        return (
 
-        return <input type="hidden" name={ this.name } value={ this.itemSelected.value } />
+            <React.Fragment>
+            {
+                this.itemsSelected.map( ( item, key ) => { 
+
+                    return <input type="hidden" key={ key } name={ this.name } value={ item.value } />
+                } )
+            }
+            </React.Fragment>
+
+        )
     }
 
     createOptionsItem( propsObject ) {
@@ -185,10 +194,12 @@ class OptionsBase extends React.Component {
 
     render() {
 
+        // console.log( this.name, this.items );
+
         let ul = 
 
             <ul className={ this.classNamePrefix } >
-            { this.renderHiddenInput() }
+            { this.renderHiddenInputs() }
             {
                 this.items.map( ( item, key ) => {
 

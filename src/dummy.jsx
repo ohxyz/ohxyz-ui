@@ -8,29 +8,25 @@ class Dummy extends React.Component {
 
         this.handleClick = this.handleClick.bind( this );
 
-        this.name = this.props.name;
+        this.value = this.props.value;
 
-        this.state = {
+        this.s = { a: 0 };
 
-            content: 'xyz'
-        };
+        this.state = this.s;
     }
 
     handleClick() {
 
-        // this.name = Math.random();
+        this.value = Math.random();
 
-        this.setState( { 
+        // this.s.a = 1;
 
-            content: 'xyz'
-
-        } );
+        this.setState( this.s );
     }
-
 
     render() {
 
-        return <div onClick={ this.handleClick } >{ this.state.content }</div>
+        return <div onClick={ this.handleClick } >{ this.value }</div>
     }
 }
 

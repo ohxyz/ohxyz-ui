@@ -27,8 +27,9 @@ class OptionsRadio extends OptionsBase {
 
         super( props );
 
-        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        console.log( props );
 
+        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
     }
 
     createOptionsItem( props ) {

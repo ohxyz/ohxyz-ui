@@ -13,6 +13,7 @@ class FormElementBox extends React.Component {
         this.title = util.setDefault( props.title, '' );
         this.description = util.setDefault( props.description, '' );
         this.errorMessage = util.setDefault( props.errorMessage, '' );
+        this.name = util.setDefault( props.name, '' );
 
         this.isValid= util.setDefault( props.isValid, true );
         this.requiredMessage = util.setDefault( props.requiredMessage, '' );
