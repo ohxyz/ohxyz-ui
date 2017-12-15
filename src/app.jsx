@@ -116,7 +116,7 @@ class App extends React.Component {
 
                 <SubmitWrapper title="Press following button" text={ longText } description="By pressing this button, you surrender." />
 
-                <Submit text="Primary button" disabled={ false } />
+                <Submit text="Primary button" disabled={ true } />
 
                 <OptionsRadioWrapper name="radio-wrapper" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
                 

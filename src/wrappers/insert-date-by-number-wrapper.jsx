@@ -1,5 +1,5 @@
 import React from 'react';
-import InsertDateByNumber from './insert-date-by-number.jsx';
+import InsertDateByNumber from '../elements/insert-date-by-number.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 
 class InsertDateByNumberWrapper extends FormElementWrapper {

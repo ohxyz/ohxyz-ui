@@ -1,7 +1,7 @@
 import React from 'react';
-import OptionsRadio from './options-radio.jsx';
+import OptionsRadio from '../elements/options-radio.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
-import util from './util.js';
+import util from '../util.js';
 
 class OptionsRadioWrapper extends FormElementWrapper {
 

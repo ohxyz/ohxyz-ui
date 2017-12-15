@@ -1,7 +1,7 @@
 import React from 'react';
-import OptionsCheckbox from './options-checkbox.jsx';
+import OptionsCheckbox from '../elements/options-checkbox.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
-import util from './util.js';
+import util from '../util.js';
 
 class OptionsCheckboxWrapper extends FormElementWrapper {
 

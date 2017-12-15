@@ -1,7 +1,7 @@
 import React from 'react';
-import OptionsList from './options-list.jsx';
+import OptionsList from '../elements/options-list.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
-import util from './util.js';
+import util from '../util.js';
 
 class OptionsListWrapper extends FormElementWrapper {
 

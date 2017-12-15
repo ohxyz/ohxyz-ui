@@ -1,6 +1,6 @@
 import React from 'react';
-import rules from './rules.js';
-import util from './util.js';
+import rules from '../rules.js';
+import util from '../util.js';
 
 class InsertBase extends React.Component {
     
@@ -16,7 +16,7 @@ class InsertBase extends React.Component {
         this.name = util.setDefault( props.name, '' );
         this.hint = util.setDefault( props.hint, '' );
         this.value = util.setDefault( props.value, '' );
-        this.rules = util.setDefault( props.rules, null );
+        this.rules = util.setDefault( props.rules, [] );
         this.classNamePrefix = util.setDefault( props.classNamePrefix, 'insert-text' );
         this.onError = util.setDefault( props.onError, ( errorMessage ) => {} );
 
@@ -113,15 +113,12 @@ class InsertBase extends React.Component {
                    ref={ elem => this.inputElement = elem }
             />
         );
-
     }
 
     render() {
 
         this.makeClassName();
-
         return this.renderInput();
-
     }
 
 }

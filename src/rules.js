@@ -1,14 +1,6 @@
 import validator from 'validator';
 import util from './util.js';
-
-const NONE = '';
-const REQUIRED = 'required';
-const ALPHA_SPACE = 'alpha-space';
-const NUMERIC = 'numeric';
-const ALPHANUMERIC_UNDERSCORE_HYPHEN = 'alphanumeric-underscore-hyphen';
-const POSITIVE_INTEGER = 'positive-integer';
-const TIME = 'time';
-const ENGLISH_NAME = 'english-name';
+import rules from './datatype.js';
 
 class LiteralValidator {
 
@@ -98,23 +90,23 @@ function validateByRuleName( ruleName, options ) {
 
     // console.log( 0, options, inputValue );
 
-    if ( ruleName === NONE ) {
+    if ( ruleName === rules.RULE_NONE ) {
 
         return true;
     }
-    else if ( ruleName === REQUIRED ) {
+    else if ( ruleName === rules.RULE_REQUIRED ) {
 
         return literalValidator.isRequired( inputValue );
     }
-    else if ( ruleName === NUMERIC ) {
+    else if ( ruleName === rules.RULE_NUMERIC ) {
 
         return literalValidator.isNumeric( inputValue );
     }
-    else if ( ruleName === ALPHA_SPACE ) {
+    else if ( ruleName === rules.RULE_ALPHA_SPACE ) {
 
         return literalValidator.isAlphaSpace( inputValue );
     }
-    else if ( ruleName === ENGLISH_NAME ) {
+    else if ( ruleName === rules.RULE_ENGLISH_NAME ) {
 
         return literalValidator.isEnglishName( inputValue );
     }
@@ -123,12 +115,5 @@ function validateByRuleName( ruleName, options ) {
 
 export default {
 
-    NONE,
-    REQUIRED,
-    NUMERIC,
-    ALPHANUMERIC_UNDERSCORE_HYPHEN,
-    POSITIVE_INTEGER,
-    ALPHA_SPACE,
-    ENGLISH_NAME,
     validateByRuleName
 };

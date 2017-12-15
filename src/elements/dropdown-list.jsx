@@ -1,7 +1,7 @@
 import React from 'react';
 import DropDown from './dropdown.jsx';
 import OptionsList from './options-list.jsx';
-import util from './util.js';
+import util from '../util.js';
 
 class DropdownList extends DropDown {
 

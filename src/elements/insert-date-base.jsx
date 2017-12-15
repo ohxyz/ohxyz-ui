@@ -1,6 +1,6 @@
 import React from 'react';
 import InsertText from './insert-text.jsx';
-import util from './util.js';
+import util from '../util.js';
 
 // Todo: allow to set min and max for dates
 class InsertDateBase extends InsertText {

@@ -1,35 +1,34 @@
-import InsertBase from './insert-base.jsx';
-import InsertText from './insert-text.jsx';
-import InsertNumber from './insert-number.jsx';
-import InsertTextArea from './insert-textarea.jsx';
-import InsertDateBase from './insert-date-base.jsx';
-import InsertDateByText from './insert-date-by-text.jsx';
-import InsertDateByNumber from './insert-date-by-number.jsx';
+import InsertBase from './elements/insert-base.jsx';
+import InsertText from './elements/insert-text.jsx';
+import InsertNumber from './elements/insert-number.jsx';
+import InsertTextArea from './elements/insert-textarea.jsx';
+import InsertDateBase from './elements/insert-date-base.jsx';
+import InsertDateByText from './elements/insert-date-by-text.jsx';
+import InsertDateByNumber from './elements/insert-date-by-number.jsx';
 
-import FormElementWrapper from './form-element-wrapper.jsx';
+import OptionsBase from './elements/options-base.jsx';
+import OptionsList from './elements/options-list.jsx';
+import OptionsRadio from './elements/options-radio.jsx';
+import OptionsCheckbox from './elements/options-checkbox.jsx';
 
-import InsertTextWrapper from './insert-text-wrapper.jsx';
-import InsertNumberWrapper from './insert-number-wrapper.jsx';
-import InsertTextAreaWrapper from './insert-textarea-wrapper.jsx';
-import InsertDateByTextWrapper from './insert-date-by-text-wrapper.jsx';
-import InsertDateByNumberWrapper from './insert-date-by-number-wrapper.jsx';
+import Dropdown from './elements/dropdown.jsx';
+import DropdownList from './elements/dropdown-list.jsx';
 
-import OptionsBase from './options-base.jsx';
-import OptionsList from './options-list.jsx';
-import OptionsRadio from './options-radio.jsx';
-import OptionsCheckbox from './options-checkbox.jsx';
+import Submit from './elements/submit.jsx';
 
-import Dropdown from './dropdown.jsx';
-import DropdownList from './dropdown-list.jsx';
+/* --- A wrapper contains a title, a main form element and error messages --- */
 
-import Submit from './submit.jsx';
+import FormElementWrapper from './wrappers/form-element-wrapper.jsx';
 
-import OptionsListWrapper from './options-list-wrapper.jsx';
-import OptionsRadioWrapper from './options-radio-wrapper.jsx';
-import OptionsCheckboxWrapper from './options-checkbox-wrapper.jsx';
-
-import SubmitWrapper from './submit-wrapper.jsx';
-
+import InsertTextWrapper from './wrappers/insert-text-wrapper.jsx';
+import InsertNumberWrapper from './wrappers/insert-number-wrapper.jsx';
+import InsertTextAreaWrapper from './wrappers/insert-textarea-wrapper.jsx';
+import InsertDateByTextWrapper from './wrappers/insert-date-by-text-wrapper.jsx';
+import InsertDateByNumberWrapper from './wrappers/insert-date-by-number-wrapper.jsx';
+import OptionsListWrapper from './wrappers/options-list-wrapper.jsx';
+import OptionsRadioWrapper from './wrappers/options-radio-wrapper.jsx';
+import OptionsCheckboxWrapper from './wrappers/options-checkbox-wrapper.jsx';
+import SubmitWrapper from './wrappers/submit-wrapper.jsx';
 
 export {
 

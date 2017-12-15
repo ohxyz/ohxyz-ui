@@ -1,5 +1,5 @@
 import React from 'react';
-import util from './util.js';
+import util from '../util.js';
 
 class Dropdown extends React.Component {
 

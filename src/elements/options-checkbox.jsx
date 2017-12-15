@@ -1,7 +1,7 @@
 import React from 'react';
-import util from './util.js';
+import util from '../util.js';
 import { OptionsBase, OptionsBaseItem } from './options-base.jsx';
-import datatype from './datatype.js';
+import datatype from '../datatype.js';
 
 const COMPONENT_NAME = 'options-checkbox';
 
