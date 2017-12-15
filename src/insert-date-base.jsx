@@ -3,14 +3,14 @@ import InsertText from './insert-text.jsx';
 import util from './util.js';
 
 // Todo: allow to set min and max for dates
-class InsertDateBase extends React.Component {
+class InsertDateBase extends InsertText {
 
     constructor( props ) {
 
         super( props );
 
         this.classNamePrefix = 'insert-date-base';
-        this.hint = util.setDefault( props.hint, '' );
+        this.hint = util.setDefault( props.hint, 'DD/MM/YYYY' );
         this.name = util.setDefault( props.name, '' );
         this.value = util.setDefault( props.value, '' );
 
@@ -27,15 +27,11 @@ class InsertDateBase extends React.Component {
         return <span className={ this.classNamePrefix + '-delimiter' }>&#47;</span>;
     }
 
-    render() {
-
-        let insertTextClassNamePrefix = this.classNamePrefix + '-insert-text';
+    renderInput() {
 
         return (
 
-            <InsertText classNamePrefix={ insertTextClassNamePrefix }
-                        hint={ this.hint }
-            />
+            <InsertText classNamePrefix={ this.classNamePrefix } hint={ this.hint } />
         );
     }
 

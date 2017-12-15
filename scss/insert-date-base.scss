@@ -1,0 +1,20 @@
+@import "_variables";
+
+$component: insert-date-base;
+
+.#{$component} {
+
+    box-sizing: border-box;
+    font-size: $default-font-size;
+    padding: $default-padding;
+    border-radius: $default-border-radius;
+    border: $default-border;
+    line-height: $default-line-height;
+    width: 100%;
+
+    &:focus {
+
+        outline: none;
+        border-color: $dark-orange;
+    }
+}

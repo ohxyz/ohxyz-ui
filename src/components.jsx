@@ -2,6 +2,7 @@ import InsertBase from './insert-base.jsx';
 import InsertText from './insert-text.jsx';
 import InsertNumber from './insert-number.jsx';
 import InsertTextArea from './insert-textarea.jsx';
+import InsertDateBase from './insert-date-base.jsx';
 import InsertDateByText from './insert-date-by-text.jsx';
 import InsertDateByNumber from './insert-date-by-number.jsx';
 
@@ -36,6 +37,7 @@ export {
     InsertText, 
     InsertNumber, 
     InsertTextArea,
+    InsertDateBase,
     InsertDateByText,
     InsertDateByNumber,
 

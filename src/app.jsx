@@ -7,6 +7,7 @@ import {
     InsertText,
     InsertNumber,
     InsertTextArea,
+    InsertDateBase,
     InsertDateByText,
     InsertDateByNumber,
 
@@ -36,7 +37,6 @@ import {
 } from './components.jsx';
 
 import Dummy from './dummy.jsx';
-
 
 class App extends React.Component {
 
@@ -99,6 +99,21 @@ class App extends React.Component {
         return (
 
             <form>
+                <InsertDateByTextWrapper 
+                    title="Insert Date - Text"
+                    description={ description2 }
+                />
+
+                <InsertDateByNumberWrapper 
+                    title="Insert Date by Number - BOX"
+                    description={ description3 }
+
+                />
+                
+                <InsertDateBase />
+                <InsertDateByText />
+                <InsertDateByNumber />
+
                 <SubmitWrapper title="Press following button" text={ longText } description="By pressing this button, you surrender." />
 
                 <Submit text="Primary button" disabled={ false } />
@@ -113,18 +128,7 @@ class App extends React.Component {
 
                 <OptionsListWrapper title="Options List Wrapper" items={ [ 'a', 'b', 'c' ] } description="A list" />
 
-                <InsertDateByTextWrapper 
-                    title="Insert Date - Text"
-                    description={ description2 }
-                />
 
-                <InsertDateByNumberWrapper 
-                    title="Insert Date by Number - BOX"
-                    description={ description3 }
-
-                />
-                <InsertDateByText />
-                <InsertDateByNumber />
 
                 <DropdownList id="personal-title" 
                               name="personal-title"
