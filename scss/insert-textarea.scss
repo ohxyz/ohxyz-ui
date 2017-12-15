@@ -4,7 +4,7 @@ $component: insert-textarea;
 
 .#{$component} {
 
-    box-sizing: border-wrapper;
+    box-sizing: border-box;
     font-size: $default-font-size;
     padding: $default-padding;
     border-radius: $default-border-radius;

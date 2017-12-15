@@ -94,7 +94,7 @@ class App extends React.Component {
             ',.vz,c',
         ];
 
-        let longText = 'Very very very very very very very very very very very very very very long text';
+        let longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis odio ac ipsum posuere dapibus. In vulputate et lectus sit amet aliquam. Fusce et sagittis lacus, sit amet gravida orci. Integer ac lacinia dolor, vel aliquet quam.';
 
         return (
 
@@ -140,14 +140,16 @@ class App extends React.Component {
 
                 <OptionsBase name="x" items={ options } />
 
-                <InsertTextAreaWrapper title="Insert Textarea Wrapper" 
-                                   description={ this.description3 }
-                                   hint="Only 1, 2, 3..."
-                                   rules={ this.nameRules }
+                <InsertTextAreaWrapper
+                    title="Insert Textarea Wrapper" 
+                    description={ this.description3 }
+                    hint="Only 1, 2, 3..."
+                    rules={ this.nameRules }
                 />
-                <InsertNumberWrapper title="Insert Number Wrapper" 
-                               description="Input some figure"
-                               hint="Only 1, 2, 3..."
+                <InsertNumberWrapper 
+                    title="Insert Number Wrapper" 
+                    description="Input some figure"
+                    hint="Only 1, 2, 3..."
                 />
                 <InsertTextWrapper title="Insert Text Wrapper" 
                                description="Empty"
