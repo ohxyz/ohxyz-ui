@@ -20,7 +20,6 @@ class FormElementWrapper extends React.Component {
 
         this.classNamePrefix = 'form-element-wrapper';
         this.className = '';
-
     }
 
     handleError( errorMessage ) {

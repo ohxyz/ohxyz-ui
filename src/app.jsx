@@ -111,7 +111,7 @@ class App extends React.Component {
 
                 <InsertTextWrapper 
                     title="Insert Text Wrapper" 
-                    description="Empty"
+                    description="NO desCRIpt1on"
                     rules={ rules }
                 />
                 <InsertDateByTextWrapper 
