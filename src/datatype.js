@@ -1,3 +1,7 @@
+/* Collection of definition of data types and structures 
+ *
+ *
+ */
 
 class Item {
 
@@ -10,25 +14,24 @@ class Item {
     }
 }
 
-export {
+module.exports = {
 
     Item,
-};
-
-export default {
 
     OPTIONS_TYPE_SINGLE: 'single',
     OPTIONS_TYPE_MULTIPLE: 'multiple',
     DEFAULT_OPTION_ITEM_TEXT: '',
 
-    RULE_NONE: '',
-    RULE_REQUIRED: 'required',
-    RULE_ALPHA_SPACE: 'alpha-space',
-    RULE_NUMERIC: 'numeric',
-    RULE_ALPHANUMERIC_UNDERSCORE_HYPHEN: 'alphanumeric-underscore-hyphen',
-    RULE_POSITIVE_INTEGER: 'positive-integer',
-    RULE_TIME: 'time',
-    RULE_ENGLISH_NAME: 'english-name',
-    RULE_DIGIT: 'digit'
+    rules: {
 
+        NONE: '',
+        REQUIRED: 'required',
+        ALPHA_SPACE: 'alpha-space',
+        NUMERIC: 'numeric',
+        ALPHANUMERIC_UNDERSCORE_HYPHEN: 'alphanumeric-underscore-hyphen',
+        POSITIVE_INTEGER: 'positive-integer',
+        TIME: 'time',
+        ENGLISH_NAME: 'english-name',
+        DIGIT: 'digit',
+    }
 };

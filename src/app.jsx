@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import rules from './rules.js';
+import dataType from './datatype.js';
 import {
 
     InsertBase,
@@ -43,6 +43,8 @@ class App extends React.Component {
     constructor( props ) {
 
         super( props );
+
+        const rules = dataType.rules;
 
         this.nameRules = [
 
@@ -96,9 +98,22 @@ class App extends React.Component {
 
         let longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis odio ac ipsum posuere dapibus. In vulputate et lectus sit amet aliquam. Fusce et sagittis lacus, sit amet gravida orci. Integer ac lacinia dolor, vel aliquet quam.';
 
+        let rules = [
+
+            { name: dataType.rules.REQUIRED, meta: { error: 'Required!' } },
+
+            { name: dataType.rules.NUMERIC, meta: { error: 'Between 10 - 20', min: 10, max: 20 } }
+        ];
+
         return (
 
             <form>
+
+                <InsertTextWrapper 
+                    title="Insert Text Wrapper" 
+                    description="Empty"
+                    rules={ rules }
+                />
                 <InsertDateByTextWrapper 
                     title="Insert Date - Text"
                     description={ description2 }
@@ -155,10 +170,7 @@ class App extends React.Component {
                     description="Input some figure"
                     hint="Only 1, 2, 3..."
                 />
-                <InsertTextWrapper title="Insert Text Wrapper" 
-                               description="Empty"
-                               rules={ this.nameRules }
-                />
+
                 <FormElementWrapper title="Form Element Wrapper" 
                                 errorMessage="No errors. Just show off." 
                                 isValid={ false } 

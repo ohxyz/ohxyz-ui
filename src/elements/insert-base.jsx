@@ -1,5 +1,5 @@
 import React from 'react';
-import rules from '../rules.js';
+import validate from '../validate.js';
 import util from '../util.js';
 
 class InsertBase extends React.Component {
@@ -39,12 +39,19 @@ class InsertBase extends React.Component {
 
             let rule = this.rules[ i ];
 
-            let isValid = rules.validateByRuleName( rule.name, { value: this.value } );
+            let ruleObject = Object.assign( {
+
+                name: rule.name,
+                value: this.value
+
+            }, rule.meta );
+            
+            let isValid = validate.validateByRule( ruleObject );
 
             if ( isValid === false ) {
 
                 this.isValid = false;
-                this.errorMessage = rule.error;
+                this.errorMessage = rule.meta.error;
 
                 break;
             }
