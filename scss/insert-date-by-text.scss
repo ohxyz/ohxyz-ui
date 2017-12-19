@@ -29,19 +29,20 @@ $component: insert-date-by-text;
             border-color: $red;
         }
 
-        
-
         &:focus {
 
             outline: none;
             border-color: $dark-orange;
+
+            &.is-invalid {
+
+                border-color: $red;
+            }
         }
 
         &:last-child {
 
             width: 98px;
         }
-
-
     }
 }

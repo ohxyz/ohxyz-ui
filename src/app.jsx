@@ -100,7 +100,7 @@ class App extends React.Component {
 
         let rules = [
 
-            { name: dataType.rules.REQUIRED, meta: { error: 'Required!' } },
+            // { name: dataType.rules.REQUIRED, meta: { error: 'Required!' } },
 
             { name: dataType.rules.NUMERIC, meta: { error: 'Between 10 - 20', min: 10, max: 20 } }
         ];

@@ -50,6 +50,11 @@ class StringValidator {
 
     isNumeric() {
 
+        if ( this.sanitizedInputString === '' ) {
+
+            return true;
+        }
+
         let min = parseFloat( util.setDefault( this.options.min, -Infinity ) );
         let max = parseFloat( util.setDefault( this.options.max, Infinity ) );
         let maxLength = util.setDefault( this.options.length, Infinity );

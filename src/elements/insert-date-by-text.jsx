@@ -19,23 +19,21 @@ class InsertDateByText extends InsertDateBase {
 
         this.dayRule = [
 
-            { name: dataType.rules.NUMERIC, meta: { error: 'Days must be between 1 and 31', min: 1, max: 31 } }
+            { name: dataType.rules.NUMERIC, meta: { error: 'Day must be between 1 and 31', min: 1, max: 31 } }
         ];
 
         this.monthRule = [
 
-            { name: dataType.rules.NUMERIC, meta: { error: 'Months must be between 1 and 12', min: 1, max: 12 } }
-
+            { name: dataType.rules.NUMERIC, meta: { error: 'Month must be between 1 and 12', min: 1, max: 12 } }
         ];
 
         this.yearRule = [
 
-            { name: dataType.rules.NUMERIC, meta: { error: 'Years must be between 1000 and 9999', min: 1000, max: 9999 } }
-
+            { name: dataType.rules.NUMERIC, meta: { error: 'Year must be between 1000 and 9999', min: 1000, max: 9999 } }
         ]
     }
 
-    handleError( errorMessage ) {
+    handleError() {
 
         // If there are multiple errors, always show day error first, year error last.
 
@@ -64,19 +62,19 @@ class InsertDateByText extends InsertDateBase {
     handleDayError( errorMessage ) {
 
         this.errorMessageOfDay = errorMessage;
-        this.handleError( errorMessage );
+        this.handleError();
     }
 
     handleMonthError( errorMessage ) {
 
         this.errorMessageOfMonth = errorMessage;
-        this.handleError( errorMessage );
+        this.handleError();
     }
 
     handleYearError( errorMessage ) {
 
         this.errorMessageOfYear = errorMessage;
-        this.handleError( errorMessage );
+        this.handleError();
     }
 
     render() {
