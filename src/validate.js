@@ -85,12 +85,11 @@ class StringValidator {
 
 function validateByRule( ruleObject ) {
 
-    let inputValue = util.setDefault( ruleObject.value, '' );
+    let inputString = util.setDefault( ruleObject.value, '' );
     let ruleName = util.setDefault( ruleObject.name, rules.NONE );
 
-    let stringValidator = new StringValidator( inputValue, ruleObject );
+    let stringValidator = new StringValidator( inputString, ruleObject );
 
-    
     if ( ruleName === rules.NONE ) {
 
         return true;

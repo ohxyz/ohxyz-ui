@@ -17,4 +17,9 @@ $component: insert-text;
         outline: none;
         border-color: $dark-orange;
     }
+
+    &.is-invalid {
+
+        border-color: $red;
+    }
 }

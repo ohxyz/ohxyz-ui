@@ -24,6 +24,13 @@ $component: insert-date-by-text;
         line-height: $default-line-height;
         width: 68px;
 
+        &.is-invalid {
+
+            border-color: $red;
+        }
+
+        
+
         &:focus {
 
             outline: none;
@@ -34,5 +41,7 @@ $component: insert-date-by-text;
 
             width: 98px;
         }
+
+
     }
 }

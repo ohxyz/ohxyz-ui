@@ -13,9 +13,10 @@ class InsertDateBase extends InsertText {
         this.hint = util.setDefault( props.hint, 'DD/MM/YYYY' );
         this.name = util.setDefault( props.name, '' );
         this.value = util.setDefault( props.value, '' );
-
+        this.errorMessage = '';
     }
 
+    // Reserve for subclass
     renderHiddenInput() {
 
         return <input type="hidden" name={ this.name } value={ this.value } />;

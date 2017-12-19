@@ -18,6 +18,9 @@ class FormElementWrapper extends React.Component {
         this.isValid= util.setDefault( props.isValid, true );
         this.requiredMessage = util.setDefault( props.requiredMessage, '' );
 
+        this.classNamePrefix = 'form-element-wrapper';
+        this.className = '';
+
     }
 
     handleError( errorMessage ) {
@@ -43,6 +46,17 @@ class FormElementWrapper extends React.Component {
 
     }
 
+    makeClassName() {
+
+        this.className = this.classNamePrefix;
+
+        if ( this.isValid === false ) {
+
+            this.className += ' is-invalid';
+        }
+
+    }
+
     renderTitle() {
 
         if ( this.title === '' ) {
@@ -50,7 +64,7 @@ class FormElementWrapper extends React.Component {
             return null;
         }
 
-        return <span className="title-wrapper">{ this.title }</span>
+        return <span className="title">{ this.title }</span>
     }
 
     renderMain() {
@@ -62,7 +76,7 @@ class FormElementWrapper extends React.Component {
 
         if ( this.requiredMessage !== '' ) {
 
-            return <span class="is-required-wrapper">{ this.requiredMessage }</span>
+            return <span class="is-required">{ this.requiredMessage }</span>
         }
     }
 
@@ -70,7 +84,7 @@ class FormElementWrapper extends React.Component {
         
         if ( this.isValid === false ) {
 
-            return <span className="error-message-wrapper">{ this.errorMessage }</span>
+            return <span className="error-message">{ this.errorMessage }</span>
         }
         
         return null;
@@ -83,14 +97,16 @@ class FormElementWrapper extends React.Component {
             return null;
         }
         
-        return <div className="description-wrapper">{ this.description }</div>
+        return <div className="description">{ this.description }</div>
     }
 
     render() {
 
+        this.makeClassName();
+
         return (
 
-            <div className="form-element-wrapper" ref={ elem => this.domElement = elem } >
+            <div className={ this.className } ref={ elem => this.domElement = elem } >
                 { this.renderTitle() }
                 { this.renderRequiredMessageIfRequired() }
                 { this.renderMain() }

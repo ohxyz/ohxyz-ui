@@ -8,7 +8,7 @@ class InsertDateByTextWrapper extends FormElementWrapper {
 
         return (
 
-            <InsertDateByText />
+            <InsertDateByText onError={ this.onError }/>
         );
     }
 }
