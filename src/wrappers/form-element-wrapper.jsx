@@ -7,13 +7,13 @@ class FormElementWrapper extends React.Component {
 
         super( props );
 
-        this.onError = this.handleError.bind( this );
         this.domElement = null;
 
         this.title = util.setDefault( props.title, '' );
         this.description = util.setDefault( props.description, '' );
         this.errorMessage = util.setDefault( props.errorMessage, '' );
         this.name = util.setDefault( props.name, '' );
+        this.rules = util.setDefault( props.rules, [] );
 
         this.isValid= util.setDefault( props.isValid, true );
         this.requiredMessage = util.setDefault( props.requiredMessage, '' );
@@ -35,13 +35,6 @@ class FormElementWrapper extends React.Component {
             this.isValid = false;
             this.errorMessage = errorMessage;
         }
-
-        this.setState( {
-
-            isValid: this.isValid,
-            errorMessage: this.errorMessage
-
-        } );
 
     }
 
@@ -99,13 +92,22 @@ class FormElementWrapper extends React.Component {
         return <div className="description">{ this.description }</div>
     }
 
+    updateUI() {
+
+        this.forceUpdate();
+    }
+
     render() {
 
         this.makeClassName();
 
         return (
 
-            <div className={ this.className } ref={ elem => this.domElement = elem } >
+            <div 
+                className={ this.className } 
+                ref={ elem => this.domElement = elem }
+                onChange={ this.updateUI.bind( this ) }
+            >
                 { this.renderTitle() }
                 { this.renderRequiredMessageIfRequired() }
                 { this.renderMain() }

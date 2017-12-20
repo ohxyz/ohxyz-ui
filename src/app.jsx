@@ -116,13 +116,13 @@ class App extends React.Component {
                 />
                 <InsertDateByTextWrapper 
                     title="Insert Date - Text"
+                    name="my-insert-date"
                     description={ description2 }
                 />
 
                 <InsertDateByNumberWrapper 
                     title="Insert Date by Number - BOX"
                     description={ description3 }
-
                 />
                 
                 <InsertDateBase />
@@ -180,7 +180,7 @@ class App extends React.Component {
                 <InsertNumber name="my-insert-number" hint="hint number" value="100" />
                 <InsertText name="my-insert-text" hint="hint text" />
 
-                <InsertBase name="my-insert-base" rules={ this.nameRules } />
+                <InsertBase name="my-insert-base" rules={ this.rules } />
 
             </form>
         )

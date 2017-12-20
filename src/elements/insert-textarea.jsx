@@ -19,8 +19,8 @@ class InsertTextArea extends InsertBase {
                       className={ this.className }
                       placeholder={ this.hint }
                       name={ this.name }
-                      onBlur={ this.handleBlur }
-                      onKeyUp={ this.handleKeyUp }
+                      onBlur={ this.handleBlur.bind( this ) }
+                      onChange={ this.handleChange.bind( this ) }
                       defaultValue={ this.value }
                       ref={ elem => this.inputElement = elem }
             >

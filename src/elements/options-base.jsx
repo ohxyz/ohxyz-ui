@@ -1,6 +1,6 @@
 import React from 'react';
 import util from '../util.js';
-import datatype, { Item } from '../datatype.js';
+import dataType, { Item } from '../datatype.js';
 
 const COMPONENT_NAME = 'options-base';
 
@@ -52,7 +52,7 @@ class OptionsBase extends React.Component {
         this.handleSelect = this.handleSelect.bind( this );
 
         this.name = util.setDefault( props.name, '' );
-        this.type = util.setDefault( props.type, datatype.OPTIONS_TYPE_SINGLE );
+        this.type = util.setDefault( props.type, dataType.OPTIONS_TYPE_SINGLE );
         this.items = util.setDefault( props.items, [] );
 
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
@@ -101,11 +101,11 @@ class OptionsBase extends React.Component {
             return;
         }
 
-        if ( this.type === datatype.OPTIONS_TYPE_SINGLE ) {
+        if ( this.type === dataType.OPTIONS_TYPE_SINGLE ) {
 
             this.selectNewItem( item );
         }
-        else if ( this.type === datatype.OPTIONS_TYPE_MULTIPLE ) {
+        else if ( this.type === dataType.OPTIONS_TYPE_MULTIPLE ) {
 
             this.itemsSelected.push( item );
         }
@@ -125,12 +125,12 @@ class OptionsBase extends React.Component {
 
     handleSelect( item ) {
 
-        if ( this.type === datatype.OPTIONS_TYPE_SINGLE ) {
+        if ( this.type === dataType.OPTIONS_TYPE_SINGLE ) {
 
             return this.hanldeSingleSelect( item );
 
         }
-        else if ( this.type === datatype.OPTIONS_TYPE_MULTIPLE ) {
+        else if ( this.type === dataType.OPTIONS_TYPE_MULTIPLE ) {
 
             return this.handleMutlipleSelect( item );
         }

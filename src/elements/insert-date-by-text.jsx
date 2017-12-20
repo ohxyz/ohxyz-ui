@@ -10,12 +10,15 @@ class InsertDateByText extends InsertDateBase {
 
         super( props );
 
-        this.handleError = this.handleError.bind( this );
         this.classNamePrefix = 'insert-date-by-text';
 
         this.errorMessageOfDay = '';
         this.errorMessageOfMonth = '';
         this.errorMessageOfYear = '';
+
+        this.day = 0;
+        this.month = 0;
+        this.year = 0;
 
         this.dayRule = [
 
@@ -30,7 +33,7 @@ class InsertDateByText extends InsertDateBase {
         this.yearRule = [
 
             { name: dataType.rules.NUMERIC, meta: { error: 'Year must be between 1000 and 9999', min: 1000, max: 9999 } }
-        ]
+        ];
     }
 
     handleError() {
@@ -77,6 +80,25 @@ class InsertDateByText extends InsertDateBase {
         this.handleError();
     }
 
+    handleChange( event, dayMonthOrYear ) {
+
+        this[ dayMonthOrYear ] = event.target.value;
+
+        this.value = this.makeValue();
+
+        console.log( '8888', this.value );
+    }
+
+    makeValue() {
+
+        return `${ this.day }/${ this.month }/${ this.year }`;
+    }
+
+    renderHiddenInput() {
+
+        return <input type="hidden" name={ this.name } value={ this.value } />
+    }
+
     render() {
 
         let insertTextClassNamePrefix = this.classNamePrefix + '-insert-text';
@@ -84,10 +106,12 @@ class InsertDateByText extends InsertDateBase {
         return (
 
             <div className={ this.classNamePrefix }>
+                { this.renderHiddenInput() }
                 <InsertText
                     classNamePrefix={ insertTextClassNamePrefix }
                     rules={ this.dayRule }
                     onError={ this.handleDayError.bind( this ) }
+                    onChange={ ( event ) => { this.handleChange( event, 'day') } }
                     hint="DD"
                 />
                 { this.renderDelimiter() }
@@ -95,6 +119,7 @@ class InsertDateByText extends InsertDateBase {
                     classNamePrefix={ insertTextClassNamePrefix }
                     hint="MM"
                     rules={ this.monthRule }
+                    onChange={ ( event ) => { this.handleChange( event, 'month') } }
                     onError={ this.handleMonthError.bind( this ) }
                 />
                 { this.renderDelimiter() }
@@ -102,6 +127,7 @@ class InsertDateByText extends InsertDateBase {
                     classNamePrefix={ insertTextClassNamePrefix }
                     hint="YYYY"
                     rules={ this.yearRule }
+                    onChange={ ( event ) => { this.handleChange( event, 'year') } }
                     onError={ this.handleYearError.bind( this ) }
                 />
             </div>

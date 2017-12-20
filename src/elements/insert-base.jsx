@@ -8,9 +8,6 @@ class InsertBase extends React.Component {
         
         super( props );
 
-        this.handleKeyUp = this.handleKeyUp.bind( this );
-        this.handleBlur = this.handleBlur.bind( this );
-
         this.id = util.setDefault( props.id, util.generateRandomString() );
         this.type = util.setDefault( props.type, 'text' );
         this.name = util.setDefault( props.name, '' );
@@ -18,7 +15,10 @@ class InsertBase extends React.Component {
         this.value = util.setDefault( props.value, '' );
         this.rules = util.setDefault( props.rules, [] );
         this.classNamePrefix = util.setDefault( props.classNamePrefix, 'insert-text' );
-        this.onError = util.setDefault( props.onError, ( errorMessage ) => {} );
+
+        this.onPropsError = util.setDefault( props.onError, ( errorMessage ) => {} );
+        this.onPropsBlur = util.setDefault( props.onBlur, ( event ) => {} );
+        this.onPropsChange = util.setDefault( props.onChange, ( event ) => {} );
 
         this.inputElement = null;
     }
@@ -59,33 +59,35 @@ class InsertBase extends React.Component {
 
                 this.isValid = true;
                 this.errorMessage = '';
-
             }
         }
     }
 
 
-    handleBlur() {
+    handleBlur( event ) {
         
         if ( this.isValidationRequired() === true ) {
             
             this.validateInputValue();
-            this.onError( this.errorMessage );
+            this.onPropsError( this.errorMessage );
         }
+
+
+        this.onPropsBlur( event );
 
     }
     
-    handleKeyUp() {
+    handleChange( event ) {
         
         this.value = this.inputElement.value;
         
         if ( this.isValidationRequired() === true ) {
 
             this.validateInputValue();
-            this.onError( this.errorMessage );
+            this.onPropsError( this.errorMessage );
         }
 
-        // console.log( 0, this.errorMessage );
+        this.onPropsChange( event );
     }
     
     makeClassName() {
@@ -113,8 +115,8 @@ class InsertBase extends React.Component {
                    name={ this.name }
                    defaultValue={ this.value }
                    placeholder={ this.hint }
-                   onBlur={ this.handleBlur }
-                   onKeyUp={ this.handleKeyUp }
+                   onBlur={ this.handleBlur.bind( this ) }
+                   onChange={ this.handleChange.bind( this ) }
                    ref={ elem => this.inputElement = elem }
             />
         );

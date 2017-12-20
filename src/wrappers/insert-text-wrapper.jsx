@@ -24,7 +24,7 @@ class InsertTextWrapper extends FormElementWrapper {
 
             <InsertText rules={ this.props.rules }
                         hint={ this.props.hint }
-                        onError={ this.onError }
+                        onError={ this.handleError.bind( this ) }
             />
         );
     }
