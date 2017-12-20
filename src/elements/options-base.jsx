@@ -62,6 +62,8 @@ class OptionsBase extends React.Component {
         this.lastItemSelected = new Item();
         this.itemsSelected = [];
 
+        this.isHiddenValueRequired = true;
+
         // If type is single, but more than one item's isSelected: true,
         // then only last one is selected.
         this.makeItems();
@@ -156,9 +158,6 @@ class OptionsBase extends React.Component {
     hanldeSingleSelect( item ) {
 
         this.selectNewItem( item );
-
-        // console.log( this.lastItemSelected, this.itemSelected, this.items  );
-
         this.onParentSelect( item );
 
         this.setState( {
@@ -171,7 +170,10 @@ class OptionsBase extends React.Component {
 
     renderHiddenInputs() {
 
-        // console.log( this.name );
+        if ( this.isHiddenValueRequired === false ) {
+
+            return null;
+        }
 
         return (
 
@@ -184,7 +186,7 @@ class OptionsBase extends React.Component {
             }
             </React.Fragment>
 
-        )
+        );
     }
 
     createOptionsItem( propsObject ) {
@@ -193,8 +195,6 @@ class OptionsBase extends React.Component {
     }
 
     render() {
-
-        // console.log( this.name, this.items );
 
         let ul = 
 
@@ -207,6 +207,7 @@ class OptionsBase extends React.Component {
 
                         key: key,
                         item: item,
+                        name: this.name,
                         onClick: this.handleSelect,
                         classNamePrefix: this.classNamePrefix,
                     };
