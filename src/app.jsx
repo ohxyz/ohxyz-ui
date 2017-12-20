@@ -163,7 +163,7 @@ class App extends React.Component {
                     title="Insert Textarea Wrapper" 
                     description={ this.description3 }
                     hint="Only 1, 2, 3..."
-                    rules={ this.nameRules }
+                    rules={ rules }
                 />
                 <InsertNumberWrapper 
                     title="Insert Number Wrapper" 

@@ -8,9 +8,6 @@ class InsertTextAreaWrapper extends FormElementWrapper {
 
         super( props );
 
-        this.className = 'insert-textarea-wrapper';
-        this.classNamePrefix = 'insert-textarea-wrapper';
-
         this.isValid = true;
 
         this.state = {

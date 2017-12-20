@@ -92,7 +92,8 @@ class FormElementWrapper extends React.Component {
         return <div className="description">{ this.description }</div>
     }
 
-    updateUI() {
+    // Todo: Check event.target
+    updateUI( event ) {
 
         this.forceUpdate();
     }
