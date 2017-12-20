@@ -15,7 +15,7 @@ class OptionsCheckboxItem extends OptionsBaseItem {
         return (
 
             <React.Fragment>
-                <span className={ iconClassName } />
+                <input type="checkbox" className={ iconClassName } />
                 <span className={ textClassName }>{ this.item.text }</span>
             </React.Fragment>
         );

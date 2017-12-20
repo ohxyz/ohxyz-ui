@@ -5,6 +5,55 @@
     <title>Form elements</title>
     <meta name="description" content="Basic HTML5 template">
     <meta name="author" content="My Name">
+    <style>
+
+        li {
+
+            position: relative;
+            background-color: #eeeeee;
+        }
+
+        input[type="checkbox"] {
+
+            visibility: hidden;
+            display: block;
+        }
+
+
+        input[type="checkbox"]:before {
+
+            content: "";
+            position: absolute;
+            visibility: visible;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+
+        input[type="checkbox"]:checked:after {
+
+            content: "";
+            position: absolute;
+            visibility: visible;
+            display: block;
+            left: 9px;
+            top: 4px;
+            border-bottom: 4px solid orange;
+            border-right: 4px solid orange;
+            border-left: 1px solid transparent;
+            border-top: 1px solid transparent;
+            border-radius: 1px;
+            width: 4px;
+            height: 10px;
+            transform: rotate(45deg);
+        }
+
+
+    </style>
 </head>
 <body>
     <form method="POST" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
@@ -12,6 +61,12 @@
         <input type="hidden" name="unseen" value="x1" />
         <input type="hidden" name="unseen" value="x2" />
         <input type="hidden" name="unseen" value="x3" />
+
+        <ul>
+            <li><input type="checkbox" name="my-checkbox-1" value="a" /></li>
+            <li><input type="checkbox" name="my-checkbox-1" value="b" /></li>
+            <li><input type="checkbox" name="my-checkbox-1" value="c" /></li>
+        </ul>
 
         <input type="number" name="name-num" value="10" min="-Infinity"/>
 
@@ -27,8 +82,11 @@
         
         <br />
 
-        <input name="check" type="checkbox" value="x" />Check me
-        <input name="check" type="checkbox" value="y" />Check me again
+        <div style="position: relative;">
+            <input name="check" type="checkbox" value="x" />Check me
+            <input name="check" type="checkbox" value="y" />Check me again
+        </div>
+
         <br />
 
         <input type="radio" name="radiobox" value="a" checked style="display:none" />Radio 1

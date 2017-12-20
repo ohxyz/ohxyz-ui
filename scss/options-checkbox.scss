@@ -14,36 +14,39 @@ $component: options-checkbox;
 
         .#{$component}-icon {
 
+            visibility: hidden;
             position: absolute;
-            top: 12px;
-            left: 0;
-            box-sizing: border-box;
-            width: 24px;
-            height: 24px;
-            border: 1px solid $black;
-            border-radius: $default-border-radius;
-
+            cursor: pointer;
+            
             &:before {
 
-                position: absolute;
                 content: "";
-                width: 4px;
-                height: 14px;
-                top: 4px;
-                left: 10px;
+                position: absolute;
+                visibility: visible;
+                display: block;
+                top: -3px;
+                left: -3px;
+                width: 24px;
+                height: 24px;
                 border-radius: 3px;
-                transform: rotate( 45deg );
+                box-sizing: border-box;
+                border: 1px solid $black;
             }
 
-            &:after {
+            &:checked:after {
 
-                position: absolute;
                 content: "";
-                width: 8px;
-                height: 4px;
-                top: 11px;
-                left: 3px;
-                border-radius: 3px;
+                position: absolute;
+                visibility: visible;
+                display: block;
+                left: 5px;
+                top: 1px;
+                border-bottom: 4px solid $dark-orange;
+                border-right: 4px solid $dark-orange;
+                border-radius: 1px;
+                border-bottom-right-radius: 2px;
+                width: 4px;
+                height: 10px;
                 transform: rotate( 45deg );
             }
         }
@@ -54,18 +57,6 @@ $component: options-checkbox;
             margin-left: 39px;
         }
 
-        &.is-selected {
 
-            .#{$component}-icon:before {
-
-                background-color: $dark-orange;
-            }
-
-            .#{$component}-icon:after {
-
-                background-color: $dark-orange;
-            }
-
-        }
     }
 }

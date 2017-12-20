@@ -3,6 +3,10 @@ import InsertText from './insert-text.jsx';
 import InsertDateBase from './insert-date-base.jsx';
 import dataType from '../datatype.js';
 
+const DAY_ERROR_MESSAGE = 'Day must be digits only, between 1 and 31';
+const MONTH_ERROR_MESSAGE = 'Month must be digits only, between 1 and 12';
+const YEAR_ERROR_MESSAGE = 'Year must be digits only, between 1000 and 9999';
+
 // Todo: allow to set min and max for dates
 class InsertDateByText extends InsertDateBase {
 
@@ -22,17 +26,17 @@ class InsertDateByText extends InsertDateBase {
 
         this.dayRule = [
 
-            { name: dataType.rules.NUMERIC, meta: { error: 'Day must be between 1 and 31', min: 1, max: 31 } }
+            { name: dataType.rules.NUMERIC, meta: { error: DAY_ERROR_MESSAGE, min: 1, max: 31 } }
         ];
 
         this.monthRule = [
 
-            { name: dataType.rules.NUMERIC, meta: { error: 'Month must be between 1 and 12', min: 1, max: 12 } }
+            { name: dataType.rules.NUMERIC, meta: { error: MONTH_ERROR_MESSAGE, min: 1, max: 12 } }
         ];
 
         this.yearRule = [
 
-            { name: dataType.rules.NUMERIC, meta: { error: 'Year must be between 1000 and 9999', min: 1000, max: 9999 } }
+            { name: dataType.rules.NUMERIC, meta: { error: YEAR_ERROR_MESSAGE, min: 1000, max: 9999 } }
         ];
     }
 

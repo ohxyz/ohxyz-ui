@@ -46,17 +46,6 @@ class App extends React.Component {
 
         const rules = dataType.rules;
 
-        this.nameRules = [
-
-            { name: rules.REQUIRED, error: 'Name must not be empty' },
-            { name: rules.ENGLISH_NAME, error: 'Name can only contain - letter . , - and spaces' }
-        ];
-
-        this.infoRules = [
-
-            { name: rules.REQUIRED, error: 'INFO required.' },
-        ]
-
         this.items = [
 
             { text: 'Mr', value: 'mr' },
@@ -86,7 +75,6 @@ class App extends React.Component {
             'What is the first and last name of your first boyfriend or girlfriend?',
             'Which phone number do you remember most from your childhood? What is the name of your favorite pet?',
             'What was your favorite place to visit as a child?',
-
         ];
 
         let shorts = [
