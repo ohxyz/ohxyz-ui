@@ -12,51 +12,55 @@ $component: options-checkbox;
         line-height: $default-line-height;
         cursor: pointer;
 
-        .#{$component}-icon {
+        .#{$component}-label {
 
-            visibility: hidden;
-            position: absolute;
             cursor: pointer;
-            
-            &:before {
+            display: inline-block;
 
-                content: "";
+            .#{$component}-icon {
+
+                visibility: hidden;
                 position: absolute;
-                visibility: visible;
-                display: block;
-                top: -3px;
-                left: -3px;
-                width: 24px;
-                height: 24px;
-                border-radius: 3px;
-                box-sizing: border-box;
-                border: 1px solid $black;
+                cursor: pointer;
+
+                &:before {
+
+                    content: "";
+                    position: absolute;
+                    visibility: visible;
+                    display: block;
+                    top: -3px;
+                    left: -3px;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 3px;
+                    box-sizing: border-box;
+                    border: 1px solid $black;
+                }
+
+                &:checked:after {
+
+                    content: "";
+                    position: absolute;
+                    visibility: visible;
+                    display: block;
+                    left: 5px;
+                    top: 1px;
+                    border-bottom: 4px solid $dark-orange;
+                    border-right: 4px solid $dark-orange;
+                    border-radius: 1px;
+                    border-bottom-right-radius: 2px;
+                    width: 4px;
+                    height: 10px;
+                    transform: rotate( 45deg );
+                }
             }
 
-            &:checked:after {
+            .#{$component}-text {
 
-                content: "";
-                position: absolute;
-                visibility: visible;
                 display: block;
-                left: 5px;
-                top: 1px;
-                border-bottom: 4px solid $dark-orange;
-                border-right: 4px solid $dark-orange;
-                border-radius: 1px;
-                border-bottom-right-radius: 2px;
-                width: 4px;
-                height: 10px;
-                transform: rotate( 45deg );
+                margin-left: 39px;
             }
         }
-
-        .#{$component}-text {
-
-            display: block;
-            margin-left: 39px;
-        }
-
-
     }
 }
