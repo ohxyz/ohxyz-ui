@@ -30,7 +30,6 @@ class OptionsCheckbox extends OptionsBase {
         super( props );
 
         this.isHiddenValueRequired = false;
-
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
         this.type = datatype.OPTIONS_TYPE_MULTIPLE;
     }

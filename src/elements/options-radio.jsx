@@ -1,6 +1,7 @@
 import React from 'react';
 import util from '../util.js';
 import { OptionsBase, OptionsBaseItem } from './options-base.jsx';
+import datatype from '../datatype.js';
 
 const COMPONENT_NAME = 'options-radio';
 
@@ -10,13 +11,14 @@ class OptionsRadioItem extends OptionsBaseItem {
 
         let iconClassName = COMPONENT_NAME + '-icon';
         let textClassName = COMPONENT_NAME + '-text';
+        let labelClassName = COMPONENT_NAME + '-label';
 
         return (
 
-            <React.Fragment>
-                <span className={ iconClassName } />
+            <label className={ labelClassName }>
+                <input type="radio" className={ iconClassName } name={ this.props.name } />
                 <span className={ textClassName }>{ this.item.text }</span>
-            </React.Fragment>
+            </label>
         );
     }
 }
@@ -27,8 +29,7 @@ class OptionsRadio extends OptionsBase {
 
         super( props );
 
-        // console.log( props );
-
+        this.isHiddenValueRequired = false;
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
     }
 

@@ -27,6 +27,7 @@ $component: insert-date-by-text;
         &.is-invalid {
 
             border-color: $red;
+            background-color: $background-color-error;
         }
 
         &:focus {

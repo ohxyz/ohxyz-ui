@@ -21,6 +21,6 @@ $component: insert-text;
     &.is-invalid {
 
         border-color: $red;
-        background-color: $error-background;
+        background-color: $background-color-error;
     }
 }

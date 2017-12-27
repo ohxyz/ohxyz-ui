@@ -97,6 +97,9 @@ class App extends React.Component {
 
             <form>
 
+                <OptionsRadioWrapper name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsCheckboxWrapper name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+
                 <InsertTextWrapper 
                     title="Insert Text Wrapper" 
                     description="NO desCRIpt1on"
@@ -121,9 +124,8 @@ class App extends React.Component {
 
                 <Submit text="Primary button" disabled={ true } />
 
-                <OptionsRadioWrapper name="radio-wrapper" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
                 
-                <OptionsCheckboxWrapper name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+
 
                 <OptionsCheckbox name="good" items={ shorts } />
 

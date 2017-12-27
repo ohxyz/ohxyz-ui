@@ -61,8 +61,6 @@ class InsertDateByText extends InsertDateBase {
             this.errorMessage = '';
         }
 
-        // console.log( this.errorMessageOfDay, this.errorMessageOfMonth, this.errorMessage );
-
         this.props.onError( this.errorMessage );
     }
 
@@ -87,10 +85,7 @@ class InsertDateByText extends InsertDateBase {
     handleChange( event, dayMonthOrYear ) {
 
         this[ dayMonthOrYear ] = event.target.value;
-
         this.value = this.makeValue();
-
-        console.log( '8888', this.value );
     }
 
     makeValue() {

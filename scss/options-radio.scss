@@ -12,40 +12,52 @@ $component: options-radio;
         line-height: $default-line-height;
         cursor: pointer;
 
-        .#{$component}-icon {
+        .#{$component}-label {
 
-            position: absolute;
-            top: 12px;
-            left: 0;
-            box-sizing: border-box;
-            width: 24px;
-            height: 24px;
-            border: 1px solid $black;
-            border-radius: 100px;
+            cursor: pointer;
+            display: inline-block;
 
-            &:before {
+            .#{$component}-icon {
 
-                content: "";
-                width: 16px;
-                height: 16px;
+                visibility: hidden;
                 position: absolute;
-                border-radius: 100px;
-                top: 3px;
-                left: 3px;
+                cursor: pointer;
+
+                &:before {
+
+                    content: "";
+                    visibility: visible;
+                    display: block;
+                    position: absolute;
+                    top: -3px;
+                    left: -3px;
+                    width: 24px;
+                    height: 24px;
+                    box-sizing: border-box;
+                    border: 1px solid $black;
+                    border-radius: 100px;
+                }
+
+                &:checked:after  {
+
+                    content: "";
+                    visibility: visible;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 18px;
+                    height: 18px;
+                    box-sizing: border-box;
+                    border-radius: 100px;
+                    background-color: $dark-orange;
+                }
             }
-        }
 
-        .#{$component}-text {
+            .#{$component}-text {
 
-            display: block;
-            margin-left: 39px;
-        }
-
-        &.is-selected {
-
-            .#{$component}-icon:before {
-
-                background-color: $dark-orange;
+                display: block;
+                margin-left: 39px;
             }
         }
     }
