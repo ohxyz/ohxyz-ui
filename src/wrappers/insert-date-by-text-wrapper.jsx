@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertDateByText from '../controls/insert-date-by-text.jsx';
-import FormElementWrapper from './form-element-wrapper.jsx';
+import ControlWrapper from './control-wrapper.jsx';
 
-class InsertDateByTextWrapper extends FormElementWrapper {
+class InsertDateByTextWrapper extends ControlWrapper {
 
     renderMain() {
 

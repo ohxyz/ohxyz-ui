@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertDateByNumber from '../controls/insert-date-by-number.jsx';
-import FormElementWrapper from './form-element-wrapper.jsx';
+import ControlWrapper from './control-wrapper.jsx';
 
-class InsertDateByNumberWrapper extends FormElementWrapper {
+class InsertDateByNumberWrapper extends ControlWrapper {
 
     renderMain() {
 

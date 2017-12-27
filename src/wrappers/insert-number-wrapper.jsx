@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertNumber from '../controls/insert-number.jsx';
-import FormElementWrapper from './form-element-wrapper.jsx';
+import ControlWrapper from './control-wrapper.jsx';
 
-class InsertNumberWrapper extends FormElementWrapper {
+class InsertNumberWrapper extends ControlWrapper {
 
     constructor( props ) {
 

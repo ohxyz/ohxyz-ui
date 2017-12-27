@@ -1,9 +1,9 @@
 import React from 'react';
 import util from '../util.js';
 import Submit from '../controls/submit.jsx';
-import FormElementWrapper from './form-element-wrapper.jsx';
+import ControlWrapper from './control-wrapper.jsx';
 
-class SubmitWrapper extends FormElementWrapper {
+class SubmitWrapper extends ControlWrapper {
 
     constructor( props ) {
 

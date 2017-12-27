@@ -1,7 +1,7 @@
 import React from 'react';
 import util from '../util.js';
 
-class FormElementWrapper extends React.Component {
+class ControlWrapper extends React.Component {
 
     constructor( props ) {
 
@@ -120,4 +120,4 @@ class FormElementWrapper extends React.Component {
 }
 
 
-export default FormElementWrapper;
+export default ControlWrapper;

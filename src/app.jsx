@@ -16,7 +16,7 @@ import {
     OptionsRadio,
     OptionsCheckbox,
 
-    FormElementWrapper,
+    ControlWrapper,
 
     InsertTextWrapper,
     InsertNumberWrapper,
@@ -124,9 +124,6 @@ class App extends React.Component {
 
                 <Submit text="Primary button" disabled={ true } />
 
-                
-
-
                 <OptionsCheckbox name="good" items={ shorts } />
 
                 <OptionsRadio name="security-questions" items={ questions } />
@@ -161,7 +158,7 @@ class App extends React.Component {
                     hint="Only 1, 2, 3..."
                 />
 
-                <FormElementWrapper title="Form Element Wrapper" 
+                <ControlWrapper title="Form Element Wrapper" 
                                 errorMessage="No errors. Just show off." 
                                 isValid={ false } 
                                 description={ description2 }

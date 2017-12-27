@@ -18,7 +18,7 @@ import Submit from './controls/submit.jsx';
 
 /* --- A wrapper contains a title, a main form element and error messages --- */
 
-import FormElementWrapper from './wrappers/form-element-wrapper.jsx';
+import ControlWrapper from './wrappers/control-wrapper.jsx';
 
 import InsertTextWrapper from './wrappers/insert-text-wrapper.jsx';
 import InsertNumberWrapper from './wrappers/insert-number-wrapper.jsx';
@@ -45,7 +45,7 @@ export {
     OptionsRadio,
     OptionsCheckbox,
 
-    FormElementWrapper,
+    ControlWrapper,
 
     InsertTextWrapper,
     InsertNumberWrapper,

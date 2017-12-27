@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertTextArea from '../controls/insert-textarea.jsx';
-import FormElementWrapper from './form-element-wrapper.jsx';
+import ControlWrapper from './control-wrapper.jsx';
 
-class InsertTextAreaWrapper extends FormElementWrapper {
+class InsertTextAreaWrapper extends ControlWrapper {
 
     constructor( props ) {
 
