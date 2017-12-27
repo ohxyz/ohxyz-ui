@@ -5,7 +5,6 @@ $component: options-base;
 .#{$component} {
 
     border: $default-border;
-    border-radius: $default-border-radius;
     margin: $default-margin;
 
     .#{$component}-item {
@@ -18,7 +17,7 @@ $component: options-base;
 
          &.is-selected {
             
-            color: $dark-orange;
+            color: $orange-dark;
          }
 
          &:last-child {

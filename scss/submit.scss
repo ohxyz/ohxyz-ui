@@ -6,38 +6,33 @@ $component: submit;
 
     font-family: $default-font-family;
     padding: 12px 30px;
-    border-radius: $default-border-radius;
-    background-color: $dark-orange;
+    background-color: $red;
     line-height: $default-line-height;
     color: white;
     font-weight: 600;
     font-size: $font-large;
     cursor: pointer;
     outline: none;
-    border-color: $dark-orange;
+    border: 4px solid transparent;
     width: 100%;
     white-space: normal; /* Text in button can wrap */
 
     &:hover {
 
-        background-color: $dark-orange-hover;
+        background-color: $red-dark;
     }
 
     &:focus {
 
-        opacity: 0.48;
+        background-color: $red-dark;
+        border-color: $red24;
     }
 
     &:disabled {
 
-        opacity: 0.48;
+        background-color: $red32;
         cursor: not-allowed;
 
-        &:hover {
-
-            background-color: $dark-orange;
-            opacity: 0.48;
-        }
     }
 }
 

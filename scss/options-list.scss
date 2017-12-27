@@ -5,7 +5,6 @@ $component: options-list;
 .#{$component} {
 
     border: $default-border;
-    border-radius: $default-border-radius;
 
     .#{$component}-item {
 
@@ -16,7 +15,7 @@ $component: options-list;
         cursor: pointer;
 
          &.is-selected {
-            color: $dark-orange;
+            color: $orange-dark;
          }
 
          &:last-child {

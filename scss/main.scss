@@ -18,7 +18,7 @@
 @import "./dropdown.scss";
 @import "./dropdown-list.scss";
 
-@import "./form-element-wrapper.scss";
+@import "./control-wrapper.scss";
 @import "./insert-number-wrapper.scss";
 @import "./insert-text-wrapper.scss";
 @import "./insert-textarea-wrapper.scss";
@@ -28,12 +28,6 @@
 @import "./submit.scss";
 
 /* Global */
-
-.orange-dark {
-
-    color: #f36d00;
-}
-
 body {
 
     font-family: $default-font-family;
@@ -41,6 +35,7 @@ body {
     .container {
 
         padding: 0 15px;
+        color: $grey;
 
         .form-header {
 

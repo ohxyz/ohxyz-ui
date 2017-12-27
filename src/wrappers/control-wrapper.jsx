@@ -18,7 +18,7 @@ class ControlWrapper extends React.Component {
         this.isValid= util.setDefault( props.isValid, true );
         this.requiredMessage = util.setDefault( props.requiredMessage, '' );
 
-        this.classNamePrefix = 'form-element-wrapper';
+        this.classNamePrefix = 'control-wrapper';
         this.className = '';
     }
 

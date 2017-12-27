@@ -15,7 +15,7 @@ $component: dropdown-list;
 
         content: "";
         border: 5px solid transparent;
-        border-top-color: $dark-orange;
+        border-top-color: $chevron;
         position: absolute;
         top: 23px;
         right: 15px;
@@ -27,7 +27,7 @@ $component: dropdown-list;
         padding: $default-padding;
         min-height: 24px;
         border: $default-border;
-        border-radius: $default-border-radius;
+
         user-select: none;
     }
 
@@ -51,8 +51,6 @@ $component: dropdown-list;
             background-color: white;
             min-height: 24px;
             border: $default-border;
-            border-bottom-left-radius: $default-border-radius;
-            border-bottom-right-radius: $default-border-radius;
             max-height: 49px * 3 - 1 ;
 
             user-select: none;

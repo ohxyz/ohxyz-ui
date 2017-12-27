@@ -33,9 +33,8 @@ $component: options-checkbox;
                     left: -3px;
                     width: 24px;
                     height: 24px;
-                    border-radius: 3px;
                     box-sizing: border-box;
-                    border: 1px solid $black;
+                    border: 1px solid $grey;
                 }
 
                 &:checked:after {
@@ -45,13 +44,11 @@ $component: options-checkbox;
                     visibility: visible;
                     display: block;
                     left: 5px;
-                    top: 1px;
-                    border-bottom: 4px solid $dark-orange;
-                    border-right: 4px solid $dark-orange;
-                    border-radius: 1px;
-                    border-bottom-right-radius: 2px;
-                    width: 4px;
-                    height: 10px;
+                    top: -1px;
+                    border-bottom: 2px solid $orange-light;
+                    border-right: 2px solid $orange-light;
+                    width: 6px;
+                    height: 15px;
                     transform: rotate( 45deg );
                 }
             }

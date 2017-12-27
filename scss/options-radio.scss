@@ -34,7 +34,7 @@ $component: options-radio;
                     width: 24px;
                     height: 24px;
                     box-sizing: border-box;
-                    border: 1px solid $black;
+                    border: 1px solid $grey;
                     border-radius: 100px;
                 }
 
@@ -44,13 +44,13 @@ $component: options-radio;
                     visibility: visible;
                     display: block;
                     position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 18px;
-                    height: 18px;
+                    top: 1px;
+                    left: 1px;
+                    width: 16px;
+                    height: 16px;
                     box-sizing: border-box;
                     border-radius: 100px;
-                    background-color: $dark-orange;
+                    background-color: $orange-light;
                 }
             }
 

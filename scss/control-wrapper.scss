@@ -1,4 +1,4 @@
-$component: form-element-wrapper;
+$component: control-wrapper;
     
 .#{$component} {
 
@@ -9,6 +9,8 @@ $component: form-element-wrapper;
         display: inline-block;
         margin-bottom: 8px;
         font-size: $default-font-size;
+        color: $grey;
+        font-weight: 500;
     }
 
     .error-message {
@@ -19,7 +21,6 @@ $component: form-element-wrapper;
         background-color: $red;
         display: block;
         color: white;
-        border-radius: $default-border-radius;
         margin-top: 12px;
         position:relative;
 
@@ -36,7 +37,7 @@ $component: form-element-wrapper;
 
     .description {
 
-        color: #767676;
+        color: $grey80;
         font-size: $font-small;
         line-height: 200%;
         margin-top: 8px;
