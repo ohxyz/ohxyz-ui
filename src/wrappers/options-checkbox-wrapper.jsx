@@ -1,5 +1,5 @@
 import React from 'react';
-import OptionsCheckbox from '../elements/options-checkbox.jsx';
+import OptionsCheckbox from '../controls/options-checkbox.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 import util from '../util.js';
 

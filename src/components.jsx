@@ -1,20 +1,20 @@
-import InsertBase from './elements/insert-base.jsx';
-import InsertText from './elements/insert-text.jsx';
-import InsertNumber from './elements/insert-number.jsx';
-import InsertTextArea from './elements/insert-textarea.jsx';
-import InsertDateBase from './elements/insert-date-base.jsx';
-import InsertDateByText from './elements/insert-date-by-text.jsx';
-import InsertDateByNumber from './elements/insert-date-by-number.jsx';
+import InsertBase from './controls/insert-base.jsx';
+import InsertText from './controls/insert-text.jsx';
+import InsertNumber from './controls/insert-number.jsx';
+import InsertTextArea from './controls/insert-textarea.jsx';
+import InsertDateBase from './controls/insert-date-base.jsx';
+import InsertDateByText from './controls/insert-date-by-text.jsx';
+import InsertDateByNumber from './controls/insert-date-by-number.jsx';
 
-import OptionsBase from './elements/options-base.jsx';
-import OptionsList from './elements/options-list.jsx';
-import OptionsRadio from './elements/options-radio.jsx';
-import OptionsCheckbox from './elements/options-checkbox.jsx';
+import OptionsBase from './controls/options-base.jsx';
+import OptionsList from './controls/options-list.jsx';
+import OptionsRadio from './controls/options-radio.jsx';
+import OptionsCheckbox from './controls/options-checkbox.jsx';
 
-import Dropdown from './elements/dropdown.jsx';
-import DropdownList from './elements/dropdown-list.jsx';
+import Dropdown from './controls/dropdown.jsx';
+import DropdownList from './controls/dropdown-list.jsx';
 
-import Submit from './elements/submit.jsx';
+import Submit from './controls/submit.jsx';
 
 /* --- A wrapper contains a title, a main form element and error messages --- */
 

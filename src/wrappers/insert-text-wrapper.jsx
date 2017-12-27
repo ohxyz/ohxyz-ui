@@ -1,5 +1,5 @@
 import React from 'react';
-import InsertText from '../elements/insert-text.jsx';
+import InsertText from '../controls/insert-text.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 
 class InsertTextWrapper extends FormElementWrapper {

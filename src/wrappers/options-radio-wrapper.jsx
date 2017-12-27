@@ -1,5 +1,5 @@
 import React from 'react';
-import OptionsRadio from '../elements/options-radio.jsx';
+import OptionsRadio from '../controls/options-radio.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 import util from '../util.js';
 

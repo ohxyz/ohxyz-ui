@@ -1,5 +1,5 @@
 import React from 'react';
-import InsertNumber from '../elements/insert-number.jsx';
+import InsertNumber from '../controls/insert-number.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 
 class InsertNumberWrapper extends FormElementWrapper {

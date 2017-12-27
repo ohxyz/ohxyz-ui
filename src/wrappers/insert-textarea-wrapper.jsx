@@ -1,5 +1,5 @@
 import React from 'react';
-import InsertTextArea from '../elements/insert-textarea.jsx';
+import InsertTextArea from '../controls/insert-textarea.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 
 class InsertTextAreaWrapper extends FormElementWrapper {

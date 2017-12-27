@@ -1,6 +1,6 @@
 import React from 'react';
 import util from '../util.js';
-import Submit from '../elements/submit.jsx';
+import Submit from '../controls/submit.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 
 class SubmitWrapper extends FormElementWrapper {

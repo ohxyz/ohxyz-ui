@@ -1,5 +1,5 @@
 import React from 'react';
-import OptionsList from '../elements/options-list.jsx';
+import OptionsList from '../controls/options-list.jsx';
 import FormElementWrapper from './form-element-wrapper.jsx';
 import util from '../util.js';
 
