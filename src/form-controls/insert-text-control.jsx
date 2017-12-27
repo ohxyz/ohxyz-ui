@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertText from '../controls/insert-text.jsx';
-import ControlWrapper from './control-wrapper.jsx';
+import FormControl from './form-control.jsx';
 
-class InsertTextWrapper extends ControlWrapper {
+class InsertTextControl extends FormControl {
 
     constructor( props ) {
 
@@ -30,4 +30,4 @@ class InsertTextWrapper extends ControlWrapper {
     }
 }
 
-export default InsertTextWrapper;
+export default InsertTextControl;

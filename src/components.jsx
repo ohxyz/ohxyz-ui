@@ -18,17 +18,17 @@ import Submit from './controls/submit.jsx';
 
 /* --- A wrapper contains a title, a main form element and error messages --- */
 
-import ControlWrapper from './wrappers/control-wrapper.jsx';
+import FormControl from './form-controls/form-control.jsx';
 
-import InsertTextWrapper from './wrappers/insert-text-wrapper.jsx';
-import InsertNumberWrapper from './wrappers/insert-number-wrapper.jsx';
-import InsertTextAreaWrapper from './wrappers/insert-textarea-wrapper.jsx';
-import InsertDateByTextWrapper from './wrappers/insert-date-by-text-wrapper.jsx';
-import InsertDateByNumberWrapper from './wrappers/insert-date-by-number-wrapper.jsx';
-import OptionsListWrapper from './wrappers/options-list-wrapper.jsx';
-import OptionsRadioWrapper from './wrappers/options-radio-wrapper.jsx';
-import OptionsCheckboxWrapper from './wrappers/options-checkbox-wrapper.jsx';
-import SubmitWrapper from './wrappers/submit-wrapper.jsx';
+import InsertTextControl from './form-controls/insert-text-control.jsx';
+import InsertNumberControl from './form-controls/insert-number-control.jsx';
+import InsertTextAreaControl from './form-controls/insert-textarea-control.jsx';
+import InsertDateByTextControl from './form-controls/insert-date-by-text-control.jsx';
+import InsertDateByNumberControl from './form-controls/insert-date-by-number-control.jsx';
+import OptionsListControl from './form-controls/options-list-control.jsx';
+import OptionsRadioControl from './form-controls/options-radio-control.jsx';
+import OptionsCheckboxControl from './form-controls/options-checkbox-control.jsx';
+import SubmitControl from './form-controls/submit-control.jsx';
 
 export {
 
@@ -45,23 +45,23 @@ export {
     OptionsRadio,
     OptionsCheckbox,
 
-    ControlWrapper,
+    FormControl,
 
-    InsertTextWrapper,
-    InsertNumberWrapper,
-    InsertTextAreaWrapper,
-    InsertDateByTextWrapper,
-    InsertDateByNumberWrapper,
+    InsertTextControl,
+    InsertNumberControl,
+    InsertTextAreaControl,
+    InsertDateByTextControl,
+    InsertDateByNumberControl,
 
     Dropdown,
     DropdownList,
 
     Submit,
 
-    OptionsListWrapper,
-    OptionsRadioWrapper,
-    OptionsCheckboxWrapper,
+    OptionsListControl,
+    OptionsRadioControl,
+    OptionsCheckboxControl,
 
-    SubmitWrapper
+    SubmitControl
 
 };

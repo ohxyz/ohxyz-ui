@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertTextArea from '../controls/insert-textarea.jsx';
-import ControlWrapper from './control-wrapper.jsx';
+import FormControl from './form-control.jsx';
 
-class InsertTextAreaWrapper extends ControlWrapper {
+class InsertTextAreaControl extends FormControl {
 
     constructor( props ) {
 
@@ -30,4 +30,4 @@ class InsertTextAreaWrapper extends ControlWrapper {
     }
 }
 
-export default InsertTextAreaWrapper;
+export default InsertTextAreaControl;

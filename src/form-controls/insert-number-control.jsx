@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertNumber from '../controls/insert-number.jsx';
-import ControlWrapper from './control-wrapper.jsx';
+import FormControl from './form-control.jsx';
 
-class InsertNumberWrapper extends ControlWrapper {
+class InsertNumberControl extends FormControl {
 
     constructor( props ) {
 
@@ -28,4 +28,4 @@ class InsertNumberWrapper extends ControlWrapper {
     }
 }
 
-export default InsertNumberWrapper;
+export default InsertNumberControl;

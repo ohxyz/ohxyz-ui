@@ -1,9 +1,9 @@
 import React from 'react';
-import OptionsList from '../controls/options-list.jsx';
-import ControlWrapper from './control-wrapper.jsx';
 import util from '../util.js';
+import OptionsList from '../controls/options-list.jsx';
+import FormControl from './form-control.jsx';
 
-class OptionsListWrapper extends ControlWrapper {
+class OptionsListControl extends FormControl {
 
     constructor( props ) {
 
@@ -20,4 +20,4 @@ class OptionsListWrapper extends ControlWrapper {
     }
 }
 
-export default OptionsListWrapper;
+export default OptionsListControl;

@@ -1,8 +1,8 @@
 import React from 'react';
 import InsertDateByText from '../controls/insert-date-by-text.jsx';
-import ControlWrapper from './control-wrapper.jsx';
+import FormControl from './form-control.jsx';
 
-class InsertDateByTextWrapper extends ControlWrapper {
+class InsertDateByTextControl extends FormControl {
 
     renderMain() {
 
@@ -13,4 +13,4 @@ class InsertDateByTextWrapper extends ControlWrapper {
     }
 }
 
-export default InsertDateByTextWrapper;
+export default InsertDateByTextControl;

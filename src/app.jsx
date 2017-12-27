@@ -16,23 +16,23 @@ import {
     OptionsRadio,
     OptionsCheckbox,
 
-    ControlWrapper,
+    FormControl,
 
-    InsertTextWrapper,
-    InsertNumberWrapper,
-    InsertTextAreaWrapper,
-    InsertDateByTextWrapper,
-    InsertDateByNumberWrapper,
+    InsertTextControl,
+    InsertNumberControl,
+    InsertTextAreaControl,
+    InsertDateByTextControl,
+    InsertDateByNumberControl,
 
-    OptionsListWrapper,
-    OptionsRadioWrapper,
-    OptionsCheckboxWrapper,
+    OptionsListControl,
+    OptionsRadioControl,
+    OptionsCheckboxControl,
 
     Dropdown,
     DropdownList,
 
     Submit,
-    SubmitWrapper
+    SubmitControl
 
 } from './components.jsx';
 
@@ -97,21 +97,21 @@ class App extends React.Component {
 
             <form>
 
-                <OptionsRadioWrapper name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
-                <OptionsCheckboxWrapper name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsRadioControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsCheckboxControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
 
-                <InsertTextWrapper 
-                    title="Insert Text Wrapper" 
+                <InsertTextControl 
+                    title="Insert Text Control" 
                     description="NO desCRIpt1on"
                     rules={ rules }
                 />
-                <InsertDateByTextWrapper 
+                <InsertDateByTextControl 
                     title="Insert Date - Text"
                     name="my-insert-date"
                     description={ description2 }
                 />
 
-                <InsertDateByNumberWrapper 
+                <InsertDateByNumberControl 
                     title="Insert Date by Number - BOX"
                     description={ description3 }
                 />
@@ -120,7 +120,7 @@ class App extends React.Component {
                 <InsertDateByText />
                 <InsertDateByNumber />
 
-                <SubmitWrapper title="Press following button" text={ longText } description="By pressing this button, you surrender." />
+                <SubmitControl title="Press following button" text={ longText } description="By pressing this button, you surrender." />
 
                 <Submit text="Primary button" disabled={ true } />
 
@@ -128,7 +128,7 @@ class App extends React.Component {
 
                 <OptionsRadio name="security-questions" items={ questions } />
 
-                <OptionsListWrapper title="Options List Wrapper" items={ [ 'a', 'b', 'c' ] } description="A list" />
+                <OptionsListControl title="Options List Control" items={ [ 'a', 'b', 'c' ] } description="A list" />
 
 
 
@@ -146,19 +146,19 @@ class App extends React.Component {
 
                 <OptionsBase name="x" items={ options } />
 
-                <InsertTextAreaWrapper
-                    title="Insert Textarea Wrapper" 
+                <InsertTextAreaControl
+                    title="Insert Textarea Control" 
                     description={ this.description3 }
                     hint="Only 1, 2, 3..."
                     rules={ rules }
                 />
-                <InsertNumberWrapper 
-                    title="Insert Number Wrapper" 
+                <InsertNumberControl 
+                    title="Insert Number Control" 
                     description="Input some figure"
                     hint="Only 1, 2, 3..."
                 />
 
-                <ControlWrapper title="Form Element Wrapper" 
+                <FormControl title="Form Element Control" 
                                 errorMessage="No errors. Just show off." 
                                 isValid={ false } 
                                 description={ description2 }

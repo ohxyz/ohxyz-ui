@@ -1,7 +1,7 @@
 import React from 'react';
 import util from '../util.js';
 
-class ControlWrapper extends React.Component {
+class FormControl extends React.Component {
 
     constructor( props ) {
 
@@ -18,7 +18,7 @@ class ControlWrapper extends React.Component {
         this.isValid= util.setDefault( props.isValid, true );
         this.requiredMessage = util.setDefault( props.requiredMessage, '' );
 
-        this.classNamePrefix = 'control-wrapper';
+        this.classNamePrefix = 'form-control';
         this.className = '';
     }
 
@@ -120,4 +120,4 @@ class ControlWrapper extends React.Component {
 }
 
 
-export default ControlWrapper;
+export default FormControl;

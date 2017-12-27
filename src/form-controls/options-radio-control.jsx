@@ -1,9 +1,9 @@
 import React from 'react';
-import OptionsRadio from '../controls/options-radio.jsx';
-import ControlWrapper from './control-wrapper.jsx';
 import util from '../util.js';
+import OptionsRadio from '../controls/options-radio.jsx';
+import FormControl from './form-control.jsx';
 
-class OptionsRadioWrapper extends ControlWrapper {
+class OptionsRadioControl extends FormControl {
 
     constructor( props ) {
 
@@ -20,4 +20,4 @@ class OptionsRadioWrapper extends ControlWrapper {
     }
 }
 
-export default OptionsRadioWrapper;
+export default OptionsRadioControl;
