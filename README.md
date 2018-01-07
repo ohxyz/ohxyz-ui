@@ -14,7 +14,7 @@ A set of Web UI components built in React
     "webpack": "^3.8.1"
 }
 ```
-### Basic webpack.config.js
+### Content of `webpack.config.js`
 
 ```
 module.exports = {
@@ -30,7 +30,7 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: [ 'react' ]
+                    presets: [ 'react', 'env' ]
                 }
             }
         } ]
