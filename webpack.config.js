@@ -21,7 +21,7 @@ module.exports = {
 
                 options: {
 
-                    presets: [ 'react' ]
+                    presets: [ 'react', 'env' ]
                 }
             }
 
