@@ -16,41 +16,42 @@ $component: options-checkbox;
 
             cursor: pointer;
             display: inline-block;
+            position: relative;
 
             .#{$component}-icon {
 
-                visibility: hidden;
                 position: absolute;
                 cursor: pointer;
+                opacity: 0;
 
-                &:before {
-
-                    content: "";
-                    position: absolute;
-                    visibility: visible;
-                    display: block;
-                    top: -3px;
-                    left: -3px;
-                    width: 24px;
-                    height: 24px;
-                    box-sizing: border-box;
-                    border: 1px solid $grey;
-                }
-
-                &:checked:after {
+                &:checked + .#{$component}-text:after {
 
                     content: "";
                     position: absolute;
                     visibility: visible;
                     display: block;
-                    left: 5px;
-                    top: -1px;
+                    left: 8px;
+                    top: 2px;
                     border-bottom: 2px solid $orange-light;
                     border-right: 2px solid $orange-light;
                     width: 6px;
                     height: 15px;
                     transform: rotate( 45deg );
                 }
+            }
+
+           .#{$component}-text:before {
+
+                content: "";
+                position: absolute;
+                visibility: visible;
+                display: block;
+                top: 0;
+                left: 0;
+                width: 24px;
+                height: 24px;
+                box-sizing: border-box;
+                border: 1px solid $grey;
             }
 
             .#{$component}-text {
