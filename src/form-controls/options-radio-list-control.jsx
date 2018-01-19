@@ -1,9 +1,9 @@
 import React from 'react';
 import util from '../util.js';
-import OptionsRadio from '../controls/options-radio.jsx';
+import OptionsRadioList from '../controls/options-radio-list.jsx';
 import FormControl from './form-control.jsx';
 
-class OptionsRadioControl extends FormControl {
+class OptionsRadioListControl extends FormControl {
 
     constructor( props ) {
 
@@ -15,9 +15,9 @@ class OptionsRadioControl extends FormControl {
 
         return (
 
-            <OptionsRadio name={ this.name } items={ this.items } />
+            <OptionsRadioList name={ this.name } items={ this.items } />
         );
     }
 }
 
-export default OptionsRadioControl;
+export default OptionsRadioListControl;

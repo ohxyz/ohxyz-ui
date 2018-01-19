@@ -1,6 +1,4 @@
-@import "./_reset.scss";
 @import "./_variables.scss";
-
 @import "./misc.scss";
 
 @import "./insert-text.scss";
@@ -12,8 +10,8 @@
 
 @import "./options-base.scss";
 @import "./options-list.scss";
-@import "./options-radio.scss";
-@import "./options-checkbox.scss";
+@import "./options-radio-list.scss";
+@import "./options-checkbox-list.scss";
 
 @import "./dropdown.scss";
 @import "./dropdown-list.scss";
@@ -53,7 +51,3 @@ body {
         }
     }
 }
-
-
-
-

@@ -1,9 +1,9 @@
 import React from 'react';
 import util from '../util.js';
-import OptionsCheckbox from '../controls/options-checkbox.jsx';
+import OptionsCheckboxList from '../controls/options-checkbox-list.jsx';
 import FormControl from './form-control.jsx';
 
-class OptionsCheckboxControl extends FormControl {
+class OptionsCheckboxListControl extends FormControl {
 
     constructor( props ) {
 
@@ -15,9 +15,9 @@ class OptionsCheckboxControl extends FormControl {
 
         return (
 
-            <OptionsCheckbox name={ this.name } items={ this.items } />
+            <OptionsCheckboxList name={ this.name } items={ this.items } />
         );
     }
 }
 
-export default OptionsCheckboxControl;
+export default OptionsCheckboxListControl;

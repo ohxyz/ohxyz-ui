@@ -3,27 +3,27 @@ import util from '../util.js';
 import { OptionsBase, OptionsBaseItem } from './options-base.jsx';
 import datatype from '../datatype.js';
 
-const COMPONENT_NAME = 'options-radio';
+const COMPONENT_NAME = 'options-checkbox-list';
 
-class OptionsRadioItem extends OptionsBaseItem {
+class OptionsCheckboxItem extends OptionsBaseItem {
 
     renderListContent() {
 
         let iconClassName = COMPONENT_NAME + '-icon';
-        let textClassName = COMPONENT_NAME + '-text';
         let labelClassName = COMPONENT_NAME + '-label';
+        let textClassName = COMPONENT_NAME + '-text';
 
         return (
 
             <label className={ labelClassName }>
-                <input type="radio" className={ iconClassName } name={ this.props.name } />
+                <input type="checkbox" className={ iconClassName } name={ this.props.name } />
                 <span className={ textClassName }>{ this.item.text }</span>
             </label>
         );
     }
 }
 
-class OptionsRadio extends OptionsBase {
+class OptionsCheckboxList extends OptionsBase {
 
     constructor( props ) {
 
@@ -31,12 +31,13 @@ class OptionsRadio extends OptionsBase {
 
         this.isHiddenValueRequired = false;
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        this.type = datatype.OPTIONS_TYPE_MULTIPLE;
     }
 
     createOptionsItem( props ) {
 
-        return React.createElement( OptionsRadioItem, props );
+        return React.createElement( OptionsCheckboxItem, props );
     }
 }
 
-export default OptionsRadio;
+export default OptionsCheckboxList;

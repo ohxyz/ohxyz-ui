@@ -35,9 +35,9 @@ class OptionsBaseItem extends React.Component {
 
         return (
 
-            <li className={ className } onClick={ this.handleClick } >
+            <div className={ className } onClick={ this.handleClick } >
                 { this.renderListContent() }
-            </li>
+            </div>
         );
     }
 
@@ -196,9 +196,9 @@ class OptionsBase extends React.Component {
 
     render() {
 
-        let ul = 
+        let elem = 
 
-            <ul className={ this.classNamePrefix } >
+            <div className={ this.classNamePrefix } >
             { this.renderHiddenInputs() }
             {
                 this.items.map( ( item, key ) => {
@@ -217,9 +217,9 @@ class OptionsBase extends React.Component {
                     return optionsItem;
                 } )
             }
-            </ul>;
+            </div>;
 
-        return ul;
+        return elem;
     }
 }
 

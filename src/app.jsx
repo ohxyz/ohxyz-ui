@@ -13,8 +13,8 @@ import {
 
     OptionsBase,
     OptionsList,
-    OptionsRadio,
-    OptionsCheckbox,
+    OptionsRadioList,
+    OptionsCheckboxList,
 
     FormControl,
 
@@ -25,8 +25,8 @@ import {
     InsertDateByNumberControl,
 
     OptionsListControl,
-    OptionsRadioControl,
-    OptionsCheckboxControl,
+    OptionsRadioListControl,
+    OptionsCheckboxListControl,
 
     Dropdown,
     DropdownList,
@@ -97,8 +97,8 @@ class App extends React.Component {
 
             <form>
 
-                <OptionsRadioControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
-                <OptionsCheckboxControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsCheckboxListControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
 
                 <InsertTextControl 
                     title="Insert Text Control" 
@@ -124,9 +124,9 @@ class App extends React.Component {
 
                 <Submit text="Primary button" disabled={ true } />
 
-                <OptionsCheckbox name="good" items={ shorts } />
+                <OptionsCheckboxList name="good" items={ shorts } />
 
-                <OptionsRadio name="security-questions" items={ questions } />
+                <OptionsRadioList name="security-questions" items={ questions } />
 
                 <OptionsListControl title="Options List Control" items={ [ 'a', 'b', 'c' ] } description="A list" />
 
