@@ -2,6 +2,7 @@ import React from 'react';
 import InsertText from './insert-text.jsx';
 import InsertDateBase from './insert-date-base.jsx';
 import dataType from '../datatype.js';
+import util from '../util.js';
 
 const DAY_ERROR_MESSAGE = 'Day must be digits only, between 1 and 31';
 const MONTH_ERROR_MESSAGE = 'Month must be digits only, between 1 and 12';
@@ -23,6 +24,8 @@ class InsertDateByText extends InsertDateBase {
         this.day = 0;
         this.month = 0;
         this.year = 0;
+
+        this.onError = util.setDefault( this.props.onError, function() {} );
 
         this.dayRule = [
 
@@ -61,7 +64,7 @@ class InsertDateByText extends InsertDateBase {
             this.errorMessage = '';
         }
 
-        this.props.onError( this.errorMessage );
+        this.onError( this.errorMessage );
     }
 
     handleDayError( errorMessage ) {

@@ -7,10 +7,9 @@ $component: options-checkbox-list;
     .#{$component}-item {
 
         position: relative;
-        padding: 12px 0;
+        padding: 8px 0;
         font-size: $default-font-size;
         line-height: $default-line-height;
-        cursor: pointer;
 
         .#{$component}-label {
 
@@ -40,24 +39,24 @@ $component: options-checkbox-list;
                 }
             }
 
-           .#{$component}-text:before {
-
-                content: "";
-                position: absolute;
-                visibility: visible;
-                display: block;
-                top: 0;
-                left: 0;
-                width: 24px;
-                height: 24px;
-                box-sizing: border-box;
-                border: 1px solid $grey;
-            }
-
             .#{$component}-text {
 
                 display: block;
                 margin-left: 39px;
+
+                &:before {
+
+                    content: "";
+                    position: absolute;
+                    visibility: visible;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 24px;
+                    height: 24px;
+                    box-sizing: border-box;
+                    border: 1px solid $grey;
+                }
             }
         }
     }

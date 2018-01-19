@@ -19,8 +19,6 @@ class Dummy extends React.Component {
 
         this.value = Math.random();
 
-        // this.s.a = 1;
-
         this.setState( this.s );
     }
 
