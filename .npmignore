@@ -9,3 +9,6 @@ src/app.jsx
 
 # tests with server 
 test/*
+
+# others
+webpack.config.js
