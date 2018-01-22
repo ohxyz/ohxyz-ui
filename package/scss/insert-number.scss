@@ -1,0 +1,19 @@
+@import "_variables";
+
+$component: insert-number;
+
+.#{$component} {
+
+    box-sizing: border-box;
+    font-size: $default-font-size;
+    padding: $default-padding;
+    border: $default-border;
+    line-height: $default-line-height;
+    width: 100%;
+
+    &:focus {
+
+        outline: none;
+        border-color: $orange-dark;
+    }
+}

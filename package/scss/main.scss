@@ -1,0 +1,53 @@
+@import "./_variables.scss";
+@import "./misc.scss";
+
+@import "./insert-text.scss";
+@import "./insert-number.scss";
+@import "./insert-textarea.scss";
+@import "./insert-date-base.scss";
+@import "./insert-date-by-text.scss";
+@import "./insert-date-by-number.scss";
+
+@import "./options-base.scss";
+@import "./options-list.scss";
+@import "./options-radio-list.scss";
+@import "./options-checkbox-list.scss";
+
+@import "./dropdown.scss";
+@import "./dropdown-list.scss";
+
+@import "./form-control.scss";
+@import "./insert-number-control.scss";
+@import "./insert-text-control.scss";
+@import "./insert-textarea-control.scss";
+@import "./insert-date-by-text-control.scss";
+@import "./insert-date-by-number-control.scss";
+
+@import "./submit.scss";
+
+/* Global */
+body {
+
+    font-family: $default-font-family;
+
+    .container {
+
+        padding: 0 15px;
+        color: $grey;
+
+        .form-header {
+
+            height: 128px;
+            line-height: 128px;
+            font-size: 58px;
+            font-weight: bold;
+            margin: $default-margin;
+
+            .form-title {
+
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}

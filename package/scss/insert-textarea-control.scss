@@ -1,0 +1,18 @@
+@import "_variables";
+
+$component: insert-textarea-wrapper;
+    
+.#{$component} {
+
+    margin: $default-margin;
+
+    .#{$component}-title {
+        
+        display: inline-block;
+        line-height: $default-line-height;
+        font-size: $default-font-size;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+}

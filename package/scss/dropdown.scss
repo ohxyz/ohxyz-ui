@@ -1,0 +1,47 @@
+@import "_variables";
+
+$component: dropdown;
+
+.#{$component} {
+
+    position: relative;
+    box-sizing: border-box;
+    font-size: $default-font-size;
+    width: 100%;
+    line-height: 24px;
+    cursor: pointer;
+
+    &:before {
+
+        content: "";
+        border: 5px solid transparent;
+        border-top-color: $chevron;
+        position: absolute;
+        top: 23px;
+        right: 15px;
+        z-index: -1;
+    }
+
+    .#{$component}-header {
+
+        padding: $default-padding;
+        min-height: 24px;
+        border: $default-border;
+        user-select: none;
+    }
+
+    .#{$component}-content {
+
+        position: absolute;
+        z-index: 1;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: $default-padding;
+        min-height: 24px;
+        border: $default-border;
+        user-select: none;
+        box-shadow: 0 4px 8px rgba( 0, 0, 0, 0.2 );
+    }
+}

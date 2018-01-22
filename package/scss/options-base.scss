@@ -1,0 +1,33 @@
+@import "_variables";
+
+$component: options-base;
+
+.#{$component} {
+
+    border: $default-border;
+    margin: $default-margin;
+
+    .#{$component}-item {
+
+        padding: $default-padding;
+        font-size: $default-font-size;
+        line-height: $default-line-height;
+        border-bottom: $default-border;
+        cursor: pointer;
+
+         &.is-selected {
+            
+            color: $orange-dark;
+         }
+
+         &:last-child {
+
+            border-color: transparent;
+         }
+    }
+
+    .#{$component}-item:hover {
+
+        background-color: #eeeeee;
+    }
+}

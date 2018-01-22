@@ -1,0 +1,63 @@
+@import "_variables";
+
+$component: options-checkbox-list;
+
+.#{$component} {
+
+    .#{$component}-item {
+
+        position: relative;
+        padding: 8px 0;
+        font-size: $default-font-size;
+        line-height: $default-line-height;
+
+        .#{$component}-label {
+
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+
+            .#{$component}-icon {
+
+                position: absolute;
+                cursor: pointer;
+                opacity: 0;
+
+                &:checked + .#{$component}-text:after {
+
+                    content: "";
+                    position: absolute;
+                    visibility: visible;
+                    display: block;
+                    left: 8px;
+                    top: 2px;
+                    border-bottom: 2px solid $orange-light;
+                    border-right: 2px solid $orange-light;
+                    width: 6px;
+                    height: 15px;
+                    transform: rotate( 45deg );
+                }
+            }
+
+            .#{$component}-text {
+
+                display: block;
+                margin-left: 39px;
+
+                &:before {
+
+                    content: "";
+                    position: absolute;
+                    visibility: visible;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 24px;
+                    height: 24px;
+                    box-sizing: border-box;
+                    border: 1px solid $grey;
+                }
+            }
+        }
+    }
+}

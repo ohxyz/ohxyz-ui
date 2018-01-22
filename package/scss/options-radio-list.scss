@@ -1,0 +1,66 @@
+@import "_variables";
+
+$component: options-radio-list;
+
+.#{$component} {
+
+    .#{$component}-item {
+
+        position: relative;
+        padding: 8px 0;
+        font-size: $default-font-size;
+        line-height: $default-line-height;
+        
+        .#{$component}-label {
+
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+
+            .#{$component}-icon {
+
+                position: absolute;
+                opacity: 0;
+
+                &:checked + .#{$component}-text:after  {
+
+                    position: absolute;
+                    content: "";
+                    visibility: visible;
+                    display: block;
+                    top: 4px;
+                    left: 4px;
+                    width: 16px;
+                    height: 16px;
+                    box-sizing: border-box;
+                    border-radius: 100px;
+                    background-color: $orange-light;
+                }
+            }
+
+            .#{$component}-text {
+
+                &:before {
+
+                    position: absolute;
+                    content: "";
+                    visibility: visible;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 24px;
+                    height: 24px;
+                    box-sizing: border-box;
+                    border: 1px solid $grey;
+                    border-radius: 100px;
+                }
+            }
+
+            .#{$component}-text {
+
+                display: block;
+                margin-left: 39px;
+            }
+        }
+    }
+}
