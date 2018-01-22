@@ -1,6 +1,6 @@
 {
   "name": "web-form-controls",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A UI library",
   "scripts": {
     "build": "webpack",
