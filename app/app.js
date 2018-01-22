@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import dataType from './datatype.js';
 import {
 
     InsertBase,
@@ -32,9 +31,11 @@ import {
     DropdownList,
 
     Submit,
-    SubmitControl
+    SubmitControl,
 
-} from './components.js';
+    dataType,
+
+} from '../web-form-controls.js';
 
 import Dummy from './dummy.js';
 

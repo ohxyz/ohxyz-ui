@@ -1,11 +1,8 @@
 # styles
 scss/.sass-cache
 
-# tests
-src/dummy.js
-src/green-lpg-form.js
-src/unit-test.js
-src/app.js
+# tests with app
+app/*
 
 # tests with server 
 test/*

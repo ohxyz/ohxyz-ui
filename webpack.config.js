@@ -1,6 +1,6 @@
 module.exports = {
 
-    entry: './src/app.js',
+    entry: './app/app.js',
 
     output: {
 
