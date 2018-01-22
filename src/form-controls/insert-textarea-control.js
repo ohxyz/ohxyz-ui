@@ -1,6 +1,6 @@
 import React from 'react';
-import InsertTextArea from '../controls/insert-textarea.jsx';
-import FormControl from './form-control.jsx';
+import InsertTextArea from '../controls/insert-textarea.js';
+import FormControl from './form-control.js';
 
 class InsertTextAreaControl extends FormControl {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import util from '../util.js';
-import { OptionsBase, OptionsBaseItem } from './options-base.jsx';
+import { OptionsBase, OptionsBaseItem } from './options-base.js';
 import datatype from '../datatype.js';
 
 const COMPONENT_NAME = 'options-radio-list';

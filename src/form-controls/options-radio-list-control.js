@@ -1,7 +1,7 @@
 import React from 'react';
 import util from '../util.js';
-import OptionsRadioList from '../controls/options-radio-list.jsx';
-import FormControl from './form-control.jsx';
+import OptionsRadioList from '../controls/options-radio-list.js';
+import FormControl from './form-control.js';
 
 class OptionsRadioListControl extends FormControl {
 

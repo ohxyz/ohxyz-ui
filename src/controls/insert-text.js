@@ -1,4 +1,4 @@
-import InsertBase from './insert-base.jsx';
+import InsertBase from './insert-base.js';
 
 class InsertText extends InsertBase {
 

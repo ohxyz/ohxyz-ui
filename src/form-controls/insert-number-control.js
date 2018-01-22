@@ -1,6 +1,6 @@
 import React from 'react';
-import InsertNumber from '../controls/insert-number.jsx';
-import FormControl from './form-control.jsx';
+import InsertNumber from '../controls/insert-number.js';
+import FormControl from './form-control.js';
 
 class InsertNumberControl extends FormControl {
 

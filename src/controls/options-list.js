@@ -1,6 +1,6 @@
 import React from 'react';
 import util from '../util.js';
-import OptionsBase from './options-base.jsx';
+import OptionsBase from './options-base.js';
 
 class OptionsList extends OptionsBase {
 

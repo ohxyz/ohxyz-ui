@@ -1,5 +1,5 @@
 import React from 'react';
-import InsertText from './insert-text.jsx';
+import InsertText from './insert-text.js';
 import util from '../util.js';
 
 // Todo: allow to set min and max for dates

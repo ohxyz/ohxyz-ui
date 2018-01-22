@@ -1,6 +1,6 @@
 import React from 'react';
-import InsertDateByText from '../controls/insert-date-by-text.jsx';
-import FormControl from './form-control.jsx';
+import InsertDateByText from '../controls/insert-date-by-text.js';
+import FormControl from './form-control.js';
 
 class InsertDateByTextControl extends FormControl {
 

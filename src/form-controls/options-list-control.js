@@ -1,7 +1,7 @@
 import React from 'react';
 import util from '../util.js';
-import OptionsList from '../controls/options-list.jsx';
-import FormControl from './form-control.jsx';
+import OptionsList from '../controls/options-list.js';
+import FormControl from './form-control.js';
 
 class OptionsListControl extends FormControl {
 

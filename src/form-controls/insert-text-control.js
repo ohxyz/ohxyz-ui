@@ -1,6 +1,6 @@
 import React from 'react';
-import InsertText from '../controls/insert-text.jsx';
-import FormControl from './form-control.jsx';
+import InsertText from '../controls/insert-text.js';
+import FormControl from './form-control.js';
 
 class InsertTextControl extends FormControl {
 

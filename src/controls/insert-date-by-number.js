@@ -1,6 +1,6 @@
 import React from 'react';
-import InsertNumber from './insert-number.jsx';
-import InsertDateBase from './insert-date-base.jsx';
+import InsertNumber from './insert-number.js';
+import InsertDateBase from './insert-date-base.js';
 
 // Todo: allow to set min and max for dates
 class InsertDateByNumber extends InsertDateBase {

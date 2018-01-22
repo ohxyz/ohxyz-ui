@@ -34,9 +34,9 @@ import {
     Submit,
     SubmitControl
 
-} from './components.jsx';
+} from './components.js';
 
-import Dummy from './dummy.jsx';
+import Dummy from './dummy.js';
 
 class App extends React.Component {
 

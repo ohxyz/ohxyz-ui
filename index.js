@@ -1,6 +1,7 @@
 /* Use `js` as extension but requires JSX, eg. import and export */
 
-import components from './src/components.jsx';
+let components = require( './src/components.js' );
 
-export components;
+module.exports = components;
+
 

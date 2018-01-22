@@ -1,4 +1,4 @@
-import InsertBase from './insert-base.jsx';
+import InsertBase from './insert-base.js';
 import util from '../util.js';
 
 class InsertNumber extends InsertBase {

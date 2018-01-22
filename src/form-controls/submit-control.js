@@ -1,7 +1,7 @@
 import React from 'react';
 import util from '../util.js';
-import Submit from '../controls/submit.jsx';
-import FormControl from './form-control.jsx';
+import Submit from '../controls/submit.js';
+import FormControl from './form-control.js';
 
 class SubmitControl extends FormControl {
 

@@ -2,10 +2,10 @@
 scss/.sass-cache
 
 # tests
-src/dummy.jsx
-src/green-lpg-form.jsx
+src/dummy.js
+src/green-lpg-form.js
 src/unit-test.js
-src/app.jsx
+src/app.js
 
 # tests with server 
 test/*

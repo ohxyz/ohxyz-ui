@@ -1,6 +1,6 @@
 import React from 'react';
-import InsertText from './insert-text.jsx';
-import InsertDateBase from './insert-date-base.jsx';
+import InsertText from './insert-text.js';
+import InsertDateBase from './insert-date-base.js';
 import dataType from '../datatype.js';
 import util from '../util.js';
 
