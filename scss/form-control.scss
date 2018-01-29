@@ -1,10 +1,10 @@
-$component: form-control;
+$component: control;
     
 .#{$component} {
 
     margin: $default-margin;
 
-    .title {
+    &__title {
 
         display: inline-block;
         margin-bottom: 8px;
@@ -13,7 +13,7 @@ $component: form-control;
         font-weight: 500;
     }
 
-    .error-message {
+    &__error {
 
         padding: 4px 10px;
         line-height: $default-line-height;
@@ -32,10 +32,9 @@ $component: form-control;
             border: 4px solid transparent;
             border-bottom: 4px solid $red;
         }
-
     }
 
-    .description {
+    &__description {
 
         color: $grey80;
         font-size: $font-small;
@@ -43,12 +42,18 @@ $component: form-control;
         margin-top: 8px;
     }
 
-    &.is-invalid {
 
-        .title {
+    &__mandatory {
 
-            color: $red;
-        }
+        color: $red;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+
+    &--invalid &__title {
+
+        color: $red;
     }
 
 }

@@ -57,47 +57,47 @@
     </style>
 </head>
 <body>
-    <form method="POST" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <form method="GET" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
 
-        <input type="hidden" name="unseen" value="x1" />
-        <input type="hidden" name="unseen" value="x2" />
-        <input type="hidden" name="unseen" value="x3" />
+        <input type="hidden" name="unseen" value="x1" >
+        <input type="hidden" name="unseen" value="x2" >
+        <input type="hidden" name="unseen" value="x3" >
 
         <ul>
-            <li><input type="checkbox" name="my-checkbox-1" value="a" /></li>
-            <li><input type="checkbox" name="my-checkbox-1" value="b" /></li>
-            <li><input type="checkbox" name="my-checkbox-1" value="c" /></li>
+            <li><input type="checkbox" name="my-checkbox-1" value="a" ></li>
+            <li><input type="checkbox" name="my-checkbox-1" value="b" ></li>
+            <li><input type="checkbox" name="my-checkbox-1" value="c" ></li>
         </ul>
 
-        <input type="number" name="name-num" value="10" min="-Infinity"/>
+        <input type="number" name="name-num" min="-Infinity" required>
 
-        <br />
+        <br>
 
-        <input type="range" name="b" value="50" /> +
-        <input type="number" name="a" value="10" /> =
+        <input type="range" name="b" value="50" > +
+        <input type="number" name="a" value="10" > =
         <output name="result">60</output>
         
-        <br />
+        <br>
 
         <input name="firstname" type="text">
         
-        <br />
+        <br>
 
         <div style="position: relative;">
-            <input name="check" type="checkbox" value="x" />Check me
-            <input name="check" type="checkbox" value="y" />Check me again
+            <input name="check" type="checkbox" value="x" >Check me
+            <input name="check" type="checkbox" value="y" >Check me again
         </div>
 
-        <br />
+        <br>
 
-        <input type="radio" name="radiobox" value="a" checked style="display:none" />Radio 1
-        <input type="radio" name="radiobox" value="b" />Radio 2
+        <input type="radio" name="radiobox" value="a" checked style="display:none" >Radio 1
+        <input type="radio" name="radiobox" value="b" >Radio 2
 
-        <br />
+        <br>
         
         <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
         
-        <br />
+        <br>
         
         <select name="cars">
             <option value="vw">VW</option>
@@ -106,7 +106,7 @@
             <option value="hyundai">Hyundai</option>
         </select>
         
-        <br />
+        <br>
 
         <select name="cars" size="4" multiple>
             <option value="volvo">Volvo</option>
@@ -115,7 +115,7 @@
             <option value="audi">Audi</option>
         </select>
 
-        <br />
+        <br>
 
         <input list="browsers">
         <datalist id="browsers">
@@ -126,9 +126,9 @@
             <option value="Safari">
         </datalist>
 
-        <br />
+        <br>
         
-        <input type="Submit" />
+        <input type="Submit" >
 
     </form>
 </body>

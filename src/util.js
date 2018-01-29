@@ -1,7 +1,6 @@
-/* Utils */
-
-/* START: App related */
-
+/* A collection of utility functions intended for both browser and node.js
+ *
+ */
 
 function generateRandomString() {
 
@@ -180,8 +179,6 @@ function sortArrayByObjectKey( options, array ) {
     
     return array;
 }
-
-/* END: App related */
 
 module.exports = {
     

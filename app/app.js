@@ -105,6 +105,7 @@ class App extends React.Component {
                     title="Insert Text Control" 
                     description="NO desCRIpt1on"
                     rules={ rules }
+                    mandatoryMessage="*"
                 />
                 <InsertDateByTextControl 
                     title="Insert Date - Text"

@@ -16,9 +16,9 @@ class FormControl extends React.Component {
         this.rules = util.setDefault( props.rules, [] );
 
         this.isValid= util.setDefault( props.isValid, true );
-        this.requiredMessage = util.setDefault( props.requiredMessage, '' );
+        this.mandatoryMessage = util.setDefault( props.mandatoryMessage, '' );
 
-        this.classNamePrefix = 'form-control';
+        this.classNamePrefix = 'control';
         this.className = '';
     }
 
@@ -44,7 +44,7 @@ class FormControl extends React.Component {
 
         if ( this.isValid === false ) {
 
-            this.className += ' is-invalid';
+            this.className += ` ${ this.classNamePrefix }--invalid`;
         }
 
     }
@@ -56,7 +56,7 @@ class FormControl extends React.Component {
             return null;
         }
 
-        return <span className="title">{ this.title }</span>
+        return <span className={ this.classNamePrefix + '__title' }>{ this.title }</span>
     }
 
     renderMain() {
@@ -66,9 +66,9 @@ class FormControl extends React.Component {
 
     renderRequiredMessageIfRequired() {
 
-        if ( this.requiredMessage !== '' ) {
+        if ( this.mandatoryMessage !== '' ) {
 
-            return <span class="is-required">{ this.requiredMessage }</span>
+            return <span className={ this.classNamePrefix + '__mandatory' }>{ this.mandatoryMessage }</span>
         }
     }
 
@@ -76,7 +76,7 @@ class FormControl extends React.Component {
         
         if ( this.isValid === false ) {
 
-            return <span className="error-message">{ this.errorMessage }</span>
+            return <span className={ this.classNamePrefix + '__error' }>{ this.errorMessage }</span>
         }
         
         return null;
@@ -89,7 +89,7 @@ class FormControl extends React.Component {
             return null;
         }
         
-        return <div className="description">{ this.description }</div>
+        return <div className={ this.classNamePrefix + '__description' }>{ this.description }</div>
     }
 
     // Todo: Check event.target
