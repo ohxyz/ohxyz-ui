@@ -58,11 +58,11 @@ class App extends React.Component {
 
     render() {
 
-        let description1 = "The ACCC is Australia’s peak consumer protection and competition agency. The ACCC is an independent statutory government authority serving the public interest. Most of the ACCC’s enforcement work is conducted under the provisions of the Competition and Consumer Act 2010 (the Act).";
+        let info1 = "The ACCC is Australia’s peak consumer protection and competition agency. The ACCC is an independent statutory government authority serving the public interest. Most of the ACCC’s enforcement work is conducted under the provisions of the Competition and Consumer Act 2010 (the Act).";
 
-        let description2 = "Victoria’s Emergency Services have warned of an increased risk of avalanches in back country alpine areas due to the forecast heavy snowfalls and strong winds.";
+        let info2 = "Victoria’s Emergency Services have warned of an increased risk of avalanches in back country alpine areas due to the forecast heavy snowfalls and strong winds.";
 
-        let description3 = "From 1 July 2017, complaints about the conduct or capacity of Victorian judicial officers or the Victorian Civil and Administrative Tribunal (VCAT) members may be made to the Judicial Commission of Victoria. The Commission is an independent organisation established under the Judicial Commission of Victoria Act 2016 to investigate complaints about judicial officers and VCAT members. The Commission provides an accessible and transparent complaint process, which aims to ensure public confidence in Victorian courts and the VCAT is maintained.";
+        let info3 = "From 1 July 2017, complaints about the conduct or capacity of Victorian judicial officers or the Victorian Civil and Administrative Tribunal (VCAT) members may be made to the Judicial Commission of Victoria. The Commission is an independent organisation established under the Judicial Commission of Victoria Act 2016 to investigate complaints about judicial officers and VCAT members. The Commission provides an accessible and transparent complaint process, which aims to ensure public confidence in Victorian courts and the VCAT is maintained.";
 
         let options = [
  
@@ -98,31 +98,31 @@ class App extends React.Component {
 
             <form>
 
-                <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
-                <OptionsCheckboxListControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" description="Most of the time" />
+                <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
+                <OptionsCheckboxListControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
 
                 <InsertTextControl 
                     title="Insert Text Control" 
-                    description="NO desCRIpt1on"
+                    info="NO desCRIpt1on"
                     rules={ rules }
-                    mandatoryMessage="*"
+                    subtitle="*"
                 />
                 <InsertDateByTextControl 
                     title="Insert Date - Text"
                     name="my-insert-date"
-                    description={ description2 }
+                    info={ info2 }
                 />
 
                 <InsertDateByNumberControl 
                     title="Insert Date by Number - BOX"
-                    description={ description3 }
+                    info={ info3 }
                 />
                 
                 <InsertDateBase />
                 <InsertDateByText />
                 <InsertDateByNumber />
 
-                <SubmitControl title="Press following button" text={ longText } description="By pressing this button, you surrender." />
+                <SubmitControl title="Press following button" text={ longText } info="By pressing this button, you surrender." />
 
                 <Submit text="Primary button" disabled={ true } />
 
@@ -130,7 +130,7 @@ class App extends React.Component {
 
                 <OptionsRadioList name="security-questions" items={ questions } />
 
-                <OptionsListControl title="Options List Control" items={ [ 'a', 'b', 'c' ] } description="A list" />
+                <OptionsListControl title="Options List Control" items={ [ 'a', 'b', 'c' ] } info="A list" />
 
 
 
@@ -150,20 +150,20 @@ class App extends React.Component {
 
                 <InsertTextAreaControl
                     title="Insert Textarea Control" 
-                    description={ this.description3 }
+                    info={ this.info3 }
                     hint="Only 1, 2, 3..."
                     rules={ rules }
                 />
                 <InsertNumberControl 
                     title="Insert Number Control" 
-                    description="Input some figure"
+                    info="Input some figure"
                     hint="Only 1, 2, 3..."
                 />
 
                 <FormControl title="Form Element Control" 
                                 errorMessage="No errors. Just show off." 
                                 isValid={ false } 
-                                description={ description2 }
+                                info={ info2 }
                 />
                 <InsertTextArea name="my-insert-textarea" hint="hint area" />
                 <InsertNumber name="my-insert-number" hint="hint number" value="100" />

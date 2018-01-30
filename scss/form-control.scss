@@ -3,6 +3,7 @@ $component: control;
 .#{$component} {
 
     margin: $default-margin;
+    font-size: $default-font-size;
 
     &__title {
 
@@ -11,6 +12,15 @@ $component: control;
         font-size: $default-font-size;
         color: $grey;
         font-weight: 500;
+    }
+
+
+    &__subtitle {
+
+        display: inline-block;
+        color: $grey48;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     &__error {
@@ -34,22 +44,13 @@ $component: control;
         }
     }
 
-    &__description {
+    &__information {
 
         color: $grey80;
         font-size: $font-small;
         line-height: 200%;
         margin-top: 8px;
     }
-
-
-    &__mandatory {
-
-        color: $red;
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
 
     &--invalid &__title {
 

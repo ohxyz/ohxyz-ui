@@ -1,5 +1,6 @@
 import React from 'react';
 import util from '../util.js';
+import conf from '../conf.js';
 
 class FormControl extends React.Component {
 
@@ -10,15 +11,15 @@ class FormControl extends React.Component {
         this.domElement = null;
 
         this.title = util.setDefault( props.title, '' );
-        this.description = util.setDefault( props.description, '' );
+        this.subtitle = util.setDefault( props.subtitle, '' );
+        this.info = util.setDefault( props.info, '' );
         this.errorMessage = util.setDefault( props.errorMessage, '' );
         this.name = util.setDefault( props.name, '' );
         this.rules = util.setDefault( props.rules, [] );
 
         this.isValid= util.setDefault( props.isValid, true );
-        this.mandatoryMessage = util.setDefault( props.mandatoryMessage, '' );
 
-        this.classNamePrefix = 'control';
+        this.classNamePrefix = conf.classNamePrefix;
         this.className = '';
     }
 
@@ -56,20 +57,22 @@ class FormControl extends React.Component {
             return null;
         }
 
-        return <span className={ this.classNamePrefix + '__title' }>{ this.title }</span>
+        return <div className={ this.classNamePrefix + '__title' }>{ this.title }</div>
+    }
+
+    renderSubtitle() {
+
+        if ( this.subtitle === '' ) {
+
+            return null;
+        }
+
+        return <div className={ this.classNamePrefix + '__subtitle' }>{ this.subtitle }</div>
     }
 
     renderMain() {
 
         return null;
-    }
-
-    renderRequiredMessageIfRequired() {
-
-        if ( this.mandatoryMessage !== '' ) {
-
-            return <span className={ this.classNamePrefix + '__mandatory' }>{ this.mandatoryMessage }</span>
-        }
     }
 
     renderErrorMessageIfInvalid() {
@@ -82,14 +85,14 @@ class FormControl extends React.Component {
         return null;
     }
 
-    renderDescription() {
+    renderInformation() {
 
-        if ( this.description === '' ) {
+        if ( this.info === '' ) {
 
             return null;
         }
         
-        return <div className={ this.classNamePrefix + '__description' }>{ this.description }</div>
+        return <div className={ this.classNamePrefix + '__information' }>{ this.info }</div>
     }
 
     // Todo: Check event.target
@@ -104,16 +107,16 @@ class FormControl extends React.Component {
 
         return (
 
-            <div 
+            <div
                 className={ this.className } 
                 ref={ elem => this.domElement = elem }
                 onChange={ this.updateUI.bind( this ) }
             >
                 { this.renderTitle() }
-                { this.renderRequiredMessageIfRequired() }
+                { this.renderSubtitle() }
                 { this.renderMain() }
                 { this.renderErrorMessageIfInvalid() }
-                { this.renderDescription() }
+                { this.renderInformation() }
             </div>
         );
     }
