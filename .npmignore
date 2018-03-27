@@ -7,5 +7,8 @@ app/*
 # tests with server 
 test/*
 
+# exclude src
+src
+
 # others
 webpack.config.js

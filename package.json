@@ -4,7 +4,8 @@
   "description": "A UI library",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "babel": "rm -rf lib | babel ./src --out-dir ./lib --presets=react"
   },
   "author": "",
   "license": "UNLICENSED",
@@ -12,10 +13,12 @@
     "type": "git",
     "url": "https://github.com/ohxyz/ohxyz-ui.git"
   },
+  "main": "index.js",
   "dependencies": {
     "validator": "^9.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
