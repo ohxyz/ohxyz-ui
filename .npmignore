@@ -1,14 +1,17 @@
-# styles
+# Self
+.npmignore
+
+# Styles
 scss/.sass-cache
 
-# tests with app
+# Tests with app
 app/*
 
-# tests with server 
+# Tests with server 
 test/*
 
-# exclude src
+# Exclude src
 src
 
-# others
+# Others
 webpack.config.js
