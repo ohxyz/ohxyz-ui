@@ -5,10 +5,10 @@
 scss/.sass-cache
 
 # Tests with app
-app/*
+app
 
 # Tests with server 
-test/*
+test
 
 # Exclude src
 src
