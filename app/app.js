@@ -35,7 +35,7 @@ import {
 
     dataType,
 
-} from '../web-form-controls.js';
+} from '../index.js';
 
 import Dummy from './dummy.js';
 

@@ -2,7 +2,7 @@
 .npmignore
 
 # Styles
-scss/.sass-cache
+less
 
 # Tests with app
 app

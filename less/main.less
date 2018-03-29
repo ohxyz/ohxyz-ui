@@ -1,0 +1,52 @@
+@import "./_variables.less";
+@import "./misc.less";
+
+@import "./insert-text.less";
+@import "./insert-number.less";
+@import "./insert-textarea.less";
+@import "./insert-date-base.less";
+@import "./insert-date-by-text.less";
+@import "./insert-date-by-number.less";
+
+@import "./options-base.less";
+@import "./options-list.less";
+@import "./options-radio-list.less";
+@import "./options-checkbox-list.less";
+
+@import "./dropdown.less";
+@import "./dropdown-list.less";
+
+@import "./form-control.less";
+@import "./insert-number-control.less";
+@import "./insert-textarea-control.less";
+@import "./insert-date-by-text-control.less";
+@import "./insert-date-by-number-control.less";
+
+@import "./submit.less";
+
+/* Global */
+body {
+
+    font-family: @default-font-family;
+
+    .container {
+
+        padding: 0 15px;
+        color: @grey;
+
+        .form-header {
+
+            height: 128px;
+            line-height: 128px;
+            font-size: 58px;
+            font-weight: bold;
+            margin: @default-margin;
+
+            .form-title {
+
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}

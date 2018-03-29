@@ -1,16 +1,14 @@
 @import "_variables";
 
-$component: submit;
+.submit {
 
-.#{$component} {
-
-    font-family: $default-font-family;
+    font-family: @default-font-family;
     padding: 12px 30px;
-    background-color: $red;
-    line-height: $default-line-height;
+    background-color: @red;
+    line-height: @default-line-height;
     color: white;
     font-weight: 600;
-    font-size: $font-large;
+    font-size: @font-large;
     cursor: pointer;
     outline: none;
     border: 4px solid transparent;
@@ -18,18 +16,18 @@ $component: submit;
 
     &:hover {
 
-        background-color: $red-dark;
+        background-color: @red-dark;
     }
 
     &:focus {
 
-        background-color: $red-dark;
-        border-color: $red24;
+        background-color: @red-dark;
+        border-color: @red24;
     }
 
     &:disabled {
 
-        background-color: $red32;
+        background-color: @red32;
         cursor: not-allowed;
     }
 }
