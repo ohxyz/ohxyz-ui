@@ -5,9 +5,9 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "babel": "rm -rf lib | babel ./src --out-dir ./lib --presets=react",
+    "babel": "rm -rf lib | babel ./src --out-dir ./lib --presets=react"
   },
-  "author": "",
+  "author": "ohxyz",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
