@@ -1,12 +1,11 @@
 {
   "name": "web-form-controls",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A UI library",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
     "babel": "rm -rf lib | babel ./src --out-dir ./lib --presets=react",
-    "start": "webpack-dev-server"
   },
   "author": "",
   "license": "UNLICENSED",
