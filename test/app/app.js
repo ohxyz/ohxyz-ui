@@ -39,6 +39,8 @@ import {
 
 import Dummy from './dummy.js';
 
+require( '../../less/main.less');
+
 class App extends React.Component {
 
     constructor( props ) {
@@ -97,7 +99,6 @@ class App extends React.Component {
         return (
 
             <form>
-
                 <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
                 <OptionsCheckboxListControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
 

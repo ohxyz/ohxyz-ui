@@ -9,22 +9,38 @@ module.exports = {
 
     module: {
         
-        rules: [ {
+        rules: [ 
 
-            test: /\.js[x]{0,1}$/,
+            {
 
-            exclude: /(node_modules|bower_components)/,
+                test: /\.js[x]{0,1}$/,
 
-            use: [ {
+                exclude: /(node_modules|bower_components)/,
 
-                loader: 'babel-loader',
+                use: [ {
 
-                options: {
+                    loader: 'babel-loader',
 
-                    presets: [ 'react', 'env' ]
-                }
-            } ] 
+                    options: {
 
-        } ]
+                        presets: [ 'react', 'env' ]
+                    }
+                } ] 
+
+            }, 
+
+            {
+
+                test: /\.less$/,
+
+                use: [ 
+
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "less-loader" }
+                ]
+
+            }
+        ]
     }
 };
