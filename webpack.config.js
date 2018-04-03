@@ -1,6 +1,6 @@
 module.exports = {
 
-    entry: './app/app.js',
+    entry: './test/app/app.js',
 
     output: {
 
@@ -15,7 +15,7 @@ module.exports = {
 
             exclude: /(node_modules|bower_components)/,
 
-            use: {
+            use: [ {
 
                 loader: 'babel-loader',
 
@@ -23,7 +23,7 @@ module.exports = {
 
                     presets: [ 'react', 'env' ]
                 }
-            }
+            } ] 
 
         } ]
     }

@@ -1,6 +1,6 @@
 {
   "name": "web-form-controls",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A UI library",
   "scripts": {
     "build": "webpack",
@@ -23,6 +23,8 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^3.11.0"

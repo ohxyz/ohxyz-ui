@@ -35,7 +35,7 @@ import {
 
     dataType,
 
-} from '../index.js';
+} from '../../src/main.js';
 
 import Dummy from './dummy.js';
 
@@ -144,7 +144,7 @@ class App extends React.Component {
 
                 <Dropdown />
                 
-                <OptionsList name="y" items={ [ 1, 2, 3 ] } />
+                <OptionsList name="y" items={ [ 1, 2, 3, 4 ] } />
 
                 <OptionsBase name="x" items={ options } />
 
