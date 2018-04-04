@@ -55,7 +55,12 @@ class App extends React.Component {
             { text: 'Mr', value: 'mr' },
             { text: 'Ms', value: 'ms' },
             { text: 'God', value: 'god' },
-            { text: 'Goddess', value: 'goddess' }
+            { text: 'Goddess', value: 'goddess' },
+            { text: 'abc', value: '1234' },
+            { text: 'abd', value: '1234' },
+            { text: 'abe', value: '1234' },
+            { text: 'bcd', value: '1234' },
+            { text: 'bcf', value: '1234' }
         ];
     }
 
@@ -103,7 +108,8 @@ class App extends React.Component {
 
                 <DropDownAutoComplete 
                     name="my-dropdowon-autocomplete"
-                    items={ this.items }
+                    url="/results.json"
+                    jsonProperty="name"
                 />
 
                 <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />

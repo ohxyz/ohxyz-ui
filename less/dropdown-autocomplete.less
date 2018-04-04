@@ -11,10 +11,8 @@
 
     &__header {
 
-        padding: @default-padding;
         min-height: 24px;
-        border: @default-border;
-        user-select: none;
+
     }
 
     &__insert-text {
@@ -32,6 +30,19 @@
             border-color: @orange-dark;
         }
     }
+
+    &__items-container {
+
+        margin-top: 8px;
+        min-height: 50px;
+    }
+
+    &__item-selected {
+
+        padding: 4px 8px;
+        border: @default-border;
+        display: inline-block;
+    }
 }
 
 .dropdown-autocomplete--open {
@@ -40,9 +51,6 @@
 
         &__header {
 
-            border-bottom-color: transparent;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
         }
 
         &__content {
@@ -55,8 +63,8 @@
             background-color: white;
             min-height: 24px;
             border: @default-border;
+            border-color: @red;
             max-height: 49px * 3 - 1 ;
-
             user-select: none;
             overflow-y: auto;
         }

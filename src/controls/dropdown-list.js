@@ -2,6 +2,7 @@ import React from 'react';
 import DropDown from './dropdown.js';
 import OptionsList from './options-list.js';
 import util from '../util.js';
+import datatype from '../datatype.js';
 
 class DropdownList extends DropDown {
 
@@ -17,7 +18,7 @@ class DropdownList extends DropDown {
         this.classNamePrefix = 'dropdown-list';
 
         this.isSelected = false;
-        this.itemSelected = null;
+        this.itemSelected = new datatype.Item();
 
         this.state = {
 
