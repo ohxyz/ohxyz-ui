@@ -96,12 +96,12 @@ class InsertBase extends React.Component {
 
         if ( this.value !== '' ) {
             
-            this.className += ' is-filled';
+            this.className += ' ' + this.classNamePrefix + '--filled';
         }
         
         if ( this.isValid === false ) {
             
-            this.className += ' is-invalid';
+            this.className += ' ' + this.classNamePrefix + '--invalid';
         }
     }
 

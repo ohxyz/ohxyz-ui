@@ -31,7 +31,11 @@ class OptionsBaseItem extends React.Component {
     render() {
 
         let className = this.classNamePrefix + '__item';
-        className += this.item.isSelected === true ? ' is-selected' : '';
+        let classNameSelected = className + '--selected';
+
+        className += ( this.item.isSelected === true ) 
+                   ? ( ' ' + classNameSelected )
+                   : '';
 
         return (
 
@@ -40,7 +44,6 @@ class OptionsBaseItem extends React.Component {
             </div>
         );
     }
-
 }
 
 class OptionsBase extends React.Component {
@@ -93,7 +96,6 @@ class OptionsBase extends React.Component {
 
             this.items[ i ] = item;
         }
-
     }
 
     assignItemsSelected( item ) {

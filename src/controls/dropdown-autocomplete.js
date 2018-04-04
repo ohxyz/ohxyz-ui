@@ -1,66 +1,30 @@
 import React from 'react';
-import DropDown from './dropdown.js';
-import OptionsList from './options-list.js';
+import DropDownList from './dropdown-list.js';
+
+import InsertText from './insert-text.js';
 import util from '../util.js';
 
-export default class DropDownAutoComplete extends DropDown {
+export default class DropDownAutoComplete extends DropDownList {
 
     constructor( props ) {
 
         super( props );
 
-        this.handleSelect = this.handleSelect.bind( this );
-
-        this.items = util.setDefault( props.items, [] );
-        this.name = util.setDefault( props.name, '' );
-
         this.classNamePrefix = 'dropdown-autocomplete';
-
-        this.isSelected = false;
-        this.itemSelected = null;
-
-        this.state = {
-
-            itemSelected: null
-        };
     }
 
-    handleSelect( item ) {
+    renderHeader() {
 
-        this.itemSelected = item;
-        this.isSelected = true;
-        this.value = item.value;
-
-        this.className = this.classNamePrefix + ' is-selected';
-
-        this.setState( {
-
-            itemSelected: item
-
-        } );
-
-        this.close();
-    }
-
-    renderHeaderContent() {
-
-        if ( this.isSelected === false ) {
-
-            return this.hint;
-        }
-
-        return this.itemSelected.text;
-    }
-
-    renderInnerContent() {
+        let className = this.classNamePrefix + '__insert-text';
 
         return (
 
-            <OptionsList items={ this.items }
-                         classNamePrefix={ this.classNamePrefix + '__options-list' }
-                         onSelect={ this.handleSelect }
-            />
-
+            <InsertText classNamePrefix={ className} />
         );
+    }
+
+    renderHiddenInput() {
+
+        return null;
     }
 }

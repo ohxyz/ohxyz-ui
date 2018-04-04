@@ -1,6 +1,6 @@
 import InsertBase from './insert-base.js';
 
-class InsertText extends InsertBase {
+export default class InsertText extends InsertBase {
 
     constructor( props ) {
 
@@ -9,5 +9,3 @@ class InsertText extends InsertBase {
         this.type = 'text';
     }
 }
-
-export default InsertText;
