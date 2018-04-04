@@ -41,13 +41,16 @@ class Dropdown extends React.Component {
 
         this.className = this.classNamePrefix;
 
+        let classNameModifier = this.className + '--open';
+        let classNameModifierWithSpace = ' ' + classNameModifier;
+
         if ( this.isOpen === true ) {
 
-            this.className = this.className + ' is-open';
+            this.className = this.className + classNameModifierWithSpace;
         }
         else {
 
-            this.className = this.className.replace( ' is-open', '' );
+            this.className = this.className.replace( classNameModifierWithSpace, '' );
         }
 
     }
@@ -67,7 +70,7 @@ class Dropdown extends React.Component {
 
         return ( 
 
-            <div className={ this.classNamePrefix + '-header' }
+            <div className={ this.classNamePrefix + '__header' }
                  onClick={ this.handleHeaderClick }
             >
                 { this.renderHeaderContent() }
@@ -94,7 +97,7 @@ class Dropdown extends React.Component {
 
         if ( this.isOpen === true ) {
 
-            return <div className={ this.classNamePrefix + '-content' }>{ this.renderInnerContent() }</div>;
+            return <div className={ this.classNamePrefix + '__content' }>{ this.renderInnerContent() }</div>;
         }
         else {
 

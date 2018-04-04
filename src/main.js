@@ -13,6 +13,7 @@ import OptionsCheckboxList from './controls/options-checkbox-list.js';
 
 import Dropdown from './controls/dropdown.js';
 import DropdownList from './controls/dropdown-list.js';
+import DropDownAutoComplete from './controls/dropdown-autocomplete.js';
 
 import Submit from './controls/submit.js';
 
@@ -58,6 +59,7 @@ export {
 
     Dropdown,
     DropdownList,
+    DropDownAutoComplete,
 
     Submit,
 

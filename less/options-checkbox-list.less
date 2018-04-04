@@ -2,7 +2,7 @@
 
 .options-checkbox-list {
 
-    &-item {
+    &__item {
 
         position: relative;
         padding: 8px 0;
@@ -10,20 +10,20 @@
         line-height: @default-line-height;
     }
 
-    &-label {
+    &__label {
 
         cursor: pointer;
         display: inline-block;
         position: relative;
     }
 
-    &-icon {
+    &__icon {
 
         position: absolute;
         cursor: pointer;
         opacity: 0;
 
-        &:checked + .options-checkbox-list-text:after {
+        &:checked + .options-checkbox-list__text:after {
 
             content: "";
             position: absolute;
@@ -39,7 +39,7 @@
         }
     }
 
-    &-text {
+    &__text {
 
         display: block;
         margin-left: 39px;

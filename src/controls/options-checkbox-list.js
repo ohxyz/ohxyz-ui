@@ -9,9 +9,9 @@ class OptionsCheckboxItem extends OptionsBaseItem {
 
     renderListContent() {
 
-        let iconClassName = COMPONENT_NAME + '-icon';
-        let labelClassName = COMPONENT_NAME + '-label';
-        let textClassName = COMPONENT_NAME + '-text';
+        let iconClassName = COMPONENT_NAME + '__icon';
+        let labelClassName = COMPONENT_NAME + '__label';
+        let textClassName = COMPONENT_NAME + '__text';
 
         return (
 

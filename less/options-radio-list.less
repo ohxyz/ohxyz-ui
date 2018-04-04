@@ -2,7 +2,7 @@
 
 .options-radio-list {
 
-    &-item {
+    &__item {
 
         position: relative;
         padding: 8px 0;
@@ -10,19 +10,19 @@
         line-height: @default-line-height;
     }
         
-    &-label {
+    &__label {
 
         cursor: pointer;
         display: inline-block;
         position: relative;
     }
 
-    &-icon {
+    &__icon {
 
         position: absolute;
         opacity: 0;
 
-        &:checked + .options-radio-list-text:after  {
+        &:checked + .options-radio-list__text:after  {
 
             position: absolute;
             content: "";
@@ -38,7 +38,7 @@
         }
     }
 
-    &-text {
+    &__text {
 
         display: block;
         margin-left: 39px;

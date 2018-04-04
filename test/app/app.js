@@ -29,6 +29,7 @@ import {
 
     Dropdown,
     DropdownList,
+    DropDownAutoComplete,
 
     Submit,
     SubmitControl,
@@ -99,6 +100,12 @@ class App extends React.Component {
         return (
 
             <form>
+
+                <DropDownAutoComplete 
+                    name="my-dropdowon-autocomplete"
+                    items={ this.items }
+                />
+
                 <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
                 <OptionsCheckboxListControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
 

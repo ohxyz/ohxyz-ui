@@ -1,6 +1,6 @@
 @import "_variables";
 
-.dropdown-list {
+.dropdown-autocomplete {
 
     position: relative;
     font-size: @default-font-size;
@@ -20,7 +20,7 @@
         z-index: -1;
     }
 
-    &__header {
+    &-header {
 
         padding: @default-padding;
         min-height: 24px;
@@ -28,9 +28,9 @@
         user-select: none;
     }
 
-    &.dropdown-list--open  {
+    &.dropdown-autocomplete--open {
 
-        .dropdown-list {
+        .dropdown-autocomplete {
 
             &__header {
 
@@ -76,5 +76,7 @@
                 }
             }
         }
+        
     }
+
 }

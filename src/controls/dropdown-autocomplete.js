@@ -3,7 +3,7 @@ import DropDown from './dropdown.js';
 import OptionsList from './options-list.js';
 import util from '../util.js';
 
-class DropdownList extends DropDown {
+export default class DropDownAutoComplete extends DropDown {
 
     constructor( props ) {
 
@@ -14,7 +14,7 @@ class DropdownList extends DropDown {
         this.items = util.setDefault( props.items, [] );
         this.name = util.setDefault( props.name, '' );
 
-        this.classNamePrefix = 'dropdown-list';
+        this.classNamePrefix = 'dropdown-autocomplete';
 
         this.isSelected = false;
         this.itemSelected = null;
@@ -64,5 +64,3 @@ class DropdownList extends DropDown {
         );
     }
 }
-
-export default DropdownList;

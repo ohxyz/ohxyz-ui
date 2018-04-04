@@ -9,9 +9,9 @@ class OptionsRadioItem extends OptionsBaseItem {
 
     renderListContent() {
 
-        let iconClassName = COMPONENT_NAME + '-icon';
-        let textClassName = COMPONENT_NAME + '-text';
-        let labelClassName = COMPONENT_NAME + '-label';
+        let iconClassName = COMPONENT_NAME + '__icon';
+        let textClassName = COMPONENT_NAME + '__text';
+        let labelClassName = COMPONENT_NAME + '__label';
 
         return (
 
