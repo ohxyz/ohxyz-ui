@@ -1,6 +1,6 @@
 module.exports = {
 
-    entry: './test/app/app.js',
+    entry: './test/app/bpp.js',
 
     output: {
 

@@ -15,6 +15,7 @@ import Dropdown from './controls/dropdown.js';
 import DropdownList from './controls/dropdown-list.js';
 import DropDownAutoComplete from './controls/dropdown-autocomplete.js';
 
+import Table from './controls/table.js';
 import Submit from './controls/submit.js';
 
 /* A wrapper contains a title, a main form element and error messages */
@@ -62,6 +63,7 @@ export {
     DropDownAutoComplete,
 
     Submit,
+    Table,
 
     OptionsListControl,
     OptionsRadioListControl,
