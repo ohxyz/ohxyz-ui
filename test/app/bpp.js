@@ -4,12 +4,9 @@ import {
 
     DropDownAutoComplete,
     Table,
-
     dataType,
 
 } from '../../src/main.js';
-
-import Dummy from './dummy.js';
 
 require( '../../less/main.less');
 
@@ -19,43 +16,45 @@ class App extends React.Component {
 
         super( props );
 
-        this.items = [
+        this.state = {
 
-            { text: 'Mr', value: 'mr' },
-            { text: 'Ms', value: 'ms' },
-            { text: 'God', value: 'god' },
-            { text: 'Goddess', value: 'goddess' },
-            { text: 'abc', value: '1234' },
-            { text: 'abd', value: '1234' },
-            { text: 'abe', value: '1234' },
-            { text: 'bcd', value: '1234' },
-            { text: 'bcf', value: '1234' }
-        ];
+            rows: [ [ 'NA', 'NA', 'NA' ] ]
+
+        };
+    }
+
+    onSearchTextChange( items ) {
+
+        // console.log( '---', items );
+
+    }
+
+    onSearchTextSelect( items ) {
+        
+        let rows = items.map( item => [ item.name, item.org_name, item.org_type ] );
+
+        this.setState( {
+
+            rows: rows
+
+        } );
     }
 
     render() {
 
-        let rows = [
-
-            [ 'A', 'B', 'C' ],
-            [ 'Apple', 'Banana', 'Cat' ],
-            [ 'Very long text', 'short', 'Then very long text again' ]
-
-        ];
-
         return (
 
-            <div> 
-
+            <div>
                 <DropDownAutoComplete
                     name="my-dropdowon-autocomplete"
                     url="/results.json"
                     jsonProperty="name"
+                    onChange={ this.onSearchTextChange.bind( this ) }
+                    onSelect={ this.onSearchTextSelect.bind( this ) }
                 />
-
                 <Table 
                     head={ [ 'Name', 'Organisation Name', 'Organisation Type' ] }
-                    rows={ rows }
+                    rows={ this.state.rows }
                 />
             </div>
         );

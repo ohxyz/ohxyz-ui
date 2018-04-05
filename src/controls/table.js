@@ -6,16 +6,13 @@ export default class Table extends React.Component {
     constructor( props ) {
 
         super( props );
-
-        this.head = util.setDefault( props.head, [] );
-        this.rows = util.setDefault( props.rows, [] );
-        this.foot = util.setDefault( props.foot, [] );
-
+        
         this.classNamePrefix = 'table';
-
     }
 
     renderHead() {
+
+        let itemsInHead = util.setDefault( this.props.head, [] );
 
         let className = this.classNamePrefix + '__head';
         let tableDataClassName = className + '__data';
@@ -25,7 +22,7 @@ export default class Table extends React.Component {
             <div className={ className }>
             {
 
-                this.head.map( ( text, index ) => {
+                itemsInHead.map( ( text, index ) => {
 
                     return (
 
@@ -42,11 +39,13 @@ export default class Table extends React.Component {
 
     renderBody() {
 
+        let itemsInRow = util.setDefault( this.props.rows, [] );
+
         return (
 
             <React.Fragment>
             {
-                this.rows.map( ( row, index ) => {
+                itemsInRow.map( ( row, index ) => {
 
                     return this.renderRow( row, index );
 

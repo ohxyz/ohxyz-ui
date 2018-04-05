@@ -1,6 +1,7 @@
 import React from 'react';
 import DropDownList from './dropdown-list.js';
 import InsertText from './insert-text.js';
+import OptionsList from './options-list.js';
 import util from '../util.js';
 import datatype from '../datatype.js';
 
@@ -12,18 +13,18 @@ export default class DropDownAutoComplete extends DropDownList {
 
         this.classNamePrefix = 'dropdown-autocomplete';
         this.text = '';
+
         this.url = util.setDefault( props.url, '' );
         this.jsonProperty = util.setDefault( props.jsonProperty, '' );
+        this.onPropsChange = util.setDefault( props.onChange, () => {} );
+        this.onPropsSelect = util.setDefault( props.onSelect, () => {} );
+        this.items = util.setDefault( props.items, [] );
 
+        this.itemsFiltered = [];
+        this.itemsRaw = [];
         this.resultFetched = '';
-        this.items = [];
         this.insertTextElement = null;
 
-        this.state = {
-
-            text: '',
-            items: []
-        };
     }
 
     renderHeader() {
@@ -36,7 +37,6 @@ export default class DropDownAutoComplete extends DropDownList {
             </div>
         );
     }
-
 
     // TODO: Render multiple selected items, right now only one
     renderSelectedItems() {
@@ -97,6 +97,7 @@ export default class DropDownAutoComplete extends DropDownList {
                 .then( json => {
 
                     this.handleJsonResult( json );
+                    this.onPropsChange( this.itemsFiltered );
 
                 } );
         }
@@ -110,7 +111,8 @@ export default class DropDownAutoComplete extends DropDownList {
             return;
         }
 
-        this.items = [];
+        this.itemsRaw = [];
+        this.itemsFiltered = [];
 
         json.forEach( object => {
 
@@ -120,19 +122,20 @@ export default class DropDownAutoComplete extends DropDownList {
             if ( lowerCasesOfOrgName.indexOf( lowerCasesOfText ) >= 0 ) {
 
                 let item = new datatype.Item( object.org_name, object.org_name, object.org_type );
-                this.items.push( item );
+
+                this.itemsFiltered.push( item );
+                this.itemsRaw.push( object );
             }
+
         } );
 
-        if ( this.items.length > 0 ) {
+        if ( this.itemsFiltered.length > 0 ) {
 
             this.isOpen = true;
 
-            console.log( '********', this.items );
-
             this.setState( { 
 
-                items: this.items
+                items: this.itemsFiltered
             } );
 
         }
@@ -159,5 +162,18 @@ export default class DropDownAutoComplete extends DropDownList {
         this.insertTextElement.inputElement.value = this.text;
 
         this.close();
+        this.onPropsSelect( this.itemsRaw );
+    }
+
+    renderInnerContent() {
+
+        return (
+
+            <OptionsList items={ this.itemsFiltered }
+                         classNamePrefix={ this.classNamePrefix + '__options-list' }
+                         onSelect={ this.handleSelect }
+            />
+
+        );
     }
 }
