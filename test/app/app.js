@@ -12,6 +12,8 @@ import {
 
     OptionsBase,
     OptionsList,
+    OptionListMultipleSelect,
+
     OptionsRadioList,
     OptionsCheckboxList,
 
@@ -157,7 +159,7 @@ class App extends React.Component {
                 
                 <OptionsList name="y" options={ [ 1, 2, 3, 4 ] } />
 
-                <OptionsBase name="x" options={ options } />
+                <OptionListMultipleSelect name="x" options={ options } onSelect={ ( option ) => { console.log( 'I select', option.value ) } } />
 
                 <InsertTextAreaControl
                     title="Insert Textarea Control" 

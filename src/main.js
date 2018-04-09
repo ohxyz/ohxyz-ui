@@ -8,6 +8,9 @@ import InsertDateByNumber from './controls/insert-date-by-number.js';
 
 import OptionsBase from './controls/options-base.js';
 import OptionsList from './controls/options-list.js';
+import OptionListMultipleSelect from './controls/option-list-multiple-select.js';
+
+
 import OptionsRadioList from './controls/options-radio-list.js';
 import OptionsCheckboxList from './controls/options-checkbox-list.js';
 
@@ -47,6 +50,9 @@ export {
 
     OptionsBase,
     OptionsList,
+
+    OptionListMultipleSelect,
+
     OptionsRadioList,
     OptionsCheckboxList,
 

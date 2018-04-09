@@ -37,8 +37,8 @@ class OptionsBaseItem extends React.Component {
 
     static getDerivedStateFromProps( nextProps, prevState ) {
 
-        // console.log( 'next- ', nextProps );
-        // console.log( 'prev-s', prevState );
+        // console.log( 'nextProps', nextProps );
+        // console.log( 'prevState', prevState );
 
         let option = nextProps.option;
         let className = makeClassName( option, prevState.classNamePrefix );
@@ -50,18 +50,18 @@ class OptionsBaseItem extends React.Component {
         };
     }
 
-    handleClick( event ) {
+    handleClick() {
 
         let option = new Option( this.state.option );
         option.selected = !this.state.option.selected;
 
         let className = makeClassName( option, this.state.classNamePrefix );
 
-        console.log( 'click', option);
+        // console.log( 'click', option);
 
         if ( typeof this.props.onClick === 'function' ) {
 
-            // this.props.onClick( option );
+            this.props.onClick( option );
         }
 
         this.setState( {
@@ -88,7 +88,6 @@ class OptionsBaseItem extends React.Component {
         );
     }
 }
-
 
 class OptionsBase extends React.Component {
 
