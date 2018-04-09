@@ -3,7 +3,7 @@ import DropDownList from './dropdown-list.js';
 import InsertText from './insert-text.js';
 import OptionsList from './options-list.js';
 import util from '../util.js';
-import datatype from '../datatype.js';
+import datatype, { Item } from '../datatype.js';
 
 export default class DropDownAutoComplete extends DropDownList {
 
@@ -12,19 +12,24 @@ export default class DropDownAutoComplete extends DropDownList {
         super( props );
 
         this.classNamePrefix = 'dropdown-autocomplete';
+        this.handleChange = this.handleChange.bind( this );
+        this.handleItemSelect = this.handleItemSelect.bind( this );
+
+        // Text input or changed in the InsertText 
         this.text = '';
 
-        this.url = util.setDefault( props.url, '' );
-        this.jsonProperty = util.setDefault( props.jsonProperty, '' );
-        this.onPropsChange = util.setDefault( props.onChange, () => {} );
-        this.onPropsSelect = util.setDefault( props.onSelect, () => {} );
         this.items = util.setDefault( props.items, [] );
-
+        this.placeholder = util.setDefault( props.placeholder, 'Search') ;
         this.itemsFiltered = [];
+        
         this.itemsRaw = [];
-        this.resultFetched = '';
         this.insertTextElement = null;
 
+        this.state = {
+
+            text: this.text,
+            itemsFiltered: this.items
+        }
     }
 
     renderHeader() {
@@ -33,25 +38,6 @@ export default class DropDownAutoComplete extends DropDownList {
 
             <div className={ this.classNamePrefix + '__header' } >
                 { this.renderHeaderContent() }
-                { this.renderSelectedItems() }
-            </div>
-        );
-    }
-
-    // TODO: Render multiple selected items, right now only one
-    renderSelectedItems() {
-
-        let classNameOfContainer = this.classNamePrefix + '__items-container';
-        let classNameOfItem = this.classNamePrefix + '__item-selected';
-
-        return (
-
-            <div className={ classNameOfContainer }>
-            { 
-                this.itemSelected.value !== '' 
-                    ? <span className={ classNameOfItem }>{ this.itemSelected.value }</span>
-                    : null 
-            }
             </div>
         );
     }
@@ -63,8 +49,9 @@ export default class DropDownAutoComplete extends DropDownList {
         return (
 
             <InsertText
+                hint={ this.placeholder }
                 classNamePrefix={ className }
-                onChange={ this.handleChange.bind( this ) }
+                onChange={ this.handleChange }
                 ref={ elem => this.insertTextElement = elem }
             />
 
@@ -84,74 +71,62 @@ export default class DropDownAutoComplete extends DropDownList {
     handleChange( event ) {
 
         this.text = event.target.value;
-        this.close();
+        this.filterItemsByText( this.text );
 
-        if ( this.text.length > 2 ) {
+        this.setState( {
 
-            fetch( this.url )
-                .then( response => { 
-
-                    return response.json() ;
-
-                } )
-                .then( json => {
-
-                    this.handleJsonResult( json );
-                    this.onPropsChange( this.itemsFiltered );
-
-                } );
-        }
+            text: this.text
+        } );
     }
 
-    handleJsonResult( json ) {
+    filterItemsByText( text ) {
 
-        if ( this.jsonProperty === ''
-                || Array.isArray( json ) === false ) {
+        let textOfItem = '';
+        let itemsFiltered = [];
 
-            return;
+        for ( let i = 0; i < this.items.length; i ++ ) {
+
+            let item = this.items[ i ];
+
+            if ( typeof item === 'string' ) {
+
+                textOfItem = item;
+
+            }
+            else if ( item.hasOwnProperty( 'text' ) === true ) {
+
+                textOfItem = item.text;
+            }
+
+            if ( textOfItem.indexOf( text ) >= 0 ) {
+
+                itemsFiltered.push( new Item (
+
+                    textOfItem,
+                    textOfItem,
+                    textOfItem
+                ) );
+            }
         }
 
-        this.itemsRaw = [];
-        this.itemsFiltered = [];
+        console.log( itemsFiltered );
 
-        json.forEach( object => {
+        this.itemsFiltered = itemsFiltered;
+        this.isOpen = true;
 
-            let lowerCasesOfText = this.text.toLowerCase();
-            let lowerCasesOfOrgName = object.org_name.toLowerCase();
+        this.setState( { 
 
-            if ( lowerCasesOfOrgName.indexOf( lowerCasesOfText ) >= 0 ) {
-
-                let item = new datatype.Item( object.org_name, object.org_name, object.org_type );
-
-                this.itemsFiltered.push( item );
-                this.itemsRaw.push( object );
-            }
+            text: text,
+            itemsFiltered: itemsFiltered
 
         } );
 
-        if ( this.itemsFiltered.length > 0 ) {
-
-            this.isOpen = true;
-
-            this.setState( { 
-
-                items: this.itemsFiltered
-            } );
-
-        }
-        else {
-
-            this.isOpen = false;
-        }
     }
 
-    handleSelect( item ) {
+    handleItemSelect( item ) {
 
         this.itemSelected = item;
-        this.isSelected = true;
         this.text = item.text;
-
-        this.className = this.classNamePrefix + ' is-selected';
 
         this.setState( {
 
@@ -159,19 +134,30 @@ export default class DropDownAutoComplete extends DropDownList {
 
         } );
 
-        this.insertTextElement.inputElement.value = this.text;
-
+        this.insertTextElement.domElement.value = this.text;
         this.close();
-        this.onPropsSelect( this.itemsRaw );
+
+        if ( this.props.onSelect === 'function' ) {
+
+            this.props.onSelect( item );
+        }
     }
 
     renderInnerContent() {
 
+        let items = this.itemsFiltered;
+
+        if ( items.length === 0 ) {
+
+            items = [ new Item( 'No Result', 'No Result', 'No Result' ) ];
+        }
+
         return (
 
-            <OptionsList items={ this.itemsFiltered }
-                         classNamePrefix={ this.classNamePrefix + '__options-list' }
-                         onSelect={ this.handleSelect }
+            <OptionsList 
+                items={ items }
+                classNamePrefix={ this.classNamePrefix + '__options-list' }
+                onSelect={ this.handleItemSelect }
             />
 
         );

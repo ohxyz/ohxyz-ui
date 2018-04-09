@@ -50,17 +50,17 @@ class App extends React.Component {
 
         const rules = dataType.rules;
 
-        this.items = [
+        this.options = [
 
-            { text: 'Mr', value: 'mr' },
-            { text: 'Ms', value: 'ms' },
-            { text: 'God', value: 'god' },
-            { text: 'Goddess', value: 'goddess' },
-            { text: 'abc', value: '1234' },
-            { text: 'abd', value: '1234' },
-            { text: 'abe', value: '1234' },
-            { text: 'bcd', value: '1234' },
-            { text: 'bcf', value: '1234' }
+            { label: 'Mr', value: 'mr' },
+            { label: 'Ms', value: 'ms' },
+            { label: 'God', value: 'god' },
+            { label: 'Goddess', value: 'goddess' },
+            { label: 'abc', value: '1234' },
+            { label: 'abd', value: '1234' },
+            { label: 'abe', value: '1234' },
+            { label: 'bcd', value: '1234' },
+            { label: 'bcf', value: '1234' }
         ];
     }
 
@@ -74,16 +74,16 @@ class App extends React.Component {
 
         let options = [
  
-            { name: 'option1', 'text': 'Option 1', value: 'option1' },
-            { name: 'select-me', 'text': 'Select Me', value: 'selectMe', isSelected: true  },
-            { name: '123', 'text': '1 2 3', value: 123, isSelected: true }
+            { label: 'option1', value: 'option1' },
+            { label: 'select-me', value: 'selectMe', selected: true  },
+            { label: '123', value: 123, selected: true }
         ];
 
         let questions = [
 
-            'What is the first and last name of your first boyfriend or girlfriend?',
-            'Which phone number do you remember most from your childhood? What is the name of your favorite pet?',
-            'What was your favorite place to visit as a child?',
+            'What ',
+            'Which ',
+            'When',
         ];
 
         let shorts = [
@@ -108,12 +108,11 @@ class App extends React.Component {
 
                 <DropDownAutoComplete 
                     name="my-dropdowon-autocomplete"
-                    url="/results.json"
-                    jsonProperty="name"
+                    options={ this.options }
                 />
 
-                <OptionsRadioListControl name="my-radios" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
-                <OptionsCheckboxListControl name="check-wrapper-where" items={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
+                <OptionsRadioListControl name="my-radios" options={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
+                <OptionsCheckboxListControl name="check-wrapper-where" options={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
 
                 <InsertTextControl 
                     title="Insert Text Control" 
@@ -140,27 +139,25 @@ class App extends React.Component {
 
                 <Submit text="Primary button" disabled={ true } />
 
-                <OptionsCheckboxList name="good" items={ shorts } />
+                <OptionsCheckboxList name="good" options={ shorts } />
 
-                <OptionsRadioList name="security-questions" items={ questions } />
+                <OptionsRadioList name="security-questions" options={ questions } />
 
-                <OptionsListControl title="Options List Control" items={ [ 'a', 'b', 'c' ] } info="A list" />
-
-
+                <OptionsListControl title="Options List Control" options={ [ 'a', 'b', 'c' ] } info="A list" />
 
                 <DropdownList id="personal-title" 
                               name="personal-title"
                               title="DropDownList Personal Title"
-                              items={ this.items }
+                              options={ this.options }
                               hint="Select your title"
                 />
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
                 <Dropdown />
                 
-                <OptionsList name="y" items={ [ 1, 2, 3, 4 ] } />
+                <OptionsList name="y" options={ [ 1, 2, 3, 4 ] } />
 
-                <OptionsBase name="x" items={ options } />
+                <OptionsBase name="x" options={ options } />
 
                 <InsertTextAreaControl
                     title="Insert Textarea Control" 

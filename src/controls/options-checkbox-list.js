@@ -7,7 +7,7 @@ const COMPONENT_NAME = 'options-checkbox-list';
 
 class OptionsCheckboxItem extends OptionsBaseItem {
 
-    renderListContent() {
+    renderOptionContent() {
 
         let iconClassName = COMPONENT_NAME + '__icon';
         let labelClassName = COMPONENT_NAME + '__label';
@@ -16,8 +16,12 @@ class OptionsCheckboxItem extends OptionsBaseItem {
         return (
 
             <label className={ labelClassName }>
-                <input type="checkbox" className={ iconClassName } name={ this.props.name } />
-                <span className={ textClassName }>{ this.item.text }</span>
+                <input type="checkbox" 
+                    className={ iconClassName } 
+                    name={ this.props.name } 
+                    onClick={ event => event.stopPropagation() }
+                />
+                <span className={ textClassName }>{ this.state.option.label }</span>
             </label>
         );
     }

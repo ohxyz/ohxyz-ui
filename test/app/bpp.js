@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import DropDownAutoComplete from '../../src/controls/deprecated-dropdown-autocomplete.js';
+
 import {
 
-    DropDownAutoComplete,
     Table,
     dataType,
-
 } from '../../src/main.js';
+
 
 require( '../../less/main.less');
 

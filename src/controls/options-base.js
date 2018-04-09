@@ -1,50 +1,94 @@
 import React from 'react';
 import util from '../util.js';
-import dataType, { Item } from '../datatype.js';
+import dataType from '../datatype.js';
+import { Option } from '../helpers/datatype.js';
 
 const COMPONENT_NAME = 'options-base';
+
+function makeClassName( option, classNamePrefix ) {
+        
+    let className = classNamePrefix + '__item';
+
+    if ( option.selected === true ) {
+
+        return className + ' ' + className + '--selected';
+    }
+    else {
+
+        return className;
+    }
+}
+
 
 class OptionsBaseItem extends React.Component {
 
     constructor( props ) {
 
         super( props );
-
         this.handleClick = this.handleClick.bind( this );
 
-        this.item = util.setDefault( props.item )
-        this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
+        this.state = {
 
-        this.onParentClick = util.setDefault( props.onClick, () => {} );
+            classNamePrefix: util.setDefault( props.classNamePrefix, COMPONENT_NAME ),
+            className: props.classNamePrefix + '__item'
+
+        };
     }
 
-    handleClick() {
+    static getDerivedStateFromProps( nextProps, prevState ) {
 
-        this.onParentClick( this.item );
+        // console.log( 'next- ', nextProps );
+        // console.log( 'prev-s', prevState );
+
+        let option = nextProps.option;
+        let className = makeClassName( option, prevState.classNamePrefix );
+        
+        return {
+
+            option: option,
+            className: className
+        };
     }
 
-    renderListContent() {
+    handleClick( event ) {
 
-        return this.item.text;
+        let option = new Option( this.state.option );
+        option.selected = !this.state.option.selected;
+
+        let className = makeClassName( option, this.state.classNamePrefix );
+
+        console.log( 'click', option);
+
+        if ( typeof this.props.onClick === 'function' ) {
+
+            // this.props.onClick( option );
+        }
+
+        this.setState( {
+
+            option: option,
+            className: className
+
+        } );
+
+    }
+
+    renderOptionContent() {
+
+        return this.state.option.label;
     }
 
     render() {
 
-        let className = this.classNamePrefix + '__item';
-        let classNameSelected = className + '--selected';
-
-        className += ( this.item.isSelected === true ) 
-                   ? ( ' ' + classNameSelected )
-                   : '';
-
         return (
 
-            <div className={ className } onClick={ this.handleClick } >
-                { this.renderListContent() }
+            <div className={ this.state.className } onClick={ this.handleClick } >
+                { this.renderOptionContent() }
             </div>
         );
     }
 }
+
 
 class OptionsBase extends React.Component {
 
@@ -56,118 +100,111 @@ class OptionsBase extends React.Component {
 
         this.name = util.setDefault( props.name, '' );
         this.type = util.setDefault( props.type, dataType.OPTIONS_TYPE_SINGLE );
-        this.items = util.setDefault( props.items, [] );
+        this.options = util.setDefault( props.options, [] );
 
         this.classNamePrefix = util.setDefault( props.classNamePrefix, COMPONENT_NAME );
-        this.onParentSelect = util.setDefault( props.onSelect, () => {} );
+        this.onPropsSelect = util.setDefault( props.onSelect, new Function() );
 
-        this.itemSelected = new Item();
-        this.lastItemSelected = new Item();
-        this.itemsSelected = [];
+        this.optionSelected = new Option();
+        this.lastOptionSelected = new Option();
+        this.optionsSelected = [];
 
         this.isHiddenValueRequired = true;
 
-        // If type is single, but more than one item's isSelected: true,
+        // If type is single, but more than one option's selected properties are true,
         // then only last one is selected.
-        this.makeItems();
+        this.makeOptions();
 
         this.state = {
 
-            itemSelected: this.itemSelected
+            optionSelected: this.optionSelected
         };
 
     }
 
-    makeItems() {
+    makeOptions() {
 
-        for ( let i = 0; i < this.items.length; i ++ ) {
+        for ( let i = 0; i < this.options.length; i ++ ) {
 
-            let item = this.items[ i ];
+            // console.log( 'x', this.options[ i ], typeof this.options[ i ] );
 
-            if ( typeof item !== 'object' ) {
+            let option = new Option( this.options[ i ] );
 
-                item = new Item( item, item, item, false );
-            }
-            else {
-
-                item = new Item( item.name, item.text, item.value, item.isSelected );
-                this.assignItemsSelected( item );
-            }
-
-            this.items[ i ] = item;
+            this.assignOptionsSelected( option );
+            this.options[ i ] = option;
         }
+
+        // console.log( this.options );
     }
 
-    assignItemsSelected( item ) {
+    assignOptionsSelected( option ) {
 
-        if ( item.isSelected === false ) {
+        if ( option.selected === false ) {
 
             return;
         }
 
         if ( this.type === dataType.OPTIONS_TYPE_SINGLE ) {
 
-            this.selectNewItem( item );
+            this.selecteNewOption( option );
         }
         else if ( this.type === dataType.OPTIONS_TYPE_MULTIPLE ) {
 
-            this.itemsSelected.push( item );
+            this.optionsSelected.push( option );
         }
     }
 
-    selectNewItem( item ) {
+    selecteNewOption( option ) {
 
-        this.lastItemSelected = this.itemSelected;
-        this.lastItemSelected.isSelected = false;
+        this.lastOptionSelected = this.optionSelected;
+        this.lastOptionSelected.selected = false;
 
-        this.itemSelected = item;
-        this.itemSelected.isSelected = true;
+        this.optionSelected = option;
+        this.optionSelected.selected = true;
 
-        this.itemsSelected[ 0 ] = item;
+        this.optionsSelected[ 0 ] = option;
     }
 
 
-    handleSelect( item ) {
+    handleSelect( option ) {
 
         if ( this.type === dataType.OPTIONS_TYPE_SINGLE ) {
 
-            return this.hanldeSingleSelect( item );
+            return this.hanldeSingleSelect( option );
 
         }
         else if ( this.type === dataType.OPTIONS_TYPE_MULTIPLE ) {
 
-            return this.handleMutlipleSelect( item );
+            return this.handleMutlipleSelect( option );
         }
 
     }
 
-    handleMutlipleSelect( item ) {
+    handleMutlipleSelect( option ) {
 
-        item.isSelected = !item.isSelected;
+        option.selected = !option.selected;
 
-        util.toggleArrayItem( item, this.itemsSelected );
+        util.toggleArrayItem( option, this.optionsSelected );
 
-        this.onParentSelect( item );
+        this.onPropsSelect( option );
 
         this.setState( { 
 
-            itemsSelected: this.itemsSelected
+            optionsSelected: this.optionsSelected
 
         } );
 
     }
 
-    hanldeSingleSelect( item ) {
+    hanldeSingleSelect( option ) {
 
-        this.selectNewItem( item );
-        this.onParentSelect( item );
+        this.selecteNewOption( option );
+        this.onPropsSelect( option );
 
         this.setState( {
 
-            itemSelected: this.itemSelected
-
+            optionSelected: this.optionSelected
         } );
-
     }
 
     renderHiddenInputs() {
@@ -181,9 +218,9 @@ class OptionsBase extends React.Component {
 
             <React.Fragment>
             {
-                this.itemsSelected.map( ( item, key ) => { 
+                this.optionsSelected.map( ( option, key ) => { 
 
-                    return <input type="hidden" key={ key } name={ this.name } value={ item.value } />
+                    return <input type="hidden" key={ key } name={ this.name } value={ option.value } />
                 } )
             }
             </React.Fragment>
@@ -198,30 +235,29 @@ class OptionsBase extends React.Component {
 
     render() {
 
-        let elem = 
+        let options = util.setDefault( this.props.options, this.options );
+
+        return (
 
             <div className={ this.classNamePrefix } >
-            { this.renderHiddenInputs() }
-            {
-                this.items.map( ( item, key ) => {
+                { this.renderHiddenInputs() }
+                {
+                    options.map( ( option, key ) => {
 
-                    let propsObject = {
+                        let propsObject = {
 
-                        key: key,
-                        item: item,
-                        name: this.name,
-                        onClick: this.handleSelect,
-                        classNamePrefix: this.classNamePrefix,
-                    };
+                            key: key,
+                            option: option,
+                            onClick: this.handleSelect,
+                            classNamePrefix: this.classNamePrefix,
+                        };
 
-                    let optionsItem = this.createOptionsItem( propsObject );
+                        return this.createOptionsItem( propsObject );
 
-                    return optionsItem;
-                } )
-            }
-            </div>;
-
-        return elem;
+                    } )
+                }
+            </div>
+        );
     }
 }
 

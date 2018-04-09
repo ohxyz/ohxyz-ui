@@ -1,6 +1,6 @@
 module.exports = {
 
-    entry: './test/app/bpp.js',
+    entry: './test/app/app.js',
 
     output: {
 
@@ -12,7 +12,6 @@ module.exports = {
         rules: [ 
 
             {
-
                 test: /\.js[x]{0,1}$/,
 
                 exclude: /(node_modules|bower_components)/,
@@ -26,20 +25,17 @@ module.exports = {
                         presets: [ 'react', 'env' ]
                     }
                 } ] 
-
             }, 
 
             {
-
                 test: /\.less$/,
 
                 use: [ 
-
+                
                     { loader: "style-loader" },
                     { loader: "css-loader" },
                     { loader: "less-loader" }
                 ]
-
             }
         ]
     }

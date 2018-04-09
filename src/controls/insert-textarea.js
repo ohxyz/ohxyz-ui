@@ -15,14 +15,14 @@ class InsertTextArea extends InsertBase {
 
         return (
 
-            <textarea id={ this.inputElementId }
+            <textarea id={ this.domElementId }
                       className={ this.className }
                       placeholder={ this.hint }
                       name={ this.name }
                       onBlur={ this.handleBlur.bind( this ) }
                       onChange={ this.handleChange.bind( this ) }
                       defaultValue={ this.value }
-                      ref={ elem => this.inputElement = elem }
+                      ref={ elem => this.domElement = elem }
             >
             </textarea>
         );

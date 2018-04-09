@@ -8,14 +8,14 @@ class OptionsCheckboxListControl extends FormControl {
     constructor( props ) {
 
         super( props );
-        this.items = util.setDefault( props.items, [] );
+        this.options = util.setDefault( props.options, [] );
     }
 
     renderMain() {
 
         return (
 
-            <OptionsCheckboxList name={ this.name } items={ this.items } />
+            <OptionsCheckboxList name={ this.name } options={ this.options } />
         );
     }
 }

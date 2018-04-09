@@ -7,7 +7,9 @@ const COMPONENT_NAME = 'options-radio-list';
 
 class OptionsRadioItem extends OptionsBaseItem {
 
-    renderListContent() {
+    renderOptionContent() {
+
+        // console.log( 'radio', this.state.option );
 
         let iconClassName = COMPONENT_NAME + '__icon';
         let textClassName = COMPONENT_NAME + '__text';
@@ -16,8 +18,13 @@ class OptionsRadioItem extends OptionsBaseItem {
         return (
 
             <label className={ labelClassName }>
-                <input type="radio" className={ iconClassName } name={ this.props.name } />
-                <span className={ textClassName }>{ this.item.text }</span>
+                <input 
+                    type="radio" 
+                    className={ iconClassName } 
+                    name={ this.props.name }
+                    onClick={ event => event.stopPropagation() }
+                />
+                <span className={ textClassName }>{ this.state.option.label }</span>
             </label>
         );
     }

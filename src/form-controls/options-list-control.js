@@ -8,14 +8,14 @@ class OptionsListControl extends FormControl {
     constructor( props ) {
 
         super( props );
-        this.items = util.setDefault( props.items, [] );
+        this.options = util.setDefault( props.options, [] );
     }
 
     renderMain() {
 
         return (
 
-            <OptionsList items={ this.items } />
+            <OptionsList options={ this.options } />
         );
     }
 }

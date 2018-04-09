@@ -8,14 +8,14 @@ class OptionsRadioListControl extends FormControl {
     constructor( props ) {
 
         super( props );
-        this.items = util.setDefault( props.items, [] );
+        this.options = util.setDefault( props.options, [] );
     }
 
     renderMain() {
 
         return (
 
-            <OptionsRadioList name={ this.name } items={ this.items } />
+            <OptionsRadioList name={ this.name } options={ this.options } />
         );
     }
 }

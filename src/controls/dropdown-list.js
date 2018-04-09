@@ -32,8 +32,6 @@ class DropdownList extends DropDown {
         this.isSelected = true;
         this.value = item.value;
 
-        this.className = this.classNamePrefix + ' is-selected';
-
         this.setState( {
 
             itemSelected: item

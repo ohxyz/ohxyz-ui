@@ -20,7 +20,7 @@ class InsertBase extends React.Component {
         this.onPropsBlur = util.setDefault( props.onBlur, ( event ) => {} );
         this.onPropsChange = util.setDefault( props.onChange, ( event ) => {} );
 
-        this.inputElement = null;
+        this.domElement = null;
     }
 
     isValidationRequired() {
@@ -79,7 +79,7 @@ class InsertBase extends React.Component {
     
     handleChange( event ) {
         
-        this.value = this.inputElement.value;
+        this.value = this.domElement.value;
         
         if ( this.isValidationRequired() === true ) {
 
@@ -117,7 +117,7 @@ class InsertBase extends React.Component {
                    placeholder={ this.hint }
                    onBlur={ this.handleBlur.bind( this ) }
                    onChange={ this.handleChange.bind( this ) }
-                   ref={ elem => this.inputElement = elem }
+                   ref={ elem => this.domElement = elem }
             />
         );
     }
