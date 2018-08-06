@@ -1,4 +1,4 @@
-# ohxyz-ui ( web-form-controls )
+# Web form controls in React
 A set of web form controls built in React
 
 ### Controls list
