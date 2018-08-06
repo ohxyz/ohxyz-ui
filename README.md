@@ -1,4 +1,4 @@
-# Web form controls in React
+# Web form controls
 A set of web form controls built in React
 
 ### Controls list
