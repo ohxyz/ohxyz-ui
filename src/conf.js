@@ -2,27 +2,14 @@
  *
  */
 
-const DEFAULT_CONTROL_CLASS_NAME = 'control';
+const CONF = {
 
-class Configuraion {
+    classNamePrefix: 'web-form-control',
+    insertClassNamePrefix: 'insert',
+    optionsClassNamePrefix: 'options'
+};
 
-    constructor() {
+module.exports = {
 
-        this._classNamePrefix = DEFAULT_CONTROL_CLASS_NAME;
-    }
-
-    set classNamePrefix( prefix ) {
-
-        this._classNamePrefix = prefix;
-
-    }
-
-    get classNamePrefix() {
-
-        return this._classNamePrefix;
-    }
-}
-
-const conf = new Configuraion();
-
-export default conf;
+    CONF
+};

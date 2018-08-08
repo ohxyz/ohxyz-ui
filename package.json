@@ -5,7 +5,9 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "babel": "rm -rf lib | babel ./src --out-dir ./lib --presets=react"
+    "babel": "rm -rf lib | babel ./src --out-dir ./lib --presets=react",
+    "serve": "http-server ./test -c-1 -p 5000",
+    "start": "npm run watch & npm run serve"
   },
   "author": "ohxyz",
   "license": "UNLICENSED",
@@ -14,9 +16,7 @@
     "url": "https://github.com/ohxyz/web-form-controls.git"
   },
   "main": "index.js",
-  "dependencies": {
-    "validator": "^9.4.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -26,11 +26,13 @@
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
     "faker": "^4.1.0",
+    "http-server": "^0.11.1",
     "less": "^3.8.0",
     "less-loader": "^4.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "style-loader": "^0.20.3",
+    "validator": "^10.5.0",
     "webpack": "^3.12.0"
   }
 }

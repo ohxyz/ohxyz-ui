@@ -3,40 +3,8 @@ import ReactDOM from 'react-dom';
 import {
 
     InsertBase,
-    InsertText,
-    InsertNumber,
-    InsertTextArea,
-    InsertDateBase,
-    InsertDateByText,
-    InsertDateByNumber,
-
-    OptionsBase,
-    OptionsList,
-    OptionListMultipleSelect,
-
-    OptionsRadioList,
-    OptionsCheckboxList,
-
-    FormControl,
-
-    InsertTextControl,
-    InsertNumberControl,
-    InsertTextAreaControl,
-    InsertDateByTextControl,
-    InsertDateByNumberControl,
-
-    OptionsListControl,
-    OptionsRadioListControl,
-    OptionsCheckboxListControl,
-
-    Dropdown,
-    DropdownList,
-    DropDownAutoComplete,
-
-    Submit,
-    SubmitControl,
-
-    dataType,
+    InputText,
+    InputNumber
 
 } from '../../src/main.js';
 
@@ -49,8 +17,6 @@ class App extends React.Component {
     constructor( props ) {
 
         super( props );
-
-        const rules = dataType.rules;
 
         this.options = [
 
@@ -97,93 +63,11 @@ class App extends React.Component {
 
         let longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis odio ac ipsum posuere dapibus. In vulputate et lectus sit amet aliquam. Fusce et sagittis lacus, sit amet gravida orci. Integer ac lacinia dolor, vel aliquet quam.';
 
-        let rules = [
-
-            // { name: dataType.rules.REQUIRED, meta: { error: 'Required!' } },
-
-            { name: dataType.rules.NUMERIC, meta: { error: 'Between 10 - 20', min: 10, max: 20 } }
-        ];
-
         return (
 
             <form>
-
-                <DropDownAutoComplete 
-                    name="my-dropdowon-autocomplete"
-                    options={ this.options }
-                />
-
-                <OptionsRadioListControl name="my-radios" options={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
-                <OptionsCheckboxListControl name="check-wrapper-where" options={ [ 'home', 'office' ] } title="Where you work" info="Most of the time" />
-
-                <InsertTextControl 
-                    title="Insert Text Control" 
-                    info="NO desCRIpt1on"
-                    rules={ rules }
-                    subtitle="*"
-                />
-                <InsertDateByTextControl 
-                    title="Insert Date - Text"
-                    name="my-insert-date"
-                    info={ info2 }
-                />
-
-                <InsertDateByNumberControl 
-                    title="Insert Date by Number - BOX"
-                    info={ info3 }
-                />
-                
-                <InsertDateBase />
-                <InsertDateByText />
-                <InsertDateByNumber />
-
-                <SubmitControl title="Press following button" text={ longText } info="By pressing this button, you surrender." />
-
-                <Submit text="Primary button" disabled={ true } />
-
-                <OptionsCheckboxList name="good" options={ shorts } />
-
-                <OptionsRadioList name="security-questions" options={ questions } />
-
-                <OptionsListControl title="Options List Control" options={ [ 'a', 'b', 'c' ] } info="A list" />
-
-                <DropdownList id="personal-title" 
-                              name="personal-title"
-                              title="DropDownList Personal Title"
-                              options={ this.options }
-                              hint="Select your title"
-                />
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-                <Dropdown />
-                
-                <OptionsList name="y" options={ [ 1, 2, 3, 4 ] } />
-
-                <OptionListMultipleSelect name="x" options={ options } onSelect={ ( option ) => { console.log( 'I select', option.value ) } } />
-
-                <InsertTextAreaControl
-                    title="Insert Textarea Control" 
-                    info={ this.info3 }
-                    hint="Only 1, 2, 3..."
-                    rules={ rules }
-                />
-                <InsertNumberControl 
-                    title="Insert Number Control" 
-                    info="Input some figure"
-                    hint="Only 1, 2, 3..."
-                />
-
-                <FormControl title="Form Element Control" 
-                                errorMessage="No errors. Just show off." 
-                                isValid={ false } 
-                                info={ info2 }
-                />
-                <InsertTextArea name="my-insert-textarea" hint="hint area" />
-                <InsertNumber name="my-insert-number" hint="hint number" value="100" />
-                <InsertText name="my-insert-text" hint="hint text" />
-
-                <InsertBase name="my-insert-base" rules={ this.rules } />
-
+                <InputText />
+                <InputNumber value="2" />
             </form>
         )
     }

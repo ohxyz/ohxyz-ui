@@ -1,37 +1,31 @@
 module.exports = {
 
     entry: './test/app/app.js',
-
     output: {
 
         filename: './test/index.js'
     },
-
+    devtool: 'source-map',
     module: {
         
-        rules: [ 
+        rules: [
 
             {
                 test: /\.js[x]{0,1}$/,
-
                 exclude: /(node_modules|bower_components)/,
-
                 use: [ {
 
                     loader: 'babel-loader',
-
                     options: {
 
                         presets: [ 'react', 'env' ]
                     }
                 } ] 
-            }, 
+            },
 
             {
                 test: /\.less$/,
-
-                use: [ 
-                
+                use: [
                     { loader: "style-loader" },
                     { loader: "css-loader" },
                     { loader: "less-loader" }

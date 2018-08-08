@@ -1,26 +1,29 @@
 import React from 'react';
 import validate from '../validate.js';
 import util from '../util.js';
+import BaseControl from './base-control.js';
+import { CONF } from '../conf.js';
 
-class InsertBase extends React.Component {
+class InsertBase extends BaseControl {
     
     constructor( props ) {
         
         super( props );
 
-        this.id = util.setDefault( props.id, util.generateRandomString() );
-        this.type = util.setDefault( props.type, 'text' );
-        this.name = util.setDefault( props.name, '' );
-        this.hint = util.setDefault( props.hint, '' );
-        this.value = util.setDefault( props.value, '' );
-        this.rules = util.setDefault( props.rules, [] );
-        this.classNamePrefix = util.setDefault( props.classNamePrefix, 'insert-text' );
+        this.id                 = util.setDefault( props.id, util.generateRandomString() );
+        this.type               = util.setDefault( props.type, 'text' );
+        this.name               = util.setDefault( props.name, '' );
+        this.placeholder        = util.setDefault( props.placeholder, '' );
+        this.value              = util.setDefault( props.value, '' );
+        this.rules              = util.setDefault( props.rules, [] );
+        this.classNamePrefix    = util.setDefault( props.classNamePrefix, CONF.insertClassNamePrefix );
 
-        this.onPropsError = util.setDefault( props.onError, ( errorMessage ) => {} );
-        this.onPropsBlur = util.setDefault( props.onBlur, ( event ) => {} );
-        this.onPropsChange = util.setDefault( props.onChange, ( event ) => {} );
+        this.onPropsError       = util.setDefault( props.onError, ( errorMessage ) => {} );
+        this.onPropsBlur        = util.setDefault( props.onBlur, ( event ) => {} );
+        this.onPropsChange      = util.setDefault( props.onChange, ( event ) => {} );
 
-        this.domElement = null;
+        this.domElement         = null;
+        this.className          = this.classNamePrefix 
     }
 
     isValidationRequired() {
@@ -92,8 +95,6 @@ class InsertBase extends React.Component {
     
     makeClassName() {
 
-        this.className = this.classNamePrefix;
-
         if ( this.value !== '' ) {
             
             this.className += ' ' + this.classNamePrefix + '--filled';
@@ -105,27 +106,23 @@ class InsertBase extends React.Component {
         }
     }
 
-    renderInput() {
+    renderMain() {
+
+        this.makeClassName();
 
         return (
 
             <input id={ this.id }
-                   className={ this.className }
+                   className={ `${this.className}__${this.type}` }
                    type={ this.type }
                    name={ this.name }
                    defaultValue={ this.value }
-                   placeholder={ this.hint }
+                   placeholder={ this.placeholder }
                    onBlur={ this.handleBlur.bind( this ) }
                    onChange={ this.handleChange.bind( this ) }
                    ref={ elem => this.domElement = elem }
             />
         );
-    }
-
-    render() {
-
-        this.makeClassName();
-        return this.renderInput();
     }
 
 }
